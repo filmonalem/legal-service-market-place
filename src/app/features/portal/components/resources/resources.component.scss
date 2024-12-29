@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  
+  section {
+    scroll-margin-top: 2rem;
+  }
+
+  .section-transition {
+    transition: all 0.3s ease-in-out;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  // Smooth scrolling for the entire component
+  html {
+    scroll-behavior: smooth;
+  }
+} 

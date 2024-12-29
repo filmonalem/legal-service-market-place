@@ -1,0 +1,333 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { 
+  heroUser,
+  heroCamera,
+  heroBriefcase,
+  heroAcademicCap,
+  heroLanguage,
+  heroMapPin,
+  heroPhone,
+  heroEnvelope,
+  heroGlobeAlt
+} from '@ng-icons/heroicons/outline';
+import { PageHeaderComponent } from '../../../shared/components/page-header/page-header.component';
+import { ToasterService } from '../../../core/services/toaster.service';
+import { LawyerProfileService } from './profile.service';
+import { finalize } from 'rxjs/operators';
+import { LawyerProfileData } from '../models/lawyer.model';
+
+interface FormStep {
+  title: string;
+  subtitle: string;
+  key: 'personal' | 'professional' | 'documents';
+}
+
+@Component({
+  selector: 'app-lawyer-profile',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    NgIconComponent,
+    PageHeaderComponent
+  ],
+  providers: [
+    provideIcons({
+      heroUser,
+      heroCamera,
+      heroBriefcase,
+      heroAcademicCap,
+      heroLanguage,
+      heroMapPin,
+      heroPhone,
+      heroEnvelope,
+      heroGlobeAlt
+    })
+  ],
+  templateUrl: './profile.component.html'
+})
+export class LawyerProfileComponent implements OnInit {
+  
+  lawyerId: string | null = null;
+  userId: string | null = null;
+  currentStep = 0;
+  formSteps: FormStep[] = [
+    {
+      title: 'LAWYER_PROFILE.STEPS.PERSONAL.TITLE',
+      subtitle: 'LAWYER_PROFILE.STEPS.PERSONAL.SUBTITLE',
+      key: 'personal'
+    },
+    {
+      title: 'LAWYER_PROFILE.STEPS.PROFESSIONAL.TITLE',
+      subtitle: 'LAWYER_PROFILE.STEPS.PROFESSIONAL.SUBTITLE',
+      key: 'professional'
+    },
+    {
+      title: 'LAWYER_PROFILE.STEPS.DOCUMENTS.TITLE',
+      subtitle: 'LAWYER_PROFILE.STEPS.DOCUMENTS.SUBTITLE',
+      key: 'documents'
+    }
+  ];
+
+  profileForm!: FormGroup;
+  isLoading = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private profileService: LawyerProfileService,
+    private toaster: ToasterService
+  ) {}
+
+  ngOnInit() {
+      const userJson = sessionStorage.getItem("user");
+    
+      if (userJson) {
+        try {
+          const user = JSON.parse(userJson);
+          this.lawyerId = user.userId; // Assign userId to lawyerId
+        } catch (error) {
+          console.error("Error parsing user JSON:", error);
+        }
+      } else {
+        console.warn("No user data found in sessionStorage.");
+      }
+      
+    this.initForm()
+    this.loadProfile();
+  }
+
+  private initForm() {
+    this.profileForm = this.fb.group({
+      lawyerId:['',Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', [
+        Validators.required, 
+        Validators.pattern(/^(09|07)\d{8}$/)       ]],
+      location: ['', Validators.required],
+      
+      specialization: ['', Validators.required],
+      barNumber: ['', Validators.required],
+      experience: ['', [Validators.required, Validators.min(0)]],
+      languages: [[], Validators.required],
+      bio: ['', [Validators.required, Validators.minLength(100)]],
+      hourlyRate: ['', [Validators.required, Validators.min(0)]],
+      
+      // Documents will be handled separately
+      documents: this.fb.group({
+        degree: [null],
+        license: [null],
+        certificates: [null]
+      })
+    });
+  }
+
+  private loadProfile() {
+    this.isLoading = true;
+    this.profileService.getProfile()
+      .pipe(finalize(() => this.isLoading = false))
+      .subscribe({
+        next: (profile: LawyerProfileData) => {
+          this.profileForm.patchValue({
+            firstName: profile.firstName,
+            lastName: profile.lastName,
+            phoneNumber: profile.phoneNumber,
+            location: profile.location,
+            specialization: profile.specialization,
+            barNumber: profile.barNumber,
+            experience: profile.experience,
+            languages: profile.languages,
+            bio: profile.bio,
+            hourlyRate: profile.hourlyRate
+          });
+        },
+        error: (error: any) => {
+          this.toaster.error('LAWYER_PROFILE.ERROR.LOAD_FAILED');
+        }
+      });
+  }
+
+  canProceed(): boolean {
+    this.logFormValidation(this.currentStep);
+    return this.isStepValid(this.currentStep);
+  }
+
+  private getStepFields(step: number): string[] {
+    switch(step) {
+      case 0: // Personal
+        return ['firstName', 'lastName', 'phoneNumber', 'location'];
+      case 1: // Professional
+        return ['specialization', 'barNumber', 'experience', 'languages', 'bio', 'hourlyRate'];
+      case 2: // Documents
+        return ['documents.degree', 'documents.license', 'documents.certificates'];
+      default:
+        return [];
+    }
+  }
+
+  isStepValid(step: number): boolean {
+    switch(step) {
+      case 0: // Personal
+        return !!(
+          this.profileForm.get('firstName')?.valid && 
+          this.profileForm.get('lastName')?.valid &&
+          this.profileForm.get('phoneNumber')?.valid &&
+          this.profileForm.get('location')?.valid
+        );
+        
+      case 1: // Professional
+        return !!(
+          this.profileForm.get('specialization')?.valid &&
+          this.profileForm.get('barNumber')?.valid &&
+          this.profileForm.get('experience')?.valid &&
+          this.profileForm.get('languages')?.valid &&
+          this.profileForm.get('bio')?.valid &&
+          this.profileForm.get('hourlyRate')?.valid
+        );
+        
+      case 2: // Documents
+        return true; // Documents are optional
+        
+      default:
+        return false;
+    }
+  }
+
+  nextStep() {
+    if (this.canProceed()) {
+      this.currentStep++;
+    } else {
+      // Mark all fields in current step as touched to show validation errors
+      const currentFields = this.getStepFields(this.currentStep);
+      currentFields.forEach(field => {
+        const control = this.profileForm.get(field);
+        if (control) {
+          control.markAsTouched();
+          control.updateValueAndValidity();
+        }
+      });
+      this.toaster.error('LAWYER_PROFILE.ERROR.REQUIRED_FIELDS');
+    }
+  }
+
+  previousStep() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+    }
+  }
+
+  onSubmit() {
+    if (this.isFormValid()) {
+      this.isLoading = true;
+  
+      const formData = new FormData();
+      const profileData = this.profileForm.value;
+  
+      // Append lawyerId if it exists
+      if (this.lawyerId) {
+        formData.append('lawyerId', this.lawyerId);
+      }
+  
+      // Append all form fields except documents
+      Object.keys(profileData).forEach(key => {
+        if (key !== 'documents') {
+          if (Array.isArray(profileData[key])) {
+            profileData[key].forEach((value: string, index: number) => {
+              formData.append(`${key}[${index}]`, value);
+            });
+          } else {
+            formData.append(key, profileData[key]);
+          }
+        }
+      });
+  
+      // Append documents
+      const documents = profileData.documents;
+      if (documents) {
+        Object.keys(documents).forEach(docKey => {
+          if (documents[docKey]) {
+            formData.append(`documents.${docKey}`, documents[docKey]);
+          }
+        });
+      }
+  
+        this.profileService.createProfile(formData).subscribe({
+          next: () => {
+            this.isLoading = false;
+            this.toaster.success('LAWYER_PROFILE.SUCCESS.CREATE');
+          },
+          error: () => {
+            this.isLoading = false;
+            this.toaster.error('LAWYER_PROFILE.ERROR.CREATE_FAILED');
+          }
+        });
+      }
+    
+  }
+
+  // Add this method to handle file uploads
+  onFileChange(event: Event, fieldName: string) {
+    const element = event.target as HTMLInputElement;
+    const files = element.files;
+    
+    if (files && files.length > 0) {
+      if (fieldName === 'certificates' && files.length > 1) {
+        // Handle multiple certificates
+        const documentsGroup = this.profileForm.get('documents');
+        if (documentsGroup) {
+          documentsGroup.patchValue({
+            [fieldName]: files
+          });
+        }
+      } else {
+        // Handle single file
+        const documentsGroup = this.profileForm.get('documents');
+        if (documentsGroup) {
+          documentsGroup.patchValue({
+            [fieldName]: files[0]
+          });
+        }
+      }
+    }
+  }
+
+  // Add a method to check if the entire form is valid
+  isFormValid(): boolean {
+    // Check if all required fields are valid
+    const requiredFields = [
+      ...this.getStepFields(0),
+      ...this.getStepFields(1)
+    ];
+
+    const isRequiredFieldsValid = requiredFields.every(field => {
+      const control = this.profileForm.get(field);
+      return control?.valid && control?.value !== null && control?.value !== '';
+    });
+
+    // Documents are optional, so we don't include them in validation
+    return isRequiredFieldsValid;
+  }
+
+  // Add this method to help debug form validation
+  private logFormValidation(step: number) {
+    const fields = this.getStepFields(step);
+    console.log('Current Step:', step);
+    console.log('Form Valid:', this.profileForm.valid);
+    console.log('Form Values:', this.profileForm.value);
+    
+    fields.forEach(field => {
+      const control = this.profileForm.get(field);
+      console.log(`Field ${field}:`, {
+        value: control?.value,
+        valid: control?.valid,
+        touched: control?.touched,
+        errors: control?.errors
+      });
+    });
+  }
+}

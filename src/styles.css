@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light mode variables */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+  }
+
+  /* Dark mode variables */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+/* Common dark mode classes */
+.dark-mode-text {
+  @apply text-gray-100 dark:text-gray-200;
+}
+
+.dark-mode-bg {
+  @apply bg-white dark:bg-gray-800;
+}
+
+.dark-mode-border {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+/* Component specific dark mode utilities */
+.card {
+  @apply bg-white dark:bg-gray-800 shadow-lg rounded-lg;
+}
+
+.input {
+  @apply bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100;
+}
+
+.button {
+  @apply bg-primary text-white dark:bg-primary/90 hover:bg-primary/90 dark:hover:bg-primary/80;
+}
+
+/* Modal dark mode */
+.modal {
+  @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+.modal-overlay {
+  @apply bg-black/50 dark:bg-black/70;
+}
+
+.language-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.language-switcher select {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add these responsive utilities to your existing styles */
+@layer utilities {
+  .responsive-container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+
+  .responsive-text {
+    @apply text-sm md:text-base;
+  }
+
+  .responsive-heading {
+    @apply text-lg md:text-xl lg:text-2xl font-bold;
+  }
+
+  .responsive-padding {
+    @apply p-2 md:p-4 lg:p-6;
+  }
+
+  .responsive-margin {
+    @apply m-2 md:m-4 lg:m-6;
+  }
+
+  .responsive-gap {
+    @apply gap-2 md:gap-4 lg:gap-6;
+  }
+}
+
+/* Language selector specific styles */
+.language-selector {
+  @apply fixed top-2 md:top-4 right-2 md:right-4 z-50;
+}
+
+.language-selector button {
+  @apply bg-white dark:bg-gray-800 shadow-sm;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+
+  .mobile-only {
+    @apply block;
+  }
+
+  .mobile-menu {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  }
+
+  .mobile-menu-content {
+    @apply fixed right-0 top-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg;
+  }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+  .mobile-only {
+    @apply hidden;
+  }
+
+  .desktop-only {
+    @apply block;
+  }
+}
+
+/* RTL support for Arabic/Hebrew if needed */
+[dir="rtl"] {
+  .language-selector {
+    @apply left-2 md:left-4 right-auto;
+  }
+
+  .dropdown-menu {
+    @apply left-0 right-auto;
+  }
+}
+
+/* Add to your existing styles */
+.tour-highlight {
+  position: relative;
+  z-index: 60;
+  box-shadow: 0 0 0 4px hsl(var(--primary));
+  border-radius: 4px;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add these utility classes after your root variables */
+
+.text-base-style {
+  @apply text-foreground dark:text-foreground;
+}
+
+.text-muted-style {
+  @apply text-muted-foreground dark:text-muted-foreground;
+}
+
+.bg-base-style {
+  @apply bg-background dark:bg-background;
+}
+
+.card-style {
+  @apply bg-card dark:bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+
+.input-style {
+  @apply w-full px-4 py-2.5 text-sm border rounded-lg 
+         text-foreground dark:text-foreground
+         bg-background dark:bg-background
+         border-input dark:border-input
+         focus:ring-2 focus:ring-ring dark:focus:ring-ring
+         focus:border-transparent;
+}
+
+.button-primary {
+  @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors
+         text-primary-foreground bg-primary hover:bg-primary/90
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.button-secondary {
+  @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors
+         text-secondary-foreground bg-secondary hover:bg-secondary/90
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.button-outline {
+  @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors
+         text-foreground bg-transparent border border-input
+         hover:bg-accent hover:text-accent-foreground
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.label-style {
+  @apply block text-sm font-medium text-foreground dark:text-foreground mb-2;
+}
+
+.card-header {
+  @apply px-4 py-3 border-b border-border dark:border-border;
+}
+
+.card-content {
+  @apply p-4;
+} 
+
+/* Common dark mode classes */
+.dark-mode-text {
+  color: var(--foreground);
+}
+
+.dark-mode-bg {
+  background-color: var(--background);
+}
+
+.dark-mode-border {
+  border-color: var(--border);
+}
+
+/* Component specific dark mode utilities */
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.input {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transition: background-color 0.3s;
+}

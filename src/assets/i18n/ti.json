@@ -1,0 +1,839 @@
+{
+  "COMMON": {
+    "WELCOME": "እንቋዕ ብደሓን መጻእኩም",
+    "HOME": "መበል",
+    "ABOUT": "ብዛዕባ",
+    "CONTACT": "ርክብ",
+    "SERVICES": "ኣገልግሎታት",
+    "RESOURCES": "ምንጭታት",
+    "LOGIN": "ብመንነት እቶ",
+    "HELP": "ሓገዝ",
+    "LANGUAGE": "ቋንቋ",
+    "EDIT": "ኣተዓራረይ",
+    "SAVE": "ለውጥታት ኣቐምጥ",
+    "CANCEL": "ሰርዝ",
+    "SUBMITTING": "ኣብ ምእታው...",
+    "VIEW_ALL": "ኩሉ ርአ",
+    "LOADING": "ይጽዓን ኣሎ...",
+    "ERROR": "ጌጋ ተረኺቡ",
+    "NEXT": "ቀጻሊ",
+    "PREVIOUS": "ተመለስ",
+    "SUBMIT": "ኣእቱ",
+    "SUBMITTING": "ኣብ ምእታው...",
+    "SAVE_DRAFT": "ከም ረቂቕ ኣቐምጥ",
+    "UPLOAD": "ጸዓን",
+    "CHOOSE_FILE": "ፋይል ምረጽ"
+  },
+  "NAV": {
+    "SERVICE1": "ኣገልግሎት 1",
+    "SERVICE2": "ኣገልግሎት 2",
+    "SERVICE3": "ኣገልግሎት 3",
+    "GUIDES": "መምርሒታት",
+    "DOCUMENTS": "ሰነዳት",
+    "FAQ": "ተደጋጋሚ ሕቶታት",
+    "DASHBOARD": "ዳሽቦርድ",
+  "LAWYERS": "ኣድላይ ንምርካብ",
+  "CASES": "ክሳብታትኹም",
+  "APPOINTMENTS": "መዝገብ ምልእኽቲ",
+  "MESSAGES": "መልእኽታታት",
+  "RESOURCES": "ሓደጋታት",
+  "FEEDBACK": "ግምታትን እናምስጋን"
+  },
+  "LOGIN": {
+    "WELCOME_BACK": "እንቋዕ ብደሓን ተመሊስኩም!",
+    "DESCRIPTION": "ናብ ሕጋዊ ኣገልግሎት ሕሳብኩም ኣእትዉ",
+    "EMAIL": "ኢመይል",
+    "EMAIL_PLACEHOLDER": "ኢመይልኩም ኣእትዉ",
+    "EMAIL_REQUIRED": "ኢመይል የድሊ",
+    "PASSWORD": "መሕለፊ ቃል",
+    "PASSWORD_PLACEHOLDER": "መሕለፊ ቃልኩም ኣእትዉ",
+    "PASSWORD_REQUIRED": "መሕለፊ ቃል የድሊ",
+    "FORGOT_PASSWORD": "መሕለፊ ቃል ረሲዕኹም?",
+    "NO_ACCOUNT": "ሕሳብ የብልኩምን?",
+    "SIGN_UP": "ተመዝገቡ"
+  },
+  "SIGNUP": {
+    "WELCOME": "ናብ ሕጋዊ ማሕበረሰብና ተጸንበሩ",
+    "DESCRIPTION": "ናብ ሕጋዊ ኣገልግሎትና ንምእታው ሕሳብ ክፈቱ",
+    "CREATE_ACCOUNT": "ሕሳብ ክፈቱ",
+    "CREATING_ACCOUNT": "ሕሳብ ኣብ ምፍጣር...",
+    "FIRST_NAME": "ሽም",
+    "FIRST_NAME_PLACEHOLDER": "ሽምኩም አእትዉ",
+    "FIRST_NAME_REQUIRED": "ሽም የድሊ",
+    "LAST_NAME": "ሽም አቦ",
+    "LAST_NAME_PLACEHOLDER": "ሽም አቦኹም አእትዉ",
+    "LAST_NAME_REQUIRED": "ሽም አቦ የድሊ",
+    "PHONE_NUMBER": "ቁጽሪ ስልኪ",
+    "PHONE_PLACEHOLDER": "ቁጽሪ ስልኪካ ኣእትዉ",
+    "PHONE_REQUIRED": "ቁጽሪ ስልኪ የድሊ እዩ",
+    "PHONE_INVALID": "ቁጽሪ ስልኪ ትክክለኛ ኣይኮነን",
+    "EMAIL": "ኢሜይል",
+    "EMAIL_PLACEHOLDER": "ኢሜይልኩም አእትዉ",
+    "EMAIL_REQUIRED": "ኢሜይል የድሊ",
+    "GENDER":"ጾታ",
+    "GENDER_MALE":" ተባዕታይ",
+    "GENDER_FEMALE": "ጓል ኣንስተይቲ",
+    "GENDER_REQUIRED": "ጾታ የድሊ",
+    "PASSWORD": "መሕለፊ ቃል",
+    "PASSWORD_PLACEHOLDER": "መሕለፊ ቃልኩም አእትዉ",
+    "PASSWORD_REQUIRED": "መሕለፊ ቃል የድሊ",
+    "CONFIRM_PASSWORD": "መሕለፊ ቃል አረጋግጹ",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "መሕለፊ ቃልኩም ደጊምኩም አእትዉ",
+    "PASSWORD_MISMATCH": "መሕለፊ ቃላት አይሰምዑን",
+    "ACCEPT_TERMS": "እቐበ",
+    "TERMS_CONDITIONS": "ውዕላትን ኩነታትን",
+    "ALREADY_HAVE_ACCOUNT": "ሕሳብ አለኩም?",
+    "LOGIN": "እቶ",
+    "SELECT_ROLE": "ተራ ምረጹ",
+    "ROLE_REQUIRED": "በጃኹም ተራ ምረጹ",
+    "ROLES": {
+      "CLIENT": {
+        "NAME": "ዓሚል",
+        "DESCRIPTION": "ሕጋዊ ኣገልግሎት የድልየኒ"
+      },
+      "LAWYER": {
+        "NAME": "ጠበቓ",
+        "DESCRIPTION": "ሕጋዊ ኣገልግሎት እህብ"
+      },
+      "ADMIN": {
+        "NAME": "አስተዳዳሪ",
+        "DESCRIPTION": "ናይ ስርዓት አስተዳዳሪ"
+      }
+    }
+  },
+  "BANNER": {
+    "TITLE": "እሙናት ጠበቓታት፣ ዝተረጋገጹ ውጽኢታት",
+    "DESCRIPTION": "ኣብ ፍትሓዊ ጉዕዞኹም መሻርኽትኹም፣ ኣብ ነፍሲ ወከፍ ስጉምቲ ንመርሓኩም። ንውልቃዊ ሕጋዊ ኣገልግሎታት ሎሚ ተወከሱና።",
+    "LEARN_MORE": "ተወሳኺ ፍለጡ",
+    "GET_STARTED": "ጀምሩ"
+  },
+  "HELP": {
+    "TITLE": "ማእከል ሓገዝ",
+    "DESCRIPTION": "ንተደጋጋሚ ሕቶታት መልሲ ረኽቡን ኣገልግሎትና ከመይ ከም እትጥቀሙን ተማሃሩ",
+    "START_TOUR": "መምርሒ ጀምር",
+    "NEXT": "ቀጻሊ",
+    "PREVIOUS": "ብ ድሕሪት",
+    "FINISH": "ወድእ",
+    "SECTIONS": {
+      "GETTING_STARTED": {
+        "TITLE": "ምጅማር",
+        "DESCRIPTION": "መሰረታዊ ኣጠቓቕማ ናይ ሕጋዊ ኣገልግሎት መድረኽና ተማሃሩ"
+      },
+      "LEGAL_SERVICES": {
+        "TITLE": "ሕጋዊ ኣገልግሎታት",
+        "DESCRIPTION": "ዝተፈላለዩ ሕጋዊ ኣገልግሎታትናን ከመይ ከም እትረኽብዎምን ተረድኡ"
+      },
+      "ACCOUNT": {
+        "TITLE": "ምሕደራ ሕሳብ",
+        "DESCRIPTION": "ቅንብራትን ምርጫታትን ሕሳብኩም ኣማሓድሩ"
+      }
+    },
+    "TOUR": {
+      "STEP1": {
+        "TITLE": "ሕሳብ ክፈቱ",
+        "CONTENT": "ንኹሎም ኣገልግሎታትና ንምርካብ ሕሳብ ብምኽፋት ጀምሩ"
+      },
+      "STEP2": {
+        "TITLE": "መግለጺኹም ኣማልኡ",
+        "CONTENT": "ውልቃዊ ሕጋዊ ሓገዝ ንምርካብ ናይ መግለጺ ሓበሬታኹም ምልኡ"
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "ብዛዕባ LegalMarket",
+    "DESCRIPTION": "ቀዳማይ መዕረፊኹ ንሕጋዊ ኣገልግሎታት። ዓማዊል ምስ በዓል ሞያ ሕጊ ነላፍን፡ ብቑዕ ሕጋዊ ሓገዝ ንኹሉ ሰብ ተበጻሒ ንገብር።",
+    "STATS": {
+      "EXPERIENCE": "ዓመታት ተሞክሮ",
+      "CASES": "ዝተዓወቱ ጉዳያት",
+      "LAWYERS": "በዓል ሞያ ጠበቓታት",
+      "SUCCESS_RATE": "ናይ ዓወት መጠን"
+    },
+    "MISSION": {
+      "TITLE": "ተልእኾና",
+      "DESCRIPTION": "ዓማዊል ምስቶም ቅኑዓት ሕጋውያን በዓል ሞያታት ብምርኻብ ሕጋዊ ኣገልግሎታት ንምሕዳስ። ብቑ1ዕ ሕጋዊ ሓገዝ ንኹሉ ሰብ ተበጻሒ፡ ግሉጽን ውጽኢታውን ንምግባር ንሰርሕ።"
+    },
+    "VISION": {
+      "TITLE": "ራእይና",
+      "DESCRIPTION": "ሕጋውያን በዓል ሞያታት ምርካብን ምርኻብን ከም ሓደ ጠውቂ ቀሊል ኣብ ዝኾነሉ፡ ኣብ ዓለም መሪሕ ናይ ሕጊ ዕዳጋ ንምዃን። ብቑዕ ሕጋዊ ኣገልግሎት ንኹሉ ሰብ ተበጻሒ ዝኾነሉ መጻኢ ንሓልም።"
+    },
+    "TEAM": {
+  "TITLE": "ወንበር ኣመራርሓ ናይና ቡድን",
+  "MEMBER1": {
+    "NAME": "ፍልሞን ኣለም",
+    "ROLE": "CEO እንታይን ሓባር ምምርሓቕ",
+    "DESCRIPTION": "ናይ ልዕሊ ፍርዲ ግርማ ኣባላት ምስ 1+ ዓመት ብሕጊ ሓበሬታ ንዓለም ምምርሓቕ ተፈቅድ ተ�����������ቢ ዝተመስሉ።"
+  }
+},
+    "CTA": {
+      "TITLE": "ንምጅማር ድሉዋት ዲኹም?",
+      "DESCRIPTION": "ሎሚ LegalMarket ተጸንበሩ እሞ መጻኢ ናይ ሕጋዊ ኣገልግሎታት ፈትኑ።",
+      "BUTTON": "ርኸቡና"
+    }
+  },
+  "SERVICES": {
+    "TITLE": "ሕጋዊ ኣገልግሎታትና",
+    "SUBTITLE": "ንድልየትኩም ዝተዳለወ ሙሉእ ሕጋዊ መፍትሒታት። ልምዲ ዘለዎ ጉጅለና ኣብ ዝተፈላለዩ ናይ ተግባር ዓውድታት ክኢላዊ መምርሒ ይህብ።",
+    "LEARN_MORE": "ተወሳኺ ፍለጡ",
+    "CORPORATE": {
+      "TITLE": "ናይ ትካል ሕጊ",
+      "DESCRIPTION": "ኣብ ምምስራት ንግዲ፣ ውዕላት፣ ምውህሃድን ምጥማርን፣ ከምኡ'ውን ናይ ትካል ምምሕዳር ክኢላዊ መምርሒ።",
+      "FEATURES": {
+        "BUSINESS": "ምምስራት ንግዲ",
+        "CONTRACT": "ውዕል ምርኣይ",
+        "MERGER": "ምውህሃድ ምጥማርን"
+      }
+    },
+    "IP": {
+      "TITLE": "ይ ምህዞ ንብረት",
+      "DESCRIPTION": "ምህዞታትኩምን ፈጠራዊ ስራሓትኩምን ብሙሉእ ናይ IP ኣገልግሎታት ሓልዉ።",
+      "FEATURES": {
+        "PATENT": "ናይ ፓተንት መመልከቲታት",
+        "TRADEMARK": "ናይ ንግዲ ምልክት ምዝገባ",
+        "COPYRIGHT": "ናይ ደራሲ መሰል ምሕላው"
+      }
+    },
+    "LITIGATION": {
+      "TITLE": "ክርክር",
+      "DESCRIPTION": "ኣብ ቤት ፍርዲ ኣብ ዝግበር መስርሕን ምፍታሕ ጎንጺን ሓያል ጠበቓን ውክልናን።",
+      "FEATURES": {
+        "CIVIL": "ሲቪላዊ ክርክር",
+        "DISPUTE": "ካልእ ኣማራጺ ናይ ጎንጺ ምፍታሕ",
+        "APPEALS": "ይግባይ"
+      }
+    },
+    "ADDITIONAL_SERVICES": "ተወሳኺ ሕጋዊ ኣገልግሎታት",
+    "FAMILY": {
+      "TITLE": "ናይ ስድራ ሕጊ",
+      "DESCRIPTION": "ፍትሕ፣ ሞግዚትነትን ናይ ስድራ ጎንጺ ምፍታሕ ኣገልግሎታትን።"
+    },
+    "REAL_ESTATE": {
+      "TITLE": "ንብረት",
+      "DESCRIPTION": "ናይ ንብረት ምልውዋጥን ናይ ንብረት ክርክርን።"
+    },
+    "EMPLOYMENT": {
+      "TITLE": "ናይ ስራ ሕጊ",
+      "DESCRIPTION": "ናይ ስራሕ ቦታ ጎንጺታትን ናይ ስራሕ ውዕላትን።"
+    },
+    "TAX": {
+      "TITLE": "ናይ ግብሪ ሕጊ",
+      "DESCRIPTION": "ናይ ግብሪ ምሕደራን ጎንጺ ምፍታሕ ኣገልግሎታትን።"
+    },
+    "CTA": {
+      "TITLE": "ሕጋዊ ሓገዝ የድልየኩም ዶ?",
+      "DESCRIPTION": "ንምምኽኻር ሎሚ ርኸቡና። ልምዲ ዘለዎ ጉጅለና ሕጋዊ ብድሆታትኩም ንምሕላፍ ድሉው እዩ።",
+      "BUTTON": "ቆጸራ ሓዙ"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "ርኸቡና",
+    "SUBTITLE": "ምስ ሕጋውያን በዓል ሞያታትና ተራኸቡ። ንሕጋዊ ድልየትኩም ክንሕግዘኩም ኣብዚ ኣለና።",
+   "OFFICE": {
+  "TITLE": "ቤት ፅሕፈትና",
+    "ADDRESS": " ኣራዳ ጎደና, ኣዲስ ኣበባ, AR_04_0643 ጎደና"
+    },
+
+    "EMAIL": {
+      "TITLE": "ኢመይል ግበሩልና",
+      "ADDRESSES": "info@legal.com\nsupport@legal.com"
+    },
+    "PHONE": {
+      "TITLE": "ደውሉልና",
+      "NUMBERS": "(251) 925439811\n(251) 987978711"
+    },
+    "HOURS": {
+      "TITLE": "ናይ ስራሕ ሰዓታት",
+      "SCHEDULE": "ሰኑይ - ዓርቢ፡ 9:00 ንግሆ - 6:00 ምሸት\nቀዳ፡ 10:00 ንግሆ - 2:00 ድሕሪ ቐትሪ"
+    },
+    "FORM": {
+      "TITLE": "መልእኽቲ ስደዱልና",
+      "FIRST_NAME": "ስም",
+      "FIRST_NAME_PLACEHOLDER": "ስምኩም ኣእትዉ",
+      "LAST_NAME": "ስም ኣቦ",
+      "LAST_NAME_PLACEHOLDER": "ስም ኣቦኹም ኣእትዉ",
+      "USERNAME": "ስም ኣቦ",
+      "USERNAME_PLACEHOLDER": "ስም ኣቦኹም ኣእትዉ",
+      "EMAIL": "ኢመይል",
+      "EMAIL_PLACEHOLDER": "ኢመይልኩም ኣእትዉ",
+      "PHONE": "ተሌፎን",
+      "PHONE_PLACEHOLDER": "ቁጽሪ ተሌፎንኩም ኣእትዉ",
+      "SERVICE_TYPE": "ዓይነ ኣገልግሎት",
+      "SELECT_SERVICE": "ኣገልግሎት ምረጹ",
+      "MESSAGE": "መልእኽቲ",
+      "MESSAGE_PLACEHOLDER": "ከመይ ክንሕግዘኩም ንኽእል?",
+      "SUBMIT": "መልእኽቲ ስደዱ",
+      "SERVICES": {
+        "CORPORATE": "ናይ ትካል ሕጊ",
+        "IP": "ናይ ምህዞ ንብረት",
+        "LITIGATION": "ክርክር",
+        "FAMILY": "ናይ ስድራ ሕጊ",
+        "REAL_ESTATE": "ንብረት"
+      }
+    }
+  },
+  "RESOURCES": {
+    "TITLE": "ሕጋዊ ምንጭታት ኢትዮጵያ",
+    "TOC": "ትሕዝቶ",
+    "SECTIONS": {
+      "CONSTITUTION": {
+        "TITLE": "ሕገ-መንግስቲ",
+        "CONTENT": "ናይ ኢትዮጵያ ፈደራላዊ ደሞክራሲያዊ ሪፓብሊክ ሕገ-መንግስቲ መሰረታዊ ሕጊ እዩ።",
+        "SUBSECTIONS": {
+          "FUNDAMENTAL_RIGHTS": "መሰረታዊ መሰላት",
+          "FEDERAL_STRUCTURE": "ፌደራላዊ ቅርጺ"
+        },
+        "ITEMS": {
+          "RIGHT_TO_LIFE": "መሰል ናብራ",
+          "RIGHT_TO_LIBERTY": "መሰል ናጽነት",
+          "RIGHT_TO_EQUALITY": "መሰል ማዕርነት",
+          "FEDERAL_STRUCTURE": "ፌደራላዊ ቅርጺ",
+          "STATE_POWERS": "ስልጣን ክልላት",
+          "LOCAL_GOVERNMENT": "ከባብያዊ መንግስቲ"
+        }
+      },
+      "CIVIL_CODE": {
+        "TITLE": "ሲቪል ሕጊ",
+        "CONTENT": "ናይ ኢትዮጵያ ሲቪ ሕጊ ንውልቃዊ ርክባትን ንብረታዊ መሰላትን ዝምልከት ሕግታት ዝሓዘ እዩ።",
+        "SUBSECTIONS": {
+          "CONTRACTS": "ውዕላት",
+          "PROPERTY": "ንብረት"
+        },
+        "ITEMS": {
+          "CONTRACT_FORMATION": "ምፍጣር ውዕል",
+          "CONTRACT_PERFORMANCE": "ኣፈጻጽማ ውዕል",
+          "CONTRACT_BREACH": "ጥሕሰት ውዕል",
+          "OWNERSHIP": "ውንነት",
+          "POSSESSION": "ምሓዝ",
+          "SERVITUDES": "ኣገልግሎታት"
+        }
+      }
+    },
+    "DOWNLOAD": {
+      "TITLE": "ምንጭታት ኣውርድ",
+      "DESCRIPTION": "ሕጋዊ ምንጭታትን ሰነዳትን ንኦፍላይን ኣክሰስ ኣውርድ።",
+      "BUTTON": "ምንጭታት ኣውርድ"
+    }
+  },
+  "FOOTER": {
+    "ABOUT_US": "ብዛዕባና",
+    "ABOUT_DESCRIPTION": "ናይ ሕጊ መምርሒ እቶም ኣገልግሎታትካ ብብልልላ እንከኣን እተሰገሩ።",
+    "QUICK_LINKS": "ኣፍቃሪ ሊንክታት",
+    "CONTACT_INFO": "ናይ ርኢቶ መርበብ",
+    "EMAIL": "ኢሜይል፡ info@legal.com",
+    "PHONE": "ስልኪ፡ (251) 925439811",
+    "ADDRESS": "ኣድራሻ፡ ኣራዳ ጎደና፣ ኣዲስ ኣበባ፣ AR_04_0643 ጎደና",
+    "FOLLOW_US": "ንኣና ስራሕ",
+    "COPYRIGHT": "© 2024 ኣገልግሎታት ሕጊ። ኩሉ መብት ተገበረ።"
+  },
+
+  "DASHBOARD": {
+    "WELCOME": {
+      "TITLE": "ናብ ሕሽቦርድኹም እንቋዕ ብደሓን መጻእኩም",
+      "SUBTITLE": "ጉዳያትኩም ክትከታተሉን ሕጋዊ ንጥፈታት ክተመሓድሩን"
+    },
+    "NEW_CASE": "ሓድሽ ጉዳይ",
+    "STATS": {
+      "ACTIVE_CASES": "ንጡፋት ጉዳያት",
+      "PENDING_TASKS": "ተጸበይቲ ዕማማት",
+      "UPCOMING_APPOINTMENTS": "ቀጻሊ ቆጸራታት",
+      "UNREAD_MESSAGES": "ዘይተነበቡ መልእኽትታት"
+    },
+    "RECENT_CASES": {
+      "TITLE": "ናይ ቀረባ እዋን ጉዳያት",
+      "NO_CASES": "ናይ ቀረባ እዋን ጉዳያት የለውን"
+    },
+    "UPCOMING_APPOINTMENTS": {
+      "TITLE": "ቀጻሊ ቆጸራታት",
+      "NO_APPOINTMENTS": "ዝመጽእ ቆጸራታት የለን"
+    },
+    "CASE_STATUS": {
+      "PENDING": "ይጽበ ኣሎ",
+      "IN_PROGRESS": "ኣብ ከይዲ",
+      "COMPLETED": "ተዛዚሙ"
+    },
+    "NO_RECENT_CASES": "ናይ ቀረባ እዋን ጉዳያት የብልኩምን",
+    "NO_UPCOMING_APPOINTMENTS": "ዝመጽእ ቆጸራታት የብልኩምን"
+  },
+  "PROFILE": {
+    "TITLE": "ናይ ፕሮፋይል ቅንብራት",
+    "SUBTITLE": "ናይ ሕሳብኩም ሓበሬታን ምርጫታትን የመሓድሩ",
+    "PERSONAL_INFO": "ውልቃዊ ሓበሬታ",
+    "EMAIL": "ናይ ኢሜይል አድራሻ",
+    "PHONE_NUMBER": "ቁጽሪ ስልኪ",
+    "CHANGE_PASSWORD": "መሕለፊ ቃል ይቐይሩ",
+    "CURRENT_PASSWORD": "ህልው መሕለፊ ቃል",
+    "NEW_PASSWORD": "ሓድሽ መሕለፊ ቃል",
+    "CONFIRM_PASSWORD": "ሓድሽ መሕለፊ ቃል የረጋግጹ",
+    "UPDATE_PASSWORD": "መሕለፊ ቃል የዘምኑ",
+    "UPLOAD_PHOTO": "ፎቶ ይጸዓኑ",
+    "REMOVE_PHOTO": "ፎቶ የልግሱ",
+    "VIEW": "ፕሮፋይል ርአ",
+    "SETTINGS": "ቅንብራት",
+    "BILLING": "ክፍሊታት",
+    "LOGOUT": "ውጻእ",
+    "SAVE_CHANGES": "ለውጥታት ኣቐምጥ",
+    "CANCEL_CHANGES": "ሰርዝ",
+    "SUCCESS": {
+      "PROFILE_UPDATED": "ፕሮፋይል ብዓወት ተዘምኑ",
+      "PASSWORD_CHANGED": "መሕለፊ ቃል ብዓወት ተቐይሩ"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "ፕሮፋይል ምዕራይ ኣይተዓወተን",
+      "PASSWORD_CHANGE_FAILED": "መሕለፊ ቃል ምቕያር ኣይተዓወተን",
+      "INVALID_CURRENT_PASSWORD": "ህልው መሕለፊ ቃል ትክክል ኣይኮነን"
+    }
+  },
+  "LAWYERS": {
+    "TITLE": "ጠበቓ ርለይ",
+    "SUBTITLE": "ብተመኩሮ ዝበለጸጉ ጠበቓታት ርኸቡ",
+    "VIEW_PROFILE": "ፕሮፋይል ርአዩ",
+    "BOOK_NOW": "ቆጸራ ሓዙ",
+    "BOOK_CONSULTATION": "ምኽሪ ሓዙ",
+    "EXPERIENCE": "ናይ ስራሕ ተመኩሮ",
+    "YEARS": "ዓመታት",
+    "CASES_WON": "ዝተዓወቱ ጉዳያት",
+    "QUICK_INFO": "ሓጺር ሓበሬታ",
+    "LANGUAGES": "ቋንቋታት",
+    "EDUCATION": "ትምህርቲ",
+    "HOURLY_RATE": "ናይ ሰዓት ክፍሊት",
+    "ABOUT": "ብዛዕባና",
+    "AVAILABILITY": {
+      "AVAILABLE": "ይርከብ",
+      "UNAVAILABLE": "አይርከብን"
+    }
+  },
+  "BOOKING": {
+    "TITLE": "ቆጸራ ሕዝ",
+    "SUBTITLE": "ምስ ሕጋዊ ኣማኻሪኻ ኣኼባ ሕዝ",
+    "CONSULTATION_TYPE": "ዓይነት ምኽሪ ምረጽ",
+    "TYPES": {
+      "INITIAL": "መጀመርታ ምኽሪ",
+      "FOLLOWUP": "ናይ ክትትል ኣኼባ",
+      "DOCUMENT_REVIEW": "ምርመራ ሰነድ",
+      "COURT_PREP": "ምድላው ቤት ፍርዲ"
+    },
+    "SELECT_DATE": "ዕለት ምረጽ",
+    "SELECT_TIME": "ሰዓት ምረጽ",
+    "DESCRIPTION": "ዝርዝር ምኽሪ",
+    "DESCRIPTION_PLACEHOLDER": "በጃኹም ሕጋዊ ድሌትኩምን ክትዘራረቡሎም እትደልዩ ፍሉያት ሕቶታትን ግለጹ...",
+    "ATTACHMENTS": "ሰነዳት ኣተሓሕዝ",
+    "DRAG_DROP": "ፋይላት ኣብዚ ስሓብን ደርብን፣ ወይ ንምድላይ ጠውቕ",
+    "BROWSE_FILES": "ፋይላት ድለይ",
+    "ADD_MORE_FILES": "ተወሳኺ ፋይላት ወስኽ",
+    "CONFIRM": "ቆጸራ ኣረጋግጽ",
+    "SUCCESS": "ቆጸራ ብዓወት ተታሒዙ",
+    "ERROR": "ቆጸራ ክሕዝ ኣይተኻእለን"
+  },
+  "FEEDBACK": {
+    "TITLE": "ተሞክሮኹም ኣካፍሉ",
+    "SUBTITLE": "ኣገልግሎትና ንምምሕያሽ ብክብሪ ርእይቶኹም ሃቡና",
+    "OVERALL_RATING": "ሓፈሻዊ ደረጃ",
+    "DETAILED_RATINGS": "ፍሉያት ነጥብታት ደርጁ",
+    "CRITERIA": {
+      "EXPERTISE": "ሕጋዊ ክእለት",
+      "COMMUNICATION": "ዝርርብ",
+      "RESPONSIVENESS": "ምላሽ ምሃብ",
+      "VALUE": "ዋጋ ገንዘብ",
+      "PROFESSIONALISM": "ሞያውነት"
+    },
+    "REVIEW": "ርእይቶኹም ጽሓፉ",
+    "REVIEW_PLACEHOLDER": "ምስዚ ጠበቓ ዝነበረኩም ተሞክሮ ኣካፍሉ...",
+    "WOULD_RECOMMEND": "ነዚ ጠበቓ ንካልኦት ተተሓሓዝዎ ዶ?",
+    "YES": "እወ",
+    "NO": "ኣይፋል",
+    "IMPROVEMENTS": "ናይ ምምሕያሽ ሓሳባት",
+    "IMPROVEMENTS_PLACEHOLDER": "እንታይ ክነመሓይሽ ንኽእል?",
+    "SUBMIT_ANONYMOUSLY": "እዚ ርእይቶ ብዘይ ስም ኣእትውዎ",
+    "SUBMIT": "ርእይቶ ኣእትው",
+    "SUCCESS": "ንርእይቶኹም የቐንየልና!",
+    "ERROR": "ርእይቶ ምእታው ኣይተዓወተን"
+  },
+  "LAWYER_PROFILE": {
+    "TITLE": "ናይ ጠበቓ ፕሮፋይል",
+    "SUBTITLE": "ሞያዊ ሓበሬታኹምን መረጋገጺታትን የመሓድሩ",
+    "STEPS": {
+      "PERSONAL": {
+        "TITLE": "ውልቃዊ ሓበሬታ",
+        "SUBTITLE": "መሰረታዊ ርክብ ሓበሬታኹም አእትዉ"
+      },
+      "PROFESSIONAL": {
+        "TITLE": "ሞያዊ ዝርዝራት",
+        "SUBTITLE": "ብዛዕባ ሕጋዊ ክእለትኩም ንገሩና"
+      },
+      "DOCUMENTS": {
+        "TITLE": "ሕጋዊ ሰነዳት",
+        "SUBTITLE": "የምስክር ወረቓቕትኹም ኣፕሎድ ግበሩ"
+      }
+    },
+    "FIRST_NAME": "ስም",
+    "LAST_NAME": "ስም ኣቦ",
+    "PHONE_NUMBER": "ቁጽሪ ስልኪ",
+    "LOCATION": "ኣድራሻ ቤት ጽሕፈት",
+    "SPECIALIZATION": "ዓውዲ ሞያ",
+    "SELECT_SPECIALIZATION": "ዓውዲ ሞያኹም ምረጹ",
+    "BAR_NUMBER": "ቁጽሪ ባር ማሕበር",
+    "EXPERIENCE": "ዓመታት ተሞክሮ",
+    "LANGUAGES": {
+      "TITLE": "ዝዛረቡ ቋንቋታት",
+      "AMHARIC": "ኣምሓርኛ",
+      "ENGLISH": "እንግሊዝኛ",
+      "OROMIFFA": "ኦሮምኛ",
+      "TIGRIGNA": "ትግርኛ"
+    },
+    "BIO": "ሞያዊ ታሪኽ",
+    "HOURLY_RATE": "ናይ ሰዓት ክፍሊት (ብር)",
+    "DOCUMENTS": {
+      "DEGREE": "ናይ ሕጊ ዲግሪ",
+      "DEGREE_HINT": "ናይ ሕጊ ዲግሪ ምስክር ወረቐትኩም ኣፕሎድ ግበሩ",
+      "LICENSE": "��ቓድ ባር",
+      "LICENSE_HINT": "ናይ ሕጂ ፍቓድ ባር ማህበርኩም ኣፕሎድ ግበሩ",
+      "CERTIFICATES": "ተወሳኺ ምስክር ወረቓቕቲ",
+      "CERTIFICATES_HINT": "ዝኾነ ተወሳኺ ምስክር ወረቓቕቲ ኣፕሎድ ግበሩ (ኣማራጺ)"
+    },
+    "VALIDATION": {
+      "FIRST_NAME_REQUIRED": "ስም የድሊ",
+      "LAST_NAME_REQUIRED": "ስም ኣቦ የድሊ",
+      "PHONE_NUMBER_INVALID": "በጃኹም ቅኑዕ ቁጽሪ ስልኪ ኣእትዉ (ንኣብነት፡ 0914750000)",
+      "LOCATION_REQUIRED": "ኣድራሻ ቤት ጽሕፈት የድሊ",
+      "SPECIALIZATION_REQUIRED": "በጃኹም ዓውዲ ሞያኹም ምረጹ",
+      "BAR_NUMBER_REQUIRED": "ቁጽሪ ባር ማሕበር የድሊ",
+      "EXPERIENCE_REQUIRED": "ዓመታት ���ሞክሮ የድሊ",
+      "LANGUAGES_REQUIRED": "በጃኹም ሓደ ቋንቋ ምረጹ",
+      "BIO_MIN_LENGTH": "ሞያዊ ታሪኽ እንተወሓደ 100 ፊደላት ክኸውን ኣለዎ",
+      "HOURLY_RATE_REQUIRED": "ናይ ሰዓት ክፍሊት የድሊ",
+      "HOURLY_RATE_MIN": "ናይ ሰዓት ክፍሊት ካብ 0 ክበልጽ ኣለዎ"
+    },
+    "BUTTONS": {
+      "NEXT_STEP": "ናብ ቀጻሊ",
+      "PREVIOUS_STEP": "ናብ ድሕሪት",
+      "SUBMIT_PROFILE": "ፕሮፋይል ኣእቱ",
+      "SAVE_DRAFT": "ከም ረቂቕ ኣቐምጥ",
+      "UPLOAD_FILE": "ፋይል ጸዓን",
+      "CHOOSE_FILE": "ፋይል ምረጽ",
+      "REMOVE_FILE": "ፋይል ኣልግስ",
+      "BACK": "ተመለስ"
+    }
+  },
+  "LAWYER_DASHBOARD": {
+    "WELCOME": "እንቋዕ ብደሓን መጻእኩም",
+    "WELCOME_SUBTITLE": "ሕጋዊ ስራሕኹምን ምስ ዓማዊል ዘለኩም ርክብን የመሓድሩ",
+    "PROFILE_COMPLETION": "ኩነታት ፕሮፋይል",
+    "STEPS_COMPLETED": "ደረጃታት ተዛዚሙ",
+    "QUICK_ACTIONS": {
+      "COMPLETE_PROFILE": "ፕሮፋይል ኣጠናቕቑ",
+      "COMPLETE_PROFILE_DESC": "ሞያዊ ሓበሬታኹምን መረጋገጺታትን ወስኹ",
+      "UPLOAD_DOCUMENTS": "ሰነዳት ኣእትዉ",
+      "UPLOAD_DOCUMENTS_DESC": "ሕጋዊ ሰርቲፊከታትኩም ኣእትዉ",
+      "SET_AVAILABILITY": "ተገኝነትኩም ኣዳልዉ",
+      "SET_AVAILABILITY_DESC": "ናይ ምኽሪ ሰዓታትኩም ኣዘምኑ"
+    },
+    "SETUP": {
+      "TITLE": "ኣካውንት ምድላው",
+      "SUBTITLE": "ዓማዊል ንምቕባል እዞም ደረጃታት ኣጠናቕቑ",
+      "PROFILE": {
+        "TITLE": "መሰረታዊ ሓበሬታ",
+        "DESCRIPTION": "ሞያዊ ፕሮፋይልኩም ኣጠናቕቑ"
+      },
+      "DOCUMENTS": {
+        "TITLE": "ሕጋዊ ሰነዳት",
+        "DESCRIPTION": "ሰርቲፊከታትኩምን ፍቓዳትኩምን ኣእትዉ"
+      },
+      "VERIFICATION": {
+        "TITLE": "ኣካውንት መረጋገጺ",
+        "DESCRIPTION": "ንምስራሕ መረጋገጺ ርኸቡ"
+      }
+    },
+    "STATS": {
+      "ACTIVE_CLIENTS": "ንጡፋት ዓማዊል",
+      "PENDING_APPOINTMENTS": "ተጸበይቲ ቆጸራታት",
+      "ACTIVE_CASES": "ንጡፋት ጉዳያት",
+      "MONTHLY_EARNINGS": "ወርሓዊ እቶት"
+    },
+    "UPCOMING_APPOINTMENTS": "ቀጻሊ ቆጸራታት",
+    "RECENT_CASES": "ናይ ቀረባ እዋን ጉዳያት",
+    "VERIFICATION_PENDING": "ኣካውንትኩም ኣብ ምግምጋም እዩ። መረጋገጺ ምስ ተዛዘመ ክንሕብረኩም ኢና።",
+    "VERIFICATION_REJECTED": {
+      "TITLE": "መረጋገጺ ኣይተዓወተን",
+      "MESSAGE": "በጃኹም ግብረመልሲ ርአዩ እሞ ኣድላዪ መስተኻኸሊ ብምግባር ሰነዳትኩም እንደገና ኣእትዉ።"
+    }
+  },
+  "APPOINTMENTS": {
+    "TITLE": "ናተይ ቆጸራታት",
+    "SUBTITLE": "ቆጸራታትካን ምኽክርን ኣመሓድር",
+    "TABLE": {
+      "LAWYER": "ጠበቓ",
+      "DATE": "ዕለት",
+      "TIME": "ሰዓት",
+      "TYPE": "ዓይነት",
+      "STATUS": "ኩነታት",
+      "ACTIONS": "ተግባራት"
+    },
+    "STATUS": {
+      "PENDING": "ኣብ መጸበዪ",
+      "CONFIRMED": "ተረጋጊጹ",
+      "CANCELLED": "ተሰሪዙ",
+      "COMPLETED": "ተዛዚሙ"
+    },
+    "ACTIONS": {
+      "VIEW_DETAILS": "ዝርዝር ርአ",
+      "RESCHEDULE": "ደጊምካ ሓዝ",
+      "CANCEL": "ሰርዝ",
+      "SEND_REMINDER": "መዘኻኸሪ ስደድ"
+    },
+    "NO_APPOINTMENTS": "ዝተረኽበ ቆጸራ የለን",
+    "NO_APPOINTMENTS_DESC": "ክሳብ ሕጂ ዝተታሕዘ ቆጸራ የብልኩምን።",
+    "BOOK_NOW": "ቆጸራ ሓዝ",
+    "TYPES": {
+      "INITIAL": "መጀመርታ ምኽሪ",
+      "FOLLOWUP": "ናይ ክትትል ኣኼባ",
+      "DOCUMENT_REVIEW": "ምርመራ ሰነድ",
+      "COURT_PREP": "ንቤት ፍርዲ ምድላው"
+    }
+  },
+  "MESSAGE": {
+    "COMPOSE": "መልእኽቲ ጽሓፍ",
+    "PLACEHOLDER": "መልእኽትኻ ምጽሓፍ ጀምር...",
+    "SUCCESS": {
+      "SAVED": "መልእኽቲ ብዓወት ተቐሚጡ"
+    },
+    "ERROR": {
+      "SAVE_FAILED": "መልእኽቲ ምቕማጥ ኣይተዓወተን"
+    }
+  },
+  "CASE": {
+    "TITLE": "ናተይ ጉዳያት",
+    "DESCRIPTION": "ሕጋዊ ጉዳያትካ ኣመሓድርን ክትትል ግበርን",
+    "NEW_CASE": "ሓድሽ ጉዳይ",
+    "FILTER": {
+      "ALL": "ኩሎም ጉዳያት",
+      "OPEN": "ንጡፋት ጉዳያት",
+      "CLOSED": "ዝተዓጽዉ ጉዳያት"
+    },
+    "TABLE": {
+      "CASE_NUMBER": "ቁጽሪ ጉዳይ",
+      "TITLE": "ኣርእስቲ",
+      "TYPE": "ዓይነት",
+      "STATUS": "ኩነታት",
+      "PRIORITY": "ቅድሚያ",
+      "LAWYER": "ዝተመደበ ጠበቓ",
+      "NEXT_HEARING": "ዝቕጽል ክርክር"
+    },
+    "STATUS": {
+      "OPEN": "ክፉት",
+      "CLOSED": "ዝተዓጽወ",
+      "PENDING": "ተጸበ",
+      "IN_PROGRESS": "ኣብ ከይዲ"
+    },
+    "PRIORITY": {
+      "HIGH": "ልዑል ቅድሚያ",
+      "MEDIUM": "ማእከላይ ቅድሚያ",
+      "LOW": "ትሑት ቅድሚያ"
+    },
+    "NO_CASES": "ዝኾነ ጉዳያት ኣይተረኽበን",
+    "NO_CASES_DESC": "ክሳብ ሕጂ ዝኾነ ጉዳይ ኣይፈጠርካን።",
+    "CREATE_FIRST_CASE": "ቀዳማይ ጉዳይካ ፍጠር",
+    "NO_HEARING_SCHEDULED": "ዝተሓዝአ ክርክር የለን",
+    "ERROR": {
+      "LOAD_FAILED": "ጉዳያት ምጽዓን ኣይተዓወተን",
+      "CREATE_FAILED": "ጉዳይ ምፍጣር ኣይተዓወተን",
+      "UPDATE_FAILED": "ጉዳይ ምዕራይ ኣይተዓወተን",
+      "DELETE_FAILED": "ጉዳይ ምስራዝ ኣይተዓወተን"
+    },
+    "SUCCESS": {
+      "CREATED": "ጉዳይ ብዓወት ተፈጢሩ",
+      "UPDATED": "ጉዳይ ብዓወት ተዓሪዩ",
+      "DELETED": "ጉዳይ ብዓወት ተሰሪዙ"
+    },
+    "TYPES": {
+      "CIVIL": "ፍትሓዊ ጉዳይ",
+      "CRIMINAL": "ገበናዊ ጉዳይ",
+      "FAMILY": "ስድራቤታዊ ሕጊ",
+      "CORPORATE": "ትካላዊ ሕጊ",
+      "PROPERTY": "ንብረታዊ ሕጊ",
+      "LABOR": "ሰራሕተኛ ሕጊ",
+      "OTHER": "ካልእ"
+    }
+  },
+  "SETTINGS": {
+    "TITLE": "ምትዕርራያት",
+    "SUBTITLE": "ናይ መተግበሪ ምርጫታትካ ኣተሓሕዝ",
+    "APPEARANCE": "ትርኢት",
+    "THEME": "ቅዲ",
+    "THEME_DESC": "ዝደለኻዮ ቅዲ ትርኢት ምረጽ",
+    "THEME_LIGHT": "ብርሃን",
+    "THEME_DARK": "ጸልማት",
+    "THEME_SYSTEM": "ስርዓት",
+    "LANGUAGE_REGION": "ቋንቋን ከባብን",
+    "LANGUAGE": "ቋንቋ",
+    "LANGUAGE_DESC": "ዝደለኻዮ ቋንቋ ምረጽ",
+    "NOTIFICATIONS": "ምልክታታት",
+    "EMAIL_NOTIFICATIONS": "ናይ ኢሜይል ምልክታታት",
+    "EMAIL_NOTIFICATIONS_DESC": "ብዛዕባ ቆጸራታትካን ምዕባለ ጉዳያትካን ብኢሜይል ተቐበል",
+    "SMS_NOTIFICATIONS": "ናይ ኤስኤምኤስ ምልክታታት",
+    "SMS_NOTIFICATIONS_DESC": "ንኣገደስቲ ምዕባለታትን መዘኻኸሪታትን ናይ ኤስኤምኤስ ምልክታታት ተቐበል",
+    "THEME_UPDATED": "ቅዲ ብዓወት ተሓዲሱ",
+    "LANGUAGE_UPDATED": "ቋንቋ ብዓወት ተሓዲሱ",
+    "PREFERENCES": {
+      "TITLE": "ምርጫታት",
+      "TIME_ZONE": "ናይ ሰዓት ዞባ",
+      "DATE_FORMAT": "ናይ ዕለት ቅዲ",
+      "TIME_FORMAT": "ናይ ሰዓት ቅዲ"
+    },
+    "PRIVACY": {
+      "TITLE": "ውልቃዊ ጕዳያት",
+      "VISIBILITY": "ናይ ፕሮፋይል ርኤት",
+      "ACTIVITY_STATUS": "ናይ ንጥፈት ኩነታት",
+      "LAST_SEEN": "መወዳእታ ዝተራእየሉ ኩነታት"
+    },
+    "NOTIFICATIONS_SETTINGS": {
+      "TITLE": "ናይ ምልክታታት ምትዕርራያት",
+      "APPOINTMENTS": "መዘኻኸሪ ቆጸራታት",
+      "MESSAGES": "ሓደሽቲ መልእኽትታት",
+      "CASE_UPDATES": "ምዕባለ ጉዳያት",
+      "DOCUMENT_SHARING": "ምክፋል ሰነዳት",
+      "MARKETING": "ናይ ማርኬቲንግ ምዕባለታት"
+    },
+    "SUCCESS": {
+      "SETTINGS_UPDATED": "ምትዕርራያት ብዓወት ተሓዲሱ",
+      "PREFERENCES_SAVED": "ምርጫታት ብዓወት ተቐሚጡ"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "ምትዕርራያት ምሕዳስ ኣይተዓወተን",
+      "SAVE_FAILED": "ምርጫታት ምቕማጥ ኣይተዓወተን"
+    }
+  },
+  "POSTS": {
+  "WELCOME": {
+    "TITLE": "ንዓቀበ ወይዘረ ወደ ፖስት ገጽ",
+    "SUBTITLE": "ንእሽቱ ፖስት ንኩሎም ኣካል ይትብሉ።"
+  },
+  "STATS": {
+    "ACTIVE_CASES": "ኣብ ጉዳይ ድሕሪ ኣለዎም",
+    "PENDING_TASKS": "ዝወሃብ ተግባር",
+    "UPCOMING_APPOINTMENTS": "ይኖሩ ቀጣዮች",
+    "UNREAD_MESSAGES": "ያልተነበሩ መልእክቶም"
+  },
+  "TABLE": {
+    "TITLE": "ውልቀ ዝርዝር ፖስት",
+    "SUBTITLE": "ንእሽቱ ፖስቶች ይውልዱ።",
+    "VIEW": "እይታ",
+    "FORM": "አዲስ ፖስት"
+  },
+  "NEW_POST": {
+    "TITLE": "አዲስ ፖስት ይፍጠሩ",
+    "DESCRIPTION": "መግለጫ",
+    "SAVE_DRAFT": "ድርጅት ይዘው ይቀይሩ",
+    "PUBLISH": "ይታይ"
+  },
+  "DRAFT_MODE": "አሁን በድርጅት ሞዴ ነው።",
+  "SEARCH_PLACEHOLDER": "ፖስቶችን ይፈልጉ..."
+},
+
+  "USERS": {
+    "TITLE": "ተጠቃሚታት",
+    "SUBTITLE": "ኣብዚ ተጠቃሚታትን እንታው እተሳተፍቲ ንእትዓትትዎም።",
+    "SEARCH_PLACEHOLDER":"ተጠቃሚ ድለይ...",
+    "STATS": {
+      "ACTIVE": "ኣብ ስራሕ ዘሎ ተጠቃሚ",
+      "INACTIVE": "ኣብ ስራሕ ዘይኣበሃል ተጠቃሚ"
+    },
+    "TABLE": {
+      "TITLE": "ዝርዝር ተጠቃሚታት",
+      "SUBTITLE": "ኣብዚ ተጠቃሚታት ንርእይን ንእትዓትትዎም።",
+      "FULLNAME": "ሙሉእ ስም",
+      "INFO": "መረጋገጺ",
+      "ROLE": "ሓላፍነት",
+      "ISACTIVE": "ኣብ ስራሕ ዘሎ",
+      "ISADMIN": "ኣድሚን እዩ",
+      "DATE": "መዓልቲ",
+      "ACTIONS": "እተግባሮ",
+      "SEARCH_PLACEHOLDER": "ተጠቃሚ ድለይ..."
+    },
+    "FILTERS": {
+      "CONFIRM": "ምርግጋጽ",
+      "PENDING": "ተጸቒምካ"
+    },
+    "ACTIONS": {
+      "CANCEL": "ምቕፃል",
+      "TRANSFER": "ምምልኣል"
+    }
+  },
+  "CLIENTS": {
+  "TITLE": "ክሊየንት",
+  "SUBTITLE": "እባክን ክሊየንትን እና እንቅስቃሴ እዚህ ንብረት ይቅርብ።",
+  "STATS": {
+    "ACTIVE": "ንቁ ተጠቃሚ",
+    "INACTIVE": "ዝይንቁ ተጠቃሚ"
+  },
+  "TABLE": {
+    "TITLE": "ዝርዝር ክሊየንት",
+    "SUBTITLE": "እዚ ንኽእል እና ክሊየንት ንምርጽ ንትምህርት ይቅርብ።",
+    "FULLNAME": "ሙሉ ስም",
+    "INFO": "መረጃ",
+    "ROLE": "ክፍል",
+    "ISACTIVE": "ንቁ እዩ",
+    "ISADMIN": "አስተዳደር እዩ",
+    "DATE": "ቀን",
+    "ACTIONS": "እንቅስቃሴ"
+  },
+  "SEARCH_PLACEHOLDER": "ክሊየንት ንምርጽ ይከተሉ...",
+  "FILTERS": {
+    "CONFIRM": "እንከባከል",
+    "PENDING": "ወርዳ"
+  },
+  "ACTIONS": {
+    "CANCEL": "ይቅርብ"
+  }
+},
+  "CONTRACTS": {
+    "AGREEMENT": "ኮንትራክት ዘርፍ",
+    "WELCOME": {
+      "TITLE": "እንኳን ወደ ኣብ ነገር መግቢ",
+      "SUBTITLE": "እባክን ዝርዝር ናይ ኮንትራክት መረጃ ኣብ እዚ."
+    },
+    "STATS": {
+      "ACTIVE_CASES": "ኣካባቢ ኣገልግሎት",
+      "PENDING_TASKS": "ኣርእዮ ስራሕታት",
+      "UPCOMING_APPOINTMENTS": "ኣብ ሓደ ጊዜ ምግባር ዝኣይ",
+      "UNREAD_MESSAGES": "ዘይተኸውን መልእኽቲ"
+    },
+    "TABLE": {
+      "TITLE": "ዝንቀሳቀስ ዝርዝር",
+      "SUBTITLE": "ኣስተዳደርን ኣይሕውን እዚ.",
+      "NO": "የለይ",
+      "FULLNAME": "ሙሉእ ስም",
+      "INFO": "መረጃ",
+      "DATE": "ቀን",
+      "STATUS": "ሓሳብ",
+      "ACTIONS": "ኣርእዮታት"
+    },
+    "SEARCH_PLACEHOLDER": "ዝንቀሳቀስ ኮንትራክት መረጃ..."
+  },
+  
+    "CONTRACT": {
+      "TITLE": "ውልታት",
+      "SUBTITLE": "ውልታትን ኣንትሑ"
+    },
+    "CONTRACTS_LAWYER": {
+      "PURPOSE": "ዕላማ",
+      "EFFECTIVE_DATE": "ዕለት ምግባር",
+      "COMPENSATION_RATE": "መን ክፍሊት",
+      "PAYMENT_TERMS": "ውዕል ክፍሊት",
+      "TERM": "ናይ ግዜ መወዳእታ",
+      "CONFIDENTIALITY": "ምሕባርን ምስጢርን",
+      "AGREEMENT": "ምምኣር",
+      "ACTIONS": "ተግባሮታት",
+      "CONFIRM": "ምርጋጽ",
+      "REJECT": "ክብል",
+      "LOADING": "ዝተመርጸ ውልታት ኣብ ምጽዋእ...",
+      "SELECTED_CONTRACT_DETAILS": "ዝተመርጸ ዝርዝር ውልታት",
+      "CONTRACT_ID": "መንነት መለለይ ውል",
+      "TERM_START": "ጀሚርካ ግዜ",
+      "TERM_END": "መወዳእታ ግዜ",
+      "CONFIDENTIALITY_CLAUSE": "ክፍሊት ምሕባርን ምስጢርን",
+      "AGREEMENT_CLAUSE": "ክፍሊት ምምኣር",
+      "ADDITIONAL_NOTES": "ተተሓላላፊ ምልእታታት"
+    }
+  
+
+
+} 

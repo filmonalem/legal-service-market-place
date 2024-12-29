@@ -1,0 +1,228 @@
+<div class="min-h-screen flex items-center justify-center bg-background p-2">
+  <div class="w-full max-w-6xl flex rounded-2xl shadow-lg overflow-hidden bg-card">
+    
+    <div class="hidden lg:block lg:w-1/2 relative">
+      <img 
+        src="/images/eto.webp" 
+        alt="Legal Services" 
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+      <div class="absolute inset-0 bg-primary/20 flex flex-col justify-center p-12">
+        <!-- Optional welcome message here -->
+      </div> 
+    </div>
+
+    <div class="w-full lg:w-1/2 p-4 sm:p-8 md:p-8">
+      <div class="w-full max-w-md mx-auto">
+        <div class="block lg:hidden mb-8  justify-center">
+          <img 
+            src="/images/eto.webp" 
+            alt="Logo" 
+            class="h-16 w-auto"
+          >
+        </div>
+
+        <h1 class="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center lg:text-left">
+          {{ 'SIGNUP.CREATE_ACCOUNT' | translate }}
+        </h1>
+
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="space-y-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-2">
+                {{ 'SIGNUP.FIRST_NAME' | translate }}
+              </label>
+              <input
+                type="text"
+                formControlName="firstName"
+                class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                [placeholder]="'SIGNUP.FIRST_NAME_PLACEHOLDER' | translate"
+                aria-required="true"
+              >
+              <div *ngIf="signupForm.get('firstName')?.touched && signupForm.get('firstName')?.invalid" 
+                   class="text-destructive text-sm mt-1">
+                {{ 'SIGNUP.FIRST_NAME_REQUIRED' | translate }}
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-2">
+                {{ 'SIGNUP.LAST_NAME' | translate }}
+              </label>
+              <input
+                type="text"
+                formControlName="lastName"
+                class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                [placeholder]="'SIGNUP.LAST_NAME_PLACEHOLDER' | translate"
+                aria-required="true"
+              >
+              <div *ngIf="signupForm.get('lastName')?.touched && signupForm.get('lastName')?.invalid" 
+                   class="text-destructive text-sm mt-1">
+                {{ 'SIGNUP.LAST_NAME_REQUIRED' | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.PHONE_NUMBER' | translate }}
+            </label>
+            <input
+              type="tel"
+              formControlName="phoneNumber"
+              class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              [placeholder]="'SIGNUP.PHONE_PLACEHOLDER' | translate"
+              aria-required="true"
+            >
+            <div *ngIf="signupForm.get('phoneNumber')?.touched && signupForm.get('phoneNumber')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']">
+                {{ 'SIGNUP.PHONE_REQUIRED' | translate }}
+              </span>
+              <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']">
+                {{ 'SIGNUP.PHONE_INVALID' | translate }}
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.GENDER' | translate }} 
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <input type="radio" id="genderMale" value="male" formControlName="gender" class="mr-2" />
+                <label for="genderMale" class="text-sm text-foreground cursor-pointer">
+                  {{ 'SIGNUP.GENDER_MALE' | translate }}
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="genderFemale" value="female" formControlName="gender" class="mr-2" />
+                <label for="genderFemale" class="text-sm text-foreground cursor-pointer">
+                  {{ 'SIGNUP.GENDER_FEMALE' | translate }}
+                </label>
+              </div>
+            </div>
+            <div *ngIf="signupForm.get('gender')?.touched && signupForm.get('gender')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.GENDER_REQUIRED' | translate }} 
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.EMAIL' | translate }}
+            </label>
+            <input
+              type="email"
+              formControlName="email"
+              class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              [placeholder]="'SIGNUP.EMAIL_PLACEHOLDER' | translate"
+              aria-required="true"
+            >
+            <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.EMAIL_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.PASSWORD' | translate }}
+            </label>
+            <input
+              type="password"
+              formControlName="password"
+              class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              [placeholder]="'SIGNUP.PASSWORD_PLACEHOLDER' | translate"
+              aria-required="true"
+            >
+            <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.PASSWORD_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.CONFIRM_PASSWORD' | translate }}
+            </label>
+            <input
+              type="password"
+              formControlName="confirmPassword"
+              class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              [placeholder]="'SIGNUP.CONFIRM_PASSWORD_PLACEHOLDER' | translate"
+              aria-required="true"
+            >
+            <div *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['passwordMismatch']" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.PASSWORD_MISMATCH' | translate }}
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.SELECT_ROLE' | translate }}
+            </label>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div *ngFor="let role of roles" class="relative">
+                <input type="radio" 
+                       [id]="role.id" 
+                       [value]="role.id" 
+                       formControlName="role"
+                       class="peer hidden">
+                <label [for]="role.id" class="block p-4 rounded-lg border-2 border-border cursor-pointer 
+                              transition-all duration-200 ease-in-out
+                              peer-checked:border-primary peer-checked:bg-primary/5
+                              hover:border-primary/50">
+                  <div class="font-medium mb-1">{{ role.name | translate }}</div>
+                  <div class="text-sm text-muted-foreground">
+                    {{ role.description | translate }}
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div *ngIf="signupForm.get('role')?.touched && signupForm.get('role')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.ROLE_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              formControlName="terms"
+              class="h-4 w-4 text-primary border-border rounded focus:ring-primary"
+              aria-required="true"
+            >
+            <label class="ml-2 block text-sm text-foreground">
+              {{ 'SIGNUP.ACCEPT_TERMS' | translate }}
+              <a routerLink="/terms" class="text-primary hover:text-primary/80">
+                {{ 'SIGNUP.TERMS_CONDITIONS' | translate }}
+              </a>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="!signupForm.valid || isLoading"
+            class="w-full py-3 px-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span *ngIf="!isLoading">{{ 'SIGNUP.CREATE_ACCOUNT' | translate }}</span>
+            <span *ngIf="isLoading">{{ 'SIGNUP.CREATING_ACCOUNT' | translate }}</span>
+          </button>
+
+          <div *ngIf="errorMessage" class="text-destructive text-sm text-center mt-2">
+            {{ errorMessage }}
+          </div>
+          <p class="text-center text-sm text-muted-foreground">
+            {{ 'SIGNUP.ALREADY_HAVE_ACCOUNT' | translate }}
+            <a routerLink="/login" class="text-primary hover:text-primary/80 font-medium">
+              {{ 'SIGNUP.LOGIN' | translate }}
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

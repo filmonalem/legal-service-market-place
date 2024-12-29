@@ -1,0 +1,537 @@
+<div class="w-full bg-gray-50 flex items-center justify-center">
+  <div class="bg-white shadow rounded-lg w-4/5 p-5">
+    <!-- Header -->
+    <div class="border-b pb-3 mb-5">
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-gray-800">New Post</h2>
+        <div class="flex space-x-2">
+          <button
+            class="px-4 py-2 text-gray-600 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 focus:outline-none"
+            (click)="saveDraft()"
+          >
+            Save Draft
+          </button>
+          <button
+            class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            (click)="publishPost()"
+          >
+            Publish
+          </button>
+        </div>
+      </div>
+      <p class="text-sm text-gray-500 mt-2">Draft Mode</p>
+    </div>
+
+    <!-- Form -->
+    <div class="flex space-x-4">
+      <!-- Input Fields -->
+      <div class="w-1/2">
+        <div class="mb-5">
+          <label for="title" class="block text-sm font-medium text-gray-700"
+            >Post Title *</label
+          >
+          <input
+            id="title"
+            type="text"
+            [(ngModel)]="postTitle"
+            placeholder="250 characters max"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            maxlength="250"
+          />
+          <p class="text-sm text-gray-500 mt-1">{{ 0 }}/250 characters</p>
+        </div>
+
+        <div class="mb-5">
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700"
+            >Description *</label
+          >
+          <div class="border border-gray-300 rounded-lg">
+            <angular-editor
+              id="editor1"
+              formControlName="htmlContent1"
+              [config]="editorConfig"
+              [placeholder]="'Start typing your title content here...'"
+              (contentChanged)="updateDescriptionCount()"
+              [(ngModel)]="postDescription"
+            >
+              <ng-template
+                #customButtons
+                let-executeCommandFn="executeCommandFn"
+              >
+                <ae-toolbar-set>
+                  <!-- Text Formatting -->
+                  <ae-button
+                    iconClass="fa fa-bold"
+                    title="Bold"
+                    (buttonClick)="executeCommandFn('bold')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-italic"
+                    title="Italic"
+                    (buttonClick)="executeCommandFn('italic')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-underline"
+                    title="Underline"
+                    (buttonClick)="executeCommandFn('underline')"
+                  ></ae-button>
+
+                  <!-- Alignment -->
+                  <ae-button
+                    iconClass="fa fa-align-left"
+                    title="Align Left"
+                    (buttonClick)="executeCommandFn('justifyLeft')"
+                  >
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-center"
+                    title="Align Center"
+                    (buttonClick)="executeCommandFn('justifyCenter')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-right"
+                    title="Align Right"
+                    (buttonClick)="executeCommandFn('justifyRight')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-justify"
+                    title="Justify"
+                    (buttonClick)="executeCommandFn('justifyFull')"
+                  ></ae-button>
+
+                  <ae-button
+                    iconClass="fa fa-list-ul"
+                    title="Bullet List"
+                    (buttonClick)="executeCommandFn('insertUnorderedList')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-list-ol"
+                    title="Numbered List"
+                    (buttonClick)="executeCommandFn('insertOrderedList')"
+                  ></ae-button>
+
+                  <ae-button title="Insert Image" (buttonClick)="insertImage()">
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon>
+                  </ae-button>
+                  <ae-button title="Insert Link" (buttonClick)="insertLink()">
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon>
+                  </ae-button>
+                </ae-toolbar-set>
+              </ng-template>
+            </angular-editor>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            {{ descriptionCount || 0 }} characters
+          </p>
+        </div>
+
+        <!-- File Upload -->
+        <!-- <div>
+          <label for="fileInput" class="block text-sm font-medium text-gray-700"
+            >Upload Picture</label
+          >
+          <div
+            class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500"
+          >
+            <input
+              type="file"
+              id="fileInput"
+              class="hidden"
+              (change)="onFileSelected($event)"
+            />
+            <label
+              for="fileInput"
+              class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 focus:outline-none cursor-pointer"
+            >
+              Browse
+            </label>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Preview -->
+      <!-- <div class="w-1/2">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <img
+              *ngIf="imagePreview"
+              [src]="imagePreview"
+              class="h-full w-full object-cover"
+              alt="Preview"
+            />
+            <span *ngIf="!imagePreview" class="text-gray-500"
+              >Image Preview</span
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">
+              {{ postTitle || "Event Title" }}
+            </h3>
+            <p class="mt-2 text-gray-500">
+              {{
+                postDescription ||
+                  "This is a brief description of the event. It provides a summary that entices the reader to learn more."
+              }}
+            </p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<div class="space-y-4">
+  <app-page-header
+    [title]="'POSTS.WELCOME.TITLE'"
+    [subtitle]="'POSTS.WELCOME.SUBTITLE'"
+    [isTransparent]="true"
+  >
+  </app-page-header>
+
+  <div *ngIf="!isLoading" class="space-y-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+            <ng-icon
+              name="heroFolder"
+              class="w-5 h-5 text-blue-600 dark:text-blue-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "POSTS.STATS.ACTIVE_CASES" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-amber-100 dark:bg-amber-900/20 rounded-lg">
+            <ng-icon
+              name="heroClipboardDocument"
+              class="w-5 h-5 text-amber-600 dark:text-amber-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "POSTS.STATS.PENDING_TASKS" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-green-100 dark:bg-green-900/20 rounded-lg">
+            <ng-icon
+              name="heroCalendar"
+              class="w-5 h-5 text-green-600 dark:text-green-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "POSTS.STATS.UPCOMING_APPOINTMENTS" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
+            <ng-icon
+              name="heroChatBubbleLeftRight"
+              class="w-5 h-5 text-purple-600 dark:text-purple-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "POSTS.STATS.UNREAD_MESSAGES" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              100
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-transparent p-6 mt-2">
+  <div class="border-b border-border">
+    <div
+      class="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:space-y-0"
+    >
+      <div>
+        <h2 class="text-xl font-semibold text-foreground">
+          {{ "POSTS.TABLE.TITLE" | translate }}
+        </h2>
+        <p class="mt-1 text-sm text-muted-foreground">
+          {{ "POSTS.TABLE.SUBTITLE" | translate }}
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0"
+      >
+        <div class="relative w-full sm:w-auto min-w-[200px] md:min-w-[300px]">
+          <ng-icon
+            name="heroMagnifyingGlass"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground/70 w-4 h-4"
+          ></ng-icon>
+          <input
+            *ngIf="isViewOpen"
+            type="text"
+            class="w-full h-10 pl-11 pr-4 text-sm border border-border rounded-full bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 placeholder:text-muted-foreground/60 hover:border-primary/50"
+            [placeholder]="'CONTRACTS.SEARCH_PLACEHOLDER' | translate"
+          />
+        </div>
+
+        <div class="inline-flex p-1 space-x-1 bg-gray-100 rounded-full">
+          <button
+            (click)="showView()"
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (isViewOpen
+                ? 'bg-blue-600 text-white shadow-md hover:bg-blue-700'
+                : 'text-blue-600 bg-white border border-blue-600 hover:bg-blue-50')
+            "
+          >
+            <ng-icon name="heroView" class="w-4 h-4"></ng-icon> 
+{{ "POSTS.TABLE.VIEW" | translate }}
+
+          </button>
+          <button
+            (click)="toggleForm()"
+            [class]="
+              'px-4 py-2 text-sm font-medium bg-slate-200 rounded-full transition-all ' +
+              (isShowForm === false
+                ? ' text-white shadow-md hover:bg-green-700'
+                : 'text-green-600 bg-white border border-green-600 hover:bg-green-50')
+            "
+          >
+            <ng-icon name="heroForm" class="w-4 h-4"></ng-icon>
+{{ "POSTS.TABLE.FORM" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="isShowForm"
+  class="w-full bg-gray-50 flex items-center justify-center"
+>
+  <div class="bg-white shadow rounded-lg w-4/5 p-5">
+    <!-- Header -->
+    <div class="border-b pb-3 mb-5">
+      <div class="flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-gray-800">
+          {{"POSTS.NEW_POST.TITLE" | translate}}
+        </h2>
+        <div class="flex space-x-2">
+          <button
+            class="px-4 py-2 text-gray-600 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 focus:outline-none"
+            (click)="saveDraft()"
+          >
+            <ng-icon name="heroSave" class="w-4 h-4"></ng-icon> 
+            {{"POSTS.NEW_POST.SAVE_DRAFT" | translate}}
+          </button>
+          <button
+            class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            (click)="publishPost()"
+          >
+            <ng-icon name="heroPublish" class="w-4 h-4"></ng-icon> 
+            {{"POSTS.NEW_POST.PUBLISH" | translate}}
+          </button>
+        </div>
+      </div>
+      <p class="text-sm text-gray-500 mt-2">
+        {{"POSTS.DRAFT_MODE" | translate}}
+      </p>
+    </div>
+
+    <!-- Form -->
+    <div class="flex space-x-4">
+      <!-- Input Fields -->
+      <div class="w-1/2">
+        <div class="mb-5">
+          <label for="title" class="block text-sm font-medium text-gray-700"
+            >
+            {{"POSTS.NEW_POST.TITLE" | translate}}
+            *</label
+          >
+          <input
+            id="title"
+            type="text"
+            [(ngModel)]="postTitle"
+            placeholder="250 characters max"
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            maxlength="250"
+          />
+          <p class="text-sm text-gray-500 mt-1">{{ 0 }}/250 characters</p>
+        </div>
+
+        <div class="mb-5">
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700"
+            >Description *</label
+          >
+          <div class="border border-gray-300 rounded-lg">
+            <angular-editor
+              id="editor1"
+              formControlName="postDescription"
+              [config]="editorConfig"
+              [(ngModel)]="postDescription"
+              [placeholder]="'Start typing your title content here...'"
+            >
+              <ng-template
+                #customButtons
+                let-executeCommandFn="executeCommandFn"
+              >
+                <ae-toolbar-set>
+                  <!-- Text Formatting -->
+                  <ae-button
+                    iconClass="fa fa-bold"
+                    title="Bold"
+                    (buttonClick)="executeCommandFn('bold')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-italic"
+                    title="Italic"
+                    (buttonClick)="executeCommandFn('italic')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-underline"
+                    title="Underline"
+                    (buttonClick)="executeCommandFn('underline')"
+                  ></ae-button>
+
+                  <!-- Alignment -->
+                  <ae-button
+                    iconClass="fa fa-align-left"
+                    title="Align Left"
+                    (buttonClick)="executeCommandFn('justifyLeft')"
+                  >
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-center"
+                    title="Align Center"
+                    (buttonClick)="executeCommandFn('justifyCenter')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-right"
+                    title="Align Right"
+                    (buttonClick)="executeCommandFn('justifyRight')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-align-justify"
+                    title="Justify"
+                    (buttonClick)="executeCommandFn('justifyFull')"
+                  ></ae-button>
+
+                  <ae-button
+                    iconClass="fa fa-list-ul"
+                    title="Bullet List"
+                    (buttonClick)="executeCommandFn('insertUnorderedList')"
+                  ></ae-button>
+                  <ae-button
+                    iconClass="fa fa-list-ol"
+                    title="Numbered List"
+                    (buttonClick)="executeCommandFn('insertOrderedList')"
+                  ></ae-button>
+
+                  <ae-button title="Insert Image" (buttonClick)="insertImage()">
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon>
+                  </ae-button>
+                  <ae-button title="Insert Link" (buttonClick)="insertLink()">
+                    <ng-icon name="heroDocument" class="w-4 h-4"></ng-icon>
+                  </ae-button>
+                  -->
+                </ae-toolbar-set>
+              </ng-template>
+            </angular-editor>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">
+            {{ descriptionCount || 0 }} characters
+          </p>
+        </div>
+
+        <!-- File Upload -->
+        <div>
+          <label for="fileInput" class="block text-sm font-medium text-gray-700"
+            >Upload Picture</label
+          >
+          <div
+            class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500"
+          >
+            <input
+              type="file"
+              id="fileInput"
+              class="hidden"
+              (change)="onFileSelected($event)"
+            />
+            <label
+              for="fileInput"
+              class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 focus:outline-none cursor-pointer"
+            >
+              Browse
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="w-1/2">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <img
+              *ngIf="imagePreview"
+              [src]="imagePreview"
+              class="h-full w-full object-cover"
+              alt="Preview"
+            />
+            <span *ngIf="!imagePreview" class="text-gray-500"
+              >Image Preview</span
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800">
+              {{ postTitle || "Event Title" }}
+            </h3>
+            <p class="mt-2 text-gray-500">
+              {{ postDescription }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

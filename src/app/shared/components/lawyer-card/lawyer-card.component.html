@@ -1,0 +1,81 @@
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+  <div class="p-4">
+    <!-- Header with Image and Basic Info -->
+    <div class="flex items-center space-x-3">
+      <!-- Profile Image -->
+      <div class="relative">
+        <img *ngIf="lawyer.photoURL; else avatarFallback"
+             [src]="lawyer.photoURL"
+             [alt]="lawyer.firstName"
+             class="w-16 h-16 rounded-full object-cover ring-2 ring-offset-2 ring-blue-100 dark:ring-blue-900">
+        <ng-template #avatarFallback>
+          <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center ring-2 ring-offset-2 ring-blue-100 dark:ring-blue-900">
+            <span class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              {{ lawyer.firstName[0] }}{{ lawyer.lastName[0] }}
+            </span>
+          </div>
+        </ng-template>
+        <span *ngIf="lawyer.availability" 
+              class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full">
+        </span>
+      </div>
+
+      <!-- Basic Info -->
+      <div class="flex-1">
+        <h3 class="text-base font-semibold text-gray-900 dark:text-white">
+          {{ lawyer.firstName }} {{ lawyer.lastName }}
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{{ lawyer.specialization }}</p>
+        <!-- Rating and Location -->
+        <div class="flex items-center space-x-3 mt-1">
+          <div class="flex items-center text-amber-500">
+            <ng-icon name="heroStar" class="w-4 h-4"></ng-icon>
+            <span class="ml-1 text-xs font-medium">{{ lawyer.rating }}/5</span>
+          </div>
+          <div class="flex items-center text-gray-500 dark:text-gray-400">
+            <ng-icon name="heroMapPin" class="w-4 h-4"></ng-icon>
+            <span class="ml-1 text-xs">{{ lawyer.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Info Grid -->
+    <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+      <div class="flex items-center text-gray-600 dark:text-gray-400">
+        <ng-icon name="heroBriefcase" class="w-4 h-4 mr-1.5"></ng-icon>
+        <span class="text-xs">{{ lawyer.experience }}+ years</span>
+      </div>
+      <div class="flex items-center text-gray-600 dark:text-gray-400">
+        <ng-icon name="heroScale" class="w-4 h-4 mr-1.5"></ng-icon>
+        <span class="text-xs">{{ lawyer.casesWon }}+ won</span>
+      </div>
+      <div class="flex items-center text-gray-600 dark:text-gray-400">
+        <ng-icon name="heroLanguage" class="w-4 h-4 mr-1.5"></ng-icon>
+        <span class="text-xs truncate">{{ lawyer.languages.join(', ') }}</span>
+      </div>
+      <div class="flex items-center text-gray-600 dark:text-gray-400">
+        <ng-icon name="heroAcademicCap" class="w-4 h-4 mr-1.5"></ng-icon>
+        <span class="text-xs truncate">{{ lawyer.education }}</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+      <div class="text-gray-900 dark:text-white">
+        <span class="text-lg font-bold">${{ lawyer.hourlyRate }}</span>
+        <span class="text-xs text-gray-500 dark:text-gray-400">/hour</span>
+      </div>
+      <div class="flex space-x-2">
+        <button (click)="viewProfile.emit(lawyer)"
+                class="px-3 py-1.5 text-xs font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors">
+          {{ 'LAWYERS.VIEW_PROFILE' | translate }}
+        </button>
+        <button (click)="bookAppointment.emit(lawyer)"
+                class="px-3 py-1.5 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors">
+          {{ 'LAWYERS.BOOK_NOW' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

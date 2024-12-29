@@ -1,0 +1,578 @@
+<div class="space-y-4  dark:text-foreground">
+  <app-page-header
+    [title]="'CONTRACTS.WELCOME.TITLE'"
+    [subtitle]="'CONTRACTS.WELCOME.SUBTITLE'"
+    [isTransparent]="true"
+  >
+  </app-page-header>
+
+  <div *ngIf="!isLoading" class="space-y-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div
+        class="bg-transparent text-foreground  dark:bg-background rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+            <ng-icon
+              name="heroFolder"
+              class="w-5 h-5 text-blue-600 dark:text-blue-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-foreground dark:text-muted-foreground">
+              {{ "CONTRACTS.STATS.ACTIVE_CASES" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 text-foreground dark:text-muted-foreground rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-amber-100 dark:bg-amber-900/20 rounded-lg">
+            <ng-icon
+              name="heroClipboardDocument"
+              class="w-5 h-5 text-amber-600 dark:text-amber-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "CONTRACTS.STATS.PENDING_TASKS" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-green-100 dark:bg-green-900/20 rounded-lg">
+            <ng-icon
+              name="heroCalendar"
+              class="w-5 h-5 text-green-600 dark:text-green-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "CONTRACTS.STATS.UPCOMING_APPOINTMENTS" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              0
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="p-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
+            <ng-icon
+              name="heroChatBubbleLeftRight"
+              class="w-5 h-5 text-purple-600 dark:text-purple-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "CONTRACTS.STATS.UNREAD_MESSAGES" | translate }}
+            </p>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">
+              100
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-transparent p-6 mt-2">
+  <div class="border-b border-border">
+    <div
+      class="flex text-foreground dark:text-muted-foreground flex-col sm:flex-row sm:justify-between sm:items-center sm:space-y-0"
+    >
+      <div>
+        <h2 class="text-xl font-semibold text-foreground">
+          {{ "CONTRACTS.TABLE.TITLE" | translate }}
+        </h2>
+        <p class="mt-1 text-sm text-muted-foreground">
+          {{ "CONTRACTS.TABLE.SUBTITLE" | translate }}
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0"
+      >
+        <div class="relative w-full sm:w-auto min-w-[200px] md:min-w-[300px]">
+          <ng-icon
+            name="heroMagnifyingGlass"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground/70 w-4 h-4"
+          ></ng-icon>
+          <input
+            *ngIf="isViewOpen"
+            type="text"
+            class="w-full h-10 pl-11 pr-4 text-sm border border-border rounded-full bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 placeholder:text-muted-foreground/60 hover:border-primary/50"
+            [placeholder]="'CONTRACTS.SEARCH_PLACEHOLDER' | translate"
+            [formControl]="searchTerm"
+          />
+        </div>
+
+        <div class="inline-flex p-1 space-x-1 bg-muted/30 rounded-full">
+          <button
+            (click)="showView()"
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (isViewOpen
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            {{ "CONTRACTS.TABLE.VIEW" | translate }}
+          </button>
+          <button
+            (click)="toggleForm()"
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (isShowForm
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            {{ "CONTRACTS.TABLE.ADD" | translate }}
+          </button>
+          <button
+            *ngIf="isViewOpen"
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (isViewOpen
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            {{ "CONTRACTS.TABLE.PRINT" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="isViewOpen"
+    class=" text-foreground dark:text-muted-foreground rounded-lg shadow overflow-hidden mt-2"
+  >
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y rounded-t-full divide-gray-200">
+        <thead>
+          <tr class="border-b bg-background dark:bg-background dark:text-foreground  border-border ">
+            <th
+              class="text-left px-6 py-4 font-medium text-muted-foreground text-sm tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.NO" | translate }}
+            </th>
+            <th
+              class="text-left px-6 py-4 font-medium text-muted-foreground text-sm tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.FULLNAME" | translate }}
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.INFO" | translate }}
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.DATE" | translate }}
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.STATUS" | translate }}
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              {{ "CONTRACTS.TABLE.ACTIONS" | translate }}
+            </th>
+          </tr>
+        </thead>
+        <tbody class=" dark:bg-background dark:text-foreground divide-y divide-gray-200">
+          <tr *ngFor="let contract of contracts; let i=index">
+            <td class="px-6 py-4 whitespace-nowrap">
+              {{ i + 1 }}
+            </td>
+            <td class="px-3 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">
+                    {{ contract.fullName }}
+                  </div>
+                  <div class="text-sm text-purple-500">
+                    {{ contract.phoneNumber }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-normal">
+              {{ contract.purpose }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              {{ contract.effectiveDate | date: "medium" }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap" 
+            [ngClass]="{
+                'text-green-600': contract.agreementClause,
+                'text-gray-500': !contract.agreementClause
+            }">
+          {{ contract.agreementClause ? "Accepted" : "Request" }}
+        </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+              <div class="flex items-center justify-center space-x-4">
+                <button class="px-4 py-2 text-sm font-medium rounded-full transition-all bg-card text-foreground shadow-sm">
+                  View
+                </button>
+                <button class="px-4 py-2 text-sm font-medium rounded-full transition-all bg-card text-foreground shadow-sm">
+                  Confirm
+                </button>
+                <button class="px-4 py-2 text-sm font-medium rounded-full transition-all bg-card text-foreground shadow-sm">
+                  Edit
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+  
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="isShowForm" class="flex text-foreground dark:text-muted-foreground items-center justify-center bg-background p-4">
+    <div class="shadow-lg rounded-lg w-full max-w-3xl p-6 bg-card text-card-foreground">
+      <h2 class="text-2xl font-semibold text-foreground">
+        {{ "CONTRACTS.FORM.TITLE" | translate }}
+      </h2>
+      <p class="text-sm text-muted-foreground mt-1">
+        {{ "CONTRACTS.FORM.SUBTITLE" | translate }}
+      </p>
+  
+      <div class="flex items-center justify-center space-x-4 mt-6">
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center border-2"
+            [ngClass]="{
+              'bg-primary text-primary-foreground border-primary': validateContractProfile(),
+              'bg-gray-300 text-gray-500 border-gray-300': !validateContractProfile()
+            }"
+          >
+            1
+          </div>
+          <span
+            [ngClass]="{
+              'text-primary': validateContractProfile(),
+              'text-muted-foreground': !validateContractProfile()
+            }"
+            >
+{{ "CONTRACTS.FORM.INFO" | translate }}
+            </span
+          >
+        </div>
+        <div class="w-12 h-px bg-border"></div>
+  
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center border-2"
+            [ngClass]="{
+              'bg-primary text-primary-foreground border-primary': validateContractPayment(),
+              'bg-gray-300 text-gray-500 border-gray-300': !validateContractPayment()
+            }"
+          >
+            2
+          </div>
+          <span
+            [ngClass]="{
+              'text-primary': validateContractPayment(),
+              'text-muted-foreground': !validateContractPayment()
+            }"
+          >
+            {{ "CONTRACTS.FORM.PAYMENT" | translate }}
+          </span>
+        </div>
+        <div class="w-12 h-px bg-border"></div>
+  
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-8 h-8 rounded-full flex items-center justify-center border-2"
+            [ngClass]="{
+              'bg-primary text-primary-foreground border-primary': isReviewOpen,
+              'bg-gray-300 text-gray-500 border-gray-300': !isReviewOpen
+            }"
+          >
+            3
+          </div>
+          <span
+            [ngClass]="{
+              'text-primary': isReviewOpen,
+              'text-foreground': !isReviewOpen
+            }"
+          >
+            {{ "CONTRACTS.FORM.REVIEW" | translate }}
+          </span>
+        </div>
+      </div>
+  
+      <!-- General Info Section -->
+      <div *ngIf="isBasicInfoOpen" class="mt-3 ">
+        <h3 class="text-md font-medium text-foreground"> {{ "CONTRACTS.FORM.STEP_1" | translate }}</h3>
+        <div>
+          <label class="block text-muted-foreground dark:text-muted-foreground text-sm font-medium  mb-2">
+            {{"CONTRACTS.FORM.WORK_TYPE" | translate }}
+          </label>
+          <div class="flex space-x-4">
+            <button
+              (click)="setActiveButton('Fixed Rate')"
+              [class]="
+                'px-10 py-2 text-sm font-medium rounded-full transition-all ' +
+                (activeButton === 'Fixed Rate' ? 'bg-card text-card-foreground shadow-sm' : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+            {{ "CONTRACTS.FORM.FIXED_RATE" | translate }}
+            </button>
+            <button
+              (click)="setActiveButton('Pay As You Go')"
+              [class]="
+                'px-8 py-2 text-sm font-medium rounded-full transition-all ' +
+                (activeButton === 'Pay As You Go' ? 'bg-card text-card-foreground shadow-sm' : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              {{ "CONTRACTS.FORM.PAY_AS_YOU_GO" | translate }}
+            </button>
+            <button
+              (click)="setActiveButton('Milestone')"
+              [class]="
+                'px-8 py-2 text-sm font-medium rounded-full transition-all ' +
+                (activeButton === 'Milestone' ? 'bg-card text-card-foreground shadow-sm' : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              {{ "CONTRACTS.FORM.MILESTONE" | translate }}
+            </button>
+          </div>
+        </div>
+  
+        <div class="mt-5 dark:bg-background">
+          <h4 class="text-sm dark:text-foreground font-medium text-muted mb-4">
+{{ "CONTRACTS.FORM.PERSONAL_INFO" | translate }}
+          </h4>
+          <h6 class="text-sm font-medium text-muted-foreground  mb-4">
+            {{ "CONTRACTS.FORM.LAWYER_INFO" | translate }}
+          </h6>
+          <div class="grid grid-cols-2 gap-4 dark:bg-background">
+            <select
+              [(ngModel)]="contractForm.fullName"
+              (change)="onLawyerChange(contractForm.fullName)"
+              class="border border-gray-300 dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            >
+              <option *ngFor="let lawyer of lawyers" [ngValue]="lawyer.fullName">
+                {{ lawyer.fullName }}
+              </option>
+            </select>
+  
+            <input
+              type="text"
+              [(ngModel)]="contractForm.phoneNumber"
+              placeholder="Phone Number"
+              class="border border-gray-300 dark:bg-background dark:text-foreground p-2  rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              readonly
+            />
+  
+            <div class="flex col-span-2 justify-between w-full">
+              <div class="w-full mr-2">
+                <label for="termStart" class="block text-muted-foreground dark:text-muted-foreground text-sm font-medium  mb-1">
+                  {{ "CONTRACTS.FORM.TERM_START" | translate }}
+                </label>
+                <input
+                  [(ngModel)]="contractForm.termStart"
+                  id="termStart"
+                  type="date"
+                  class="border border-gray-300  dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+  
+              <div class="w-full ml-2">
+                <label for="termEnd" class="block text-sm font-medium text-muted-foreground dark:text-muted-foreground mb-1">
+                  {{ "CONTRACTS.FORM.TERM_END" | translate }}
+                </label>
+                <input
+                  [(ngModel)]="contractForm.termEnd"
+                  id="termEnd"
+                  type="date"
+                  class="border border-gray-300 dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+              </div>
+            </div>
+  
+            <input
+              placeholder="Enter effective Date"
+              type="text"
+              [(ngModel)]="contractForm.effectiveDate"
+              class="border text-muted-foreground  border-gray-300 dark:bg-background dark:text-foreground  p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+            <textarea
+              placeholder="Purpose of the contract"
+              [(ngModel)]="contractForm.purpose"
+              class="col-span-2 text-foreground  border border-gray-300 dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              rows="4"
+            ></textarea>
+          </div>
+  
+          <div class="flex justify-between items-center mt-4">
+            <button
+              [disabled]="!validateContractProfile()"
+              (click)="showPaymentForm()"
+              [ngClass]="{
+                'bg-blue-500 text-white': validateContractProfile(),
+                'bg-gray-400 text-gray-200 cursor-not-allowed': !validateContractProfile()
+              }"
+              class="px-6 py-2 rounded-lg button hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-200"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Payment Info Section -->
+      <div *ngIf="isPaymentOpen" class="mt-5">
+        <h3 class="text-md font-medium text-foreground mb-4">
+          {{ "CONTRACTS.FORM.STEP_2" | translate }}
+        </h3>
+        <h4 class="text-sm font-medium text-muted-foreground mb-4">
+          {{ "CONTRACTS.FORM.CONTRACTS_DETAILS" | translate }}
+        </h4>
+        <div class="grid grid-cols-2 gap-4">
+          <input
+            type="number"
+            placeholder="Compensation Rate"
+            [(ngModel)]="contractForm.compensationRate"
+            class="border border-gray-300 p-2 dark:bg-background dark:text-foreground rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
+  
+          <div class="flex col-span-2 justify-between w-full">
+            <div class="w-full mr-2">
+              <label for="paymentTerms" class="block text-sm font-medium text-muted-foreground mb-1">
+                {{ "CONTRACTS.FORM.PAYMENT_TERMS" | translate }}
+              </label>
+              <select
+                id="paymentTerms"
+                class="border border-gray-300  dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500"
+                [(ngModel)]="contractForm.paymentTerms"
+                required
+              >
+                <option value="" disabled>
+                  {{ "CONTRACTS.FORM.SELECT_PAYMENT_TERMS" | translate }}
+                </option>
+                <option *ngFor="let term of paymentTermsOptions" [value]="term">
+                  {{ term }}
+                </option>
+              </select>
+            </div>
+  
+            <div class="w-full ml-2">
+              <label for="agreementConfirmation" class="block text-sm font-medium text-muted-foreground mb-1">
+                {{ "CONTRACTS.FORM.AGREEMENT_CONFIRMATION" | translate }}
+              </label>
+              <select
+                [(ngModel)]="contractForm.confidentialityClause"
+                class="border border-gray-300 p-2 dark:bg-background dark:text-foreground rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+                <option [ngValue]="true">
+                  {{ "CONTRACTS.FORM.YES" | translate }}
+                </option>
+                <option [ngValue]="false">
+                  {{ "CONTRACTS.FORM.NO" | translate }}
+                </option>
+              </select>
+            </div>
+          </div>
+  
+          <textarea
+            placeholder="Additional Notes for the contract"
+            [(ngModel)]="contractForm.additionalNotes"
+            class="col-span-2 border border-gray-300 dark:bg-background dark:text-foreground p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            rows="4"
+          ></textarea>
+        </div>
+  
+        <div class="flex justify-between items-center mt-8">
+          <button
+            (click)="backPaymentForm()"
+            class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 focus:outline-none"
+          >
+            {{ "CONTRACTS.FORM.BACK" | translate }}
+          </button>
+          <button
+            [disabled]="!validateContractPayment()"
+            (click)="showReviewProfile()"
+            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+            {{ "CONTRACTS.FORM.NEXT" | translate }}
+          </button>
+        </div>
+      </div>
+  
+      <!-- Review Section -->
+      <div *ngIf="isReviewOpen" class="mt-3">
+        <h3 class="text-md font-medium text-foreground mb-4">
+          {{ "CONTRACTS.FORM.STEP_3" | translate }}
+        </h3>
+        <h4 class="text-sm font-medium text-muted-foreground mb-4">
+          {{ "CONTRACTS.FORM.CONTRACTS_DETAILS" | translate }}
+        </h4>
+        <div class="bg-gray-50 p-4 rounded-lg shadow">
+          <h5 class="text-lg font-semibold text-foreground">
+            {{ "CONTRACTS.FORM.REVIEW_OVERVIEW" | translate }}
+          </h5>
+          <p class="text-sm text-muted-foreground mt-2">
+            This contract outlines the terms and conditions agreed upon by both parties. It includes compensation rates, payment terms, and the duration of the contract.
+          </p>
+          <div class="mt-4">
+            <h6 class="text-md font-medium text-foreground">Key Points:</h6>
+            <ul class="list-disc pl-5 text-sm text-muted-foreground">
+              <li>
+                Compensation Rate: {{ contractForm.compensationRate | currency }}
+              </li>
+              <li>Payment Term: {{ contractForm.paymentTerms }}</li>
+              <li>
+                Contract Duration: From {{ contractForm.termStart | date }} to {{ contractForm.termEnd | date }}
+              </li>
+              <li>
+                Agreement Status: {{ contractForm.confidentialityClause ? 'Yes I Agree' : "No, I don't agree" }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-4">
+          <button
+            (click)="backReviewProfile()"
+            class="px-4 py-2 bg-gray-100 text-gray-600 dark:bg-primary rounded-lg hover:bg-gray-200 focus:outline-none"
+          >
+            Back
+          </button>
+          <button
+            (click)="createContract()"
+            class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+            Submit Contract
+          </button>
+        </div>
+      </div>
+    </div>
+  </div></div>

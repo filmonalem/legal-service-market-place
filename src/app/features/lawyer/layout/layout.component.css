@@ -1,0 +1,42 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  margin-top: 64px; /* 4rem for header height */
+}
+
+.sidebar {
+  position: fixed;
+  top: 64px; /* 4rem for header height */
+  left: 0;
+  width: 256px; /* 16rem */
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.main-content {
+  margin-left: 256px; /* Same as sidebar width */
+  width: calc(100% - 256px);
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}

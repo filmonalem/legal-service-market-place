@@ -1,0 +1,111 @@
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-6 text-center">Lawyer's Case Management</h1>
+
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+        <!-- Left Side: Case List -->
+        <div class="flex-1 bg-gray-100 card p-4 rounded-md shadow-md">
+            <h2 class="text-xl dark:text-foreground font-bold mb-4">Case List</h2>
+            <div *ngIf="caseList.length > 0; else noCases" class="space-y-2">
+                <div
+                    *ngFor="let caseItem of caseList; let i = index"
+                    class="flex items-center dark:text-foreground card justify-between bg-white card p-3 rounded-md shadow-sm"
+                >
+                    <div>
+                        <input
+                            type="checkbox"
+                            [(ngModel)]="caseItem.completed"
+                            class="mr-2 dark:text-foreground"
+                        />
+                        <span
+                            [class.line-through]="caseItem.completed"
+                            [class.text-gray-500]="caseItem.completed"
+                        >
+                            {{ caseItem.caseName }} - {{ caseItem.description }}
+                        </span>
+                    </div>
+                    <div class="space-x-2">
+                        <button
+                            (click)="editCase(i)"
+                            class="text-yellow-500 hover:underline"
+                        >
+                            Edit
+                        </button>
+                        <button
+                        (click)="deleteCase(caseItem.caseId!)"                        
+                        class="text-red-500 hover:underline"
+                        >
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noCases>
+                <p class="text-gray-500 text-center">No cases added yet.</p>
+            </ng-template>
+        </div>
+
+        <!-- Right Side: Add/Edit Case -->
+        <div class="w-full md:w-1/3 bg-white card p-4 rounded-md shadow-md">
+            <h2 *ngIf="!isEditing" class="text-xl dark:text-foreground font-bold mb-4">Add New Case</h2>
+            <h2 *ngIf="isEditing" class="text-xl dark:text-foreground font-bold mb-4">Edit Case</h2>
+            <input
+                *ngIf="isEditing"
+                [(ngModel)]="inputDescription"
+                placeholder="Enter case details..."
+                class="w-full border input border-gray-300 p-2 rounded-md mb-4"
+            />
+            <input
+                *ngIf="!isEditing"
+                [(ngModel)]="newCase.description"
+                placeholder="Enter case details..."
+                class="w-full border input border-gray-300 p-2 rounded-md mb-4"
+            />
+            <input
+                *ngIf="isEditing"
+                [(ngModel)]="inputCaseName"
+                type="text"
+                placeholder="Enter case name..."
+                class="w-full border input border-gray-300 p-2 rounded-md mb-4"
+            />
+            <input
+                *ngIf="!isEditing"
+                [(ngModel)]="newCase.caseName"
+                type="text"
+                placeholder="Enter case name..."
+                class="w-full border input border-gray-300 p-2 rounded-md mb-4"
+            />
+            <!-- Removed Lawyer ID input -->
+            <select
+                [(ngModel)]="newCase.status"
+                class="w-full border input border-gray-300 p-2 rounded-md mb-4"
+            >
+                <option value="" disabled selected>Select case status...</option>
+                <option value="in progress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+            <div class="flex justify-end space-x-2">
+                <button
+                    *ngIf="!isEditing"
+                    (click)="addCase()"
+                    class="bg-blue-500  text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                >
+                    Add Case
+                </button>
+                <button
+                    *ngIf="isEditing"
+                    (click)="saveEdit()"
+                    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+                >
+                    Save
+                </button>
+                <button
+                    *ngIf="isEditing"
+                    (click)="cancelEdit()"
+                    class="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

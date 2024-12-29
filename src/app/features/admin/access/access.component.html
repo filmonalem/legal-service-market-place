@@ -1,0 +1,93 @@
+<div class="space-y-6">
+  <app-page-header
+    [title]="'ACCESS.TITLE'"
+    [subtitle]="'ACCESS.DESCRIPTION'"
+    [isTransparent]="true"
+  ></app-page-header>
+
+  <div *ngIf="!isLoading" class="space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+            <ng-icon
+              name="heroUserGroup"
+              class="w-6 h-6 text-blue-600 dark:text-blue-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "ACCESS.STATS.ACTIVE" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              {{ lawyers.length || 0 }} / {{ lawyers.length || 0 }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-amber-100 dark:bg-amber-900 rounded-full">
+            <ng-icon
+              name="heroClipboardDocument"
+              class="w-6 h-6 text-amber-600 dark:text-amber-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "ACCESS.STATS.INACTIVE" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              0 / {{ lawyers.length || 0 }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-green-100 dark:bg-green-900 rounded-full">
+            <ng-icon
+              name="heroCalendar"
+              class="w-6 h-6 text-green-600 dark:text-green-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "DASHBOARD.STATS.UPCOMING_APPOINTMENTS" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-purple-100 dark:bg-purple-900 rounded-full">
+            <ng-icon
+              name="heroChatBubbleLeftRight"
+              class="w-6 h-6 text-purple-600 dark:text-purple-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "DASHBOARD.STATS.UNREAD_MESSAGES" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              100
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

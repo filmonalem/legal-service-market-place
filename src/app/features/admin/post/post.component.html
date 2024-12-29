@@ -1,0 +1,231 @@
+<div class="space-y-4 dark-mode-bg">
+  <app-page-header
+    [title]="'POSTS.WELCOME.TITLE'"
+    [subtitle]="'POSTS.WELCOME.SUBTITLE'"
+    [isTransparent]="true"
+  ></app-page-header>
+
+  <div *ngIf="!isLoading" class="space-y-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <ng-container *ngFor="let stat of stats">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="flex items-center space-x-4">
+            <div [ngClass]="stat.bgClass">
+              <ng-icon [name]="stat.icon" class="w-5 h-5" [ngClass]="stat.iconColor"></ng-icon>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-gray-600 dark:text-gray-400">{{ stat.label | translate }}</p>
+              <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ stat.value }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<div class="bg-transparent p-6 mt-2">
+  <div class="border-b border-border">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+      <app-page-header
+        [title]="'POSTS.TABLE.TITLE'"
+        [subtitle]="'POSTS.TABLE.SUBTITLE'"
+        [isTransparent]="true"
+      ></app-page-header>
+      <div class="flex items-center space-x-4">
+        <div class="relative w-full sm:w-auto min-w-[200px] md:min-w-[300px]">
+          <ng-icon name="heroMagnifyingGlass" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground/70 w-4 h-4"></ng-icon>
+          <input
+            *ngIf="isViewOpen"
+            type="text"
+            class="input w-full h-10 pl-11 pr-4 text-sm rounded-full bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 placeholder:text-muted-foreground/60 hover:border-primary/50"
+            [placeholder]="'CONTRACTS.SEARCH_PLACEHOLDER' | translate"
+          />
+        </div>
+
+        <div class="inline-flex p-1 space-x-1 dark:bg-background rounded-full">
+          <button (click)="showView()" [ngClass]="{'bg-blue-600 text-white': isViewOpen, 'text-blue-600 bg-white border border-blue-600': !isViewOpen}" class="px-4 py-2 text-sm font-medium rounded-full transition-all">
+            <ng-icon name="heroView" class="w-4 h-4"></ng-icon> {{ "POSTS.TABLE.VIEW" | translate }}
+          </button>
+          <button (click)="toggleForm()" [ngClass]="{'bg-green-700 text-white': !isShowForm, 'text-green-600 bg-white border border-green-600': isShowForm}" class="px-4 py-2 text-sm font-medium rounded-full transition-all">
+            <ng-icon name="heroForm" class="w-4 h-4"></ng-icon> {{ "POSTS.TABLE.FORM" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isShowForm" class="w-full bg-gray-50 dark:bg-background flex items-center justify-center">
+  <div class="card w-4/5 p-5">
+    <div class="border-b pb-3 mb-5 flex justify-between items-center">
+      <h2 class="text-xl font-semibold text-foreground">{{ "POSTS.NEW_POST.TITLE" | translate }}</h2>
+      <div class="flex space-x-2">
+        <button class="px-4 py-2 input" (click)="saveDraft()">
+          <ng-icon name="heroSave" class="w-4 h-4"></ng-icon> {{ "POSTS.NEW_POST.SAVE_DRAFT" | translate }}
+        </button>
+        <button class="px-4 py-2 button" (click)="publishPost()">
+          <ng-icon name="heroPublish" class="w-4 h-4"></ng-icon> {{ "POSTS.NEW_POST.PUBLISH" | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="flex space-x-4">
+      <div class="w-1/2">
+        <div class="mb-5">
+          <label for="title" class="block text-sm font-medium text-muted-foreground">{{ "POSTS.NEW_POST.TITLE" | translate }} *</label>
+          <input
+            id="title"
+            type="text"
+            [(ngModel)]="postTitle"
+            placeholder="250 characters max"
+            class="input w-full p-2 rounded-lg focus:ring-2 focus:ring-primary transition-all"
+            maxlength="250"
+          />
+          <p class="text-sm text-muted-foreground mt-1">{{ postTitle.length || 0 }}/250 characters</p>
+        </div>
+
+        <div class="mb-5">
+          <label for="description" class="block text-sm font-medium text-muted-foreground">{{ "POSTS.NEW_POST.DESCRIPTION" | translate }} *</label>
+          <textarea
+            id="description"
+            [(ngModel)]="postDescription"
+            placeholder="Enter description"
+            class="input w-full p-2 rounded-lg focus:ring-2 focus:ring-primary transition-all"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="flex flex-wrap items-center gap-2 p-2 bg-accent/10 rounded-t-lg border border-b-0 border-input">
+          <!-- Font Selection -->
+          <select (change)="changeFont($event)" class="border border-gray-300 rounded-lg p-2">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+          </select>
+
+          <!-- Font Size Selection -->
+          <select (change)="changeFontSize($event)" class="border border-gray-300 rounded-lg p-2">
+            <option value="12px">12</option>
+            <option value="14px">14</option>
+            <option value="16px">16</option>
+            <option value="18px">18</option>
+            <option value="20px">20</option>
+          </select>
+
+          <!-- Text Style -->
+          <div class="flex items-center space-x-1">
+            <button type="button" (click)="formatText('bold')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('bold')" title="Bold">
+              <ng-icon name="heroBold" class="w-4 h-4"></ng-icon>
+            </button>
+            
+            <button type="button" (click)="formatText('italic')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('italic')" title="Italic">
+              <ng-icon name="heroItalic" class="w-4 h-4"></ng-icon>
+            </button>
+            
+            <button type="button" (click)="formatText('underline')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('underline')" title="Underline">
+              <ng-icon name="heroUnderline" class="w-4 h-4"></ng-icon>
+            </button>
+
+            <button type="button" (click)="formatText('strikeThrough')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('strikeThrough')" title="Strike Through">
+              <ng-icon name="heroStrikethrough" class="w-4 h-4"></ng-icon>
+            </button>
+          </div>
+
+          <div class="w-px h-6 bg-border"></div>
+
+          <!-- Text Alignment -->
+          <div class="flex dark:text-foreground items-center space-x-1">
+            <button type="button" (click)="formatText('justifyLeft')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('justifyLeft')" title="Align Left">
+              <ng-icon name="heroBars3BottomLeft" class="w-4 h-4"></ng-icon>
+            </button>
+
+            <button type="button" (click)="formatText('justifyCenter')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('justifyCenter')" title="Align Center">
+              <ng-icon name="heroBars3" class="w-4 h-4"></ng-icon>
+            </button>
+
+            <button type="button" (click)="formatText('justifyRight')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('justifyRight')" title="Align Right">
+              <ng-icon name="heroBars3BottomRight" class="w-4 h-4"></ng-icon>
+            </button>
+            <div class="flex items-center space-x-1">
+              <button type="button" (click)="insertLink()" class="p-2 hover:bg-accent rounded-lg transition-colors" title="Insert Link">
+                <ng-icon name="heroLink" class="w-4 h-4"></ng-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="w-px h-6 bg-border"></div>
+
+          <!-- Lists -->
+          <div class="flex items-center space-x-1">
+            <button type="button" (click)="formatText('insertUnorderedList')" class="p-2 hover:bg-accent rounded-lg transition-colors" [class.bg-accent]="isFormatActive('insertUnorderedList')" title="Bullet List">
+              <ng-icon name="heroListBullet" class="w-4 h-4"></ng-icon>
+            </button>
+          </div>
+
+          <div class="w-px h-6 bg-border"></div>
+
+          <!-- Indentation -->
+          <div class="flex items-center space-x-1">
+            <button type="button" (click)="formatText('outdent')" class="p-2 hover:bg-accent rounded-lg transition-colors" title="Decrease Indent">
+              <ng-icon name="heroChevronLeft" class="w-4 h-4"></ng-icon>
+            </button>
+
+            <button type="button" (click)="formatText('indent')" class="p-2 hover:bg-accent rounded-lg transition-colors" title="Increase Indent">
+              <ng-icon name="heroChevronRight" class="w-4 h-4"></ng-icon>
+            </button>
+          </div>
+
+          <div class="w-px h-6 bg-border"></div>
+
+          <!-- Special Actions -->
+          <div class="flex items-center space-x-1">
+            <button type="button" (click)="formatText('undo')" class="p-2 hover:bg-accent rounded-lg transition-colors" title="Undo">
+              <ng-icon name="heroArrowUturnLeft" class="w-4 h-4"></ng-icon>
+            </button>
+
+            <button type="button" (click)="formatText('redo')" class="p-2 hover:bg-accent rounded-lg transition-colors" title="Redo">
+              <ng-icon name="heroArrowUturnRight" class="w-4 h-4"></ng-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editor Area -->
+        <div #editor
+             contenteditable="true"
+             (input)="onContentChange($event)"
+             (keydown)="handleKeyDown($event)"
+             [attr.dir]="'ltr'"
+             [style.font-family]="currentFont"
+             [style.font-size]="currentFontSize"
+             class="min-h-[300px] p-4 border text-foreground dark:text-foreground border-input rounded-b-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent prose prose-sm max-w-none text-left whitespace-pre-wrap"
+             style="unicode-bidi: embed;">
+        </div>
+
+        <div>
+          <label for="fileInput" class="block text-sm font-medium text-muted-foreground">Upload Picture</label>
+          <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500">
+            <input type="file" id="fileInput" class="hidden" (change)="onFileSelected($event)" />
+            <label for="fileInput" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 focus:outline-none cursor-pointer">Browse</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-1/2">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-48 bg-gray-200 flex items-center justify-center">
+            <img *ngIf="imagePreview" [src]="imagePreview" class="h-full w-full object-cover" alt="Preview" />
+            <span *ngIf="!imagePreview" class="text-gray-500">Image Preview</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-foreground">{{ postTitle || "Event Title" }}</h3>
+            <p class="mt-2 text-muted-foreground">{{ postDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

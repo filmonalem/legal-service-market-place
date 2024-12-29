@@ -1,0 +1,891 @@
+<div class="space-y-6">
+  <app-page-header
+    [title]="'LAWYERS.TITLE'"
+    [subtitle]="'LAWYERS.SUBTITLE'"
+    [isTransparent]="true"
+  ></app-page-header>
+
+  <div *ngIf="!isLoading" class="space-y-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+            <ng-icon
+              name="heroUserGroup"
+              class="w-6 h-6 text-blue-600 dark:text-blue-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "LAWYERS.STATS.ACTIVE" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              {{ lawyers.length || 0 }} / {{ lawyers.length || 0 }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-amber-100 dark:bg-amber-900 rounded-full">
+            <ng-icon
+              name="heroClipboardDocument"
+              class="w-6 h-6 text-amber-600 dark:text-amber-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "LAWYERS.STATS.INACTIVE" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              0 / {{ lawyers.length || 0 }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-green-100 dark:bg-green-900 rounded-full">
+            <ng-icon
+              name="heroCalendar"
+              class="w-6 h-6 text-green-600 dark:text-green-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "DASHBOARD.STATS.UPCOMING_APPOINTMENTS" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-transparent dark:bg-gray-800 rounded-lg p-5 shadow-md hover:shadow-xl transition-shadow duration-300"
+      >
+        <div class="flex items-center space-x-5">
+          <div class="p-3 bg-purple-100 dark:bg-purple-900 rounded-full">
+            <ng-icon
+              name="heroChatBubbleLeftRight"
+              class="w-6 h-6 text-purple-600 dark:text-purple-400"
+            ></ng-icon>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {{ "DASHBOARD.STATS.UNREAD_MESSAGES" | translate }}
+            </p>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              100
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-transparent rounded-lg shadow-xs p-6 mt-2">
+  <div class="p-2 border-b border-border">
+    <div
+      class="flex flex-col space-y-3 sm:flex-row sm:justify-between sm:items-center sm:space-y-0 sticky"
+    >
+      <!-- Left side -->
+      <div>
+        <h2 class="text-xl font-semibold text-foreground">
+          {{ "LAWYERS.TABLE.TITLE" | translate }}
+        </h2>
+        <p class="mt-1 text-sm text-muted-foreground">
+          {{ "LAWYERS.TABLE.SUBTITLE" | translate }}
+        </p>
+      </div>
+
+      <!-- Right side -->
+      <div
+        class="flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0"
+      >
+        <!-- Search Input -->
+        <!-- <div class="relative w-full sm:w-auto min-w-[200px] md:min-w-[300px]">
+          <ng-icon
+            name="heroMagnifyingGlass"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground/70 w-4 h-4"
+          >
+          </ng-icon>
+          <input
+            [formControl]="searchControl"
+            type="text"
+            class="w-full h-10 pl-11 pr-4 text-sm border border-border rounded-full bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 placeholder:text-muted-foreground/60 hover:border-primary/50"
+            [placeholder]="'LAWYERS.SEARCH_PLACEHOLDER' | translate"
+            (blur)="filterLawyer()"
+          />
+        </div> -->
+
+        <!-- Filter Tabs -->
+        <div class="inline-flex p-1 space-x-1 bg-muted/30 rounded-full">
+          <button
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (true === true
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+            Confirm
+          </button>
+          <button
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (true === true
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+            Pending
+          </button>
+
+          <button
+            [class]="
+              'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+              (true === true
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+            Print
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <body class="bg-transparent text-gray-900">
+    <div class="flex min-h-96">
+      <aside class="bg-transparent shadow-sm p-3 border-r">
+        <div class="relative w-full sm:w-auto min-w-[300px] md:min-w-[400px]">
+          <ng-icon
+            name="heroMagnifyingGlass"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground/70 w-4 h-4"
+          >
+          </ng-icon>
+          <input
+            [formControl]="searchControl"
+            type="text"
+            class="w-full h-10 pl-11 pr-4 text-sm border border-border rounded-full bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 placeholder:text-muted-foreground/60 hover:border-primary/50"
+            [placeholder]="'LAWYERS.SEARCH_PLACEHOLDER' | translate"
+            (blur)="filterLawyer()"
+          />
+        </div>
+
+        <div class="flex justify-between items-center mb-6 mt-4">
+          <button
+            [class]="
+              'px-8 py-2 text-sm font-medium rounded-full transition-all ' +
+              (true === true
+                ? 'bg-card text-foreground shadow-sm'
+                : 'text-muted-foreground hover:bg-muted/50')
+            "
+          >
+            <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+            All
+          </button>
+          <div class="flex space-x-3">
+            <button
+              [class]="
+                'px-8 py-2 text-sm font-medium rounded-full transition-all ' +
+                (true === true
+                  ? 'bg-card text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+              Old
+            </button>
+            <button
+              [class]="
+                'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                (true === true
+                  ? 'bg-card text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+              Latest
+            </button>
+          </div>
+        </div>
+
+        <ul class="space-y-6" *ngFor="let lawyer of lawyers">
+          <li
+            class="flex justify-between space-x-1 p-1.5 bg-salte-50 rounded-full shadow-sm bg-slate-50 hover:bg-gray-100 transition"
+          >
+            <img
+              [src]="'https://ui-avatars.com/api/?name=' + lawyer.fullName"
+              [alt]="lawyer.fullName"
+              class="rounded-full w-12 h-12 shadow"
+            />
+            <div>
+              <h2 class="font-semibold text-gray-800">{{ lawyer.fullName }}</h2>
+              <p class="text-sm text-gray-500">
+                Registered: {{ lawyer.createdDate | date : "mediumDate" }}
+              </p>
+            </div>
+            <div class="pt-2">
+              <button
+                (click)="showDetailLawyer(lawyer.lawyerId)"
+                class="mx-3 text-blue-600 hover:text-blue-800 text-lg font-bold"
+              >
+                →
+              </button>
+            </div>
+          </li>
+        </ul>
+      </aside>
+
+      <div
+        *ngIf="showLawyerInfo"
+        class="bg-transparent overflow-hidden mt-2 w-full"
+      >
+        <div class="flex items-center space-x-8 mb-10 mx-5">
+          <img
+            src="../../../../../public/images/IMG-2.jpg"
+            alt="LT"
+            class="rounded-full w-24 h-24 shadow-md"
+          />
+          <div class="mx-4">
+            <h1 class="text-3xl font-bold text-slate-500">Misgna Birhane</h1>
+            <p class="text-md text-gray-600 mt-1">
+              Joined Since: 12 March 2023
+            </p>
+            <span
+              class="bg-green-100 uppercase text-green-700 px-3 py-1 text-sm font-semibold rounded-full"
+              >LAWYER EXPERT</span
+            >
+          </div>
+
+          <div class="justify-end">
+            <button
+              [class]="
+                'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                (true === true
+                  ? 'bg-card text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+              Confirm
+            </button>
+
+            <button
+              [class]="
+                'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                (true === true
+                  ? 'bg-card text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+              Terminate Contract
+            </button>
+
+            <button
+              (click)="showLawyerDetails()"
+              [class]="
+                'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                (true === true
+                  ? 'bg-card text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:bg-muted/50')
+              "
+            >
+              <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+              Show Detail
+            </button>
+          </div>
+        </div>
+
+        <div
+          *ngIf="showEducationProfile"
+          class="grid md:grid-cols-3 gap-6 mt-6"
+        >
+          <!-- Contract Duration -->
+          <div class="bg-gray-50 p-4 rounded-lg shadow">
+            <h2 class="font-semibold text-lg mb-4">Contract Duration</h2>
+            <p class="text-sm mb-2">
+              <strong>Start:</strong> 17 September 2023
+            </p>
+            <p class="text-sm"><strong>End:</strong> 17 September 2024</p>
+            <div class="mt-4 text-sm text-green-600">72 Days until expired</div>
+            <div class="mt-4 flex space-x-2"></div>
+          </div>
+
+          <!-- Working Scope -->
+          <div class="bg-gray-50 p-4 rounded-lg shadow col-span-2">
+            <h2 class="font-semibold text-lg mb-4">Education Level</h2>
+            <ul class="list-disc list-inside text-sm space-y-2">
+              <li>
+                Develop and test new IT solutions, products, and services
+                through creative experimentation and prototyping.
+              </li>
+              <li>
+                Work closely with cross-functional teams providing technical
+                expertise and insights.
+              </li>
+            </ul>
+            <h2 class="font-semibold text-lg mb-4 mt-2">Work Experience</h2>
+            <ul class="list-disc list-inside text-sm space-y-2">
+              <li>
+                Provide legal counsel to clients on various matters, including
+                contract law, corporate governance, and compliance.
+              </li>
+              <li>
+                Draft, review, and negotiate contracts, agreements, and other
+                legal documents to ensure the best outcomes for clients.
+              </li>
+              <li>
+                Represent clients in court hearings, mediations, and arbitration
+                proceedings, delivering effective advocacy and legal strategy.
+              </li>
+              <li>
+                Conduct thorough legal research to support case preparation and
+                ensure accurate interpretation of statutes and precedents.
+              </li>
+              <li>
+                Collaborate with colleagues and stakeholders to address complex
+                legal challenges and achieve favorable resolutions.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contract Details -->
+        <div
+          *ngIf="showEducationProfile"
+          class="grid md:grid-cols-2 gap-6 mt-6"
+        >
+          <!-- Position Details -->
+          <div class="bg-transparent p-4 rounded-lg shadow">
+            <h2 class="font-semibold text-lg mb-4">
+              Contract Position Details
+            </h2>
+            <p class="text-sm"><strong>Job Role:</strong> Project Manager</p>
+            <p class="text-sm"><strong>Job Level:</strong> Manager Level</p>
+            <p class="text-sm">
+              <strong>Expected Work Hours:</strong> 30 hours/week
+            </p>
+            <p class="text-sm"><strong>Supervisor:</strong> Bagus Fikri</p>
+            <p class="text-sm"><strong>Employment Status:</strong> Fulltime</p>
+            <p class="text-sm"><strong>Department:</strong> Project Manager</p>
+          </div>
+
+          <!-- Compensation & Benefit -->
+          <div class="bg-transparent p-4 rounded-lg shadow">
+            <h2 class="font-semibold text-lg mb-4">Compensation & Benefit</h2>
+            <p class="text-sm"><strong>Payment Type:</strong> Monthly Salary</p>
+            <p class="text-sm"><strong>Basic Salary:</strong> $8,000/month</p>
+            <p class="text-sm">
+              <strong>Allowed to Submit Expenses:</strong> Yes
+            </p>
+          </div>
+        </div>
+
+        <!-- Contract Clauses -->
+        <div
+          *ngIf="showEducationProfile"
+          class="bg-transparent p-4 rounded-lg shadow mt-6"
+        >
+          <h2 class="font-semibold text-lg mb-4">Contract Clauses</h2>
+          <p class="text-sm">Days of Notice: <strong>30 days</strong></p>
+          <p class="text-sm">Due to Cure: <strong>-</strong></p>
+        </div>
+
+        <div class="overflow-x-auto w-full mt-4">
+          <div class="mx-4">
+            <h1 class="text-xl font-light text-gray-800">
+              Client Booked / Consultation
+            </h1>
+            <span
+              class="bg-yellow-100 text-yellow-700 px-3 py-1 text-sm font-medium rounded-full"
+              >100 clients</span
+            >
+          </div>
+
+          <table class="divide-y divide-gray-200 w-full">
+            <thead>
+              <tr class="border-b border-border bg-muted/30">
+                <th
+                  class="text-left px-6 py-4 font-medium text-muted-foreground text-sm tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.FULLNAME" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.INFO" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.DATE" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.STATUS" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.ACTIONS" | translate }}
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-transparent divide-y divide-gray-200">
+              <tr *ngFor="let lawyer of lawyers">
+                <td class="px-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10">
+                      <img
+                        class="h-10 w-10 rounded-full"
+                        [src]="
+                          'https://ui-avatars.com/api/?name=' + lawyer.fullName
+                        "
+                        [alt]="lawyer.fullName"
+                      />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        {{ lawyer.fullName }}
+                      </div>
+                      <div class="text-sm text-purple-500">
+                        {{ lawyer.gender }}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ lawyer.email }}
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    {{ lawyer.phoneNumber }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ lawyer.createdDate | date : "mediumDate" }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    [ngClass]="{
+                      'px-2 py-1 text-xs font-semibold rounded-full': true,
+                      'bg-green-100 text-green-800': lawyer.status === 'active',
+                      'bg-yellow-100 text-yellow-800':
+                        lawyer.status === 'pending',
+                      'bg-red-100 text-red-800': lawyer.status === 'inactive'
+                    }"
+                  >
+                    {{ lawyer.status }}
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <div class="flex items-center justify-center space-x-4">
+                    <button
+                      (click)="viewProfile(lawyer.lawyerId)"
+                      [class]="
+                        'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                        (true === true
+                          ? 'bg-card text-foreground shadow-sm'
+                          : 'text-muted-foreground hover:bg-muted/50')
+                      "
+                    >
+                      <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+                      Profile
+                    </button>
+
+                    <button
+                      (click)="viewProfile(lawyer.lawyerId)"
+                      [class]="
+                        'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                        (true === true
+                          ? 'bg-card text-foreground shadow-sm hover:bg-green-300'
+                          : 'text-muted-foreground hover:bg-muted/50 hover:bg-red-300')
+                      "
+                    >
+                      <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+                      {{ lawyer.status === "pending" ? "Show" : "Reject" }}
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="overflow-x-auto w-full mt-3">
+          <div class="mx-4">
+            <h1 class="text-xl font-light text-gray-800">
+              Payment Rate / Transactions
+            </h1>
+            <span
+              class="bg-green-100 text-green-700 px-3 py-1 text-sm font-medium rounded-full"
+            >
+              $1,000 - $10,000 / clients</span
+            >
+          </div>
+
+          <table class="divide-y divide-gray-200 w-full">
+            <thead>
+              <tr class="border-b border-border bg-muted/30">
+                <th
+                  class="text-left px-6 py-4 font-medium text-muted-foreground text-sm tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.FULLNAME" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.INFO" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.DATE" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.STATUS" | translate }}
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {{ "LAWYERS.TABLE.ACTIONS" | translate }}
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-transparent divide-y divide-gray-200">
+              <tr *ngFor="let lawyer of lawyers">
+                <td class="px-3 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10">
+                      <img
+                        class="h-10 w-10 rounded-full"
+                        [src]="
+                          'https://ui-avatars.com/api/?name=' + lawyer.fullName
+                        "
+                        [alt]="lawyer.fullName"
+                      />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        {{ lawyer.fullName }}
+                      </div>
+                      <div class="text-sm text-purple-500">
+                        {{ lawyer.gender }}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ lawyer.email }}
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    {{ lawyer.phoneNumber }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900">
+                    {{ lawyer.createdDate | date : "mediumDate" }}
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    [ngClass]="{
+                      'px-2 py-1 text-xs font-semibold rounded-full': true,
+                      'bg-green-100 text-green-800': lawyer.status === 'active',
+                      'bg-yellow-100 text-yellow-800':
+                        lawyer.status === 'pending',
+                      'bg-red-100 text-red-800': lawyer.status === 'inactive'
+                    }"
+                  >
+                    {{ lawyer.status }}
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <div class="flex items-center justify-center space-x-4">
+                    <button
+                      (click)="viewProfile(lawyer.lawyerId)"
+                      [class]="
+                        'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                        (true === true
+                          ? 'bg-card text-foreground shadow-sm'
+                          : 'text-muted-foreground hover:bg-muted/50')
+                      "
+                    >
+                      <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+                      Profile
+                    </button>
+
+                    <button
+                      (click)="viewProfile(lawyer.lawyerId)"
+                      [class]="
+                        'px-4 py-2 text-sm font-medium rounded-full transition-all ' +
+                        (true === true
+                          ? 'bg-card text-foreground shadow-sm hover:bg-green-300'
+                          : 'text-muted-foreground hover:bg-muted/50 hover:bg-red-300')
+                      "
+                    >
+                      <!-- {{ "APPOINTMENTS.FILTERS." | translate }} -->
+                      {{ lawyer.status === "pending" ? "Show" : "Reject" }}
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <div
+    *ngIf="showClientProfile"
+    class="fixed z-50 overflow-auto min-h-fit max-w-2xl top-0 justify-center"
+  >
+    <div class="min-h-screen flex items-center justify-center p-6">
+      <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl">
+        <div class="p-6">
+          <div class="flex items-center space-x-6 mb-3">
+            <img
+              src="https://via.placeholder.com/80"
+              alt="Client Profile"
+              class="rounded-full w-20 h-20 shadow-md"
+            />
+            <div>
+              <h2 class="text-xl font-semibold text-gray-800">
+                Client Full Name
+              </h2>
+              <p class="text-sm text-gray-500">
+                +251 - 927735000 | clientemail.com
+              </p>
+            </div>
+          </div>
+          <div class="px-3 py-4 border-b flex justify-between items-center">
+            <h1 class="text-1xl font-bold text-gray-800">
+              Case Appointment / Consultation
+              <span class="text-gray-500 text-sm">Case ID #LAW202324</span>
+            </h1>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-4">Case Summary</h3>
+            <p
+              class="text-sm text-gray-700 bg-gray-50 p-4 rounded-lg shadow-inner"
+            >
+              The client is requesting assistance with property settlement
+              negotiations and legal documentation for real estate transactions.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Legal Issues</h3>
+              <ul class="text-sm text-gray-700 list-disc pl-6">
+                <li>Property Dispute</li>
+                <li>Contract Breach</li>
+                <li>Documentation Errors</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Documents Required</h3>
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <span class="bg-gray-100 p-2 rounded shadow"
+                  >Deed Agreement</span
+                >
+                <span class="bg-gray-100 p-2 rounded shadow">Title Proof</span>
+                <span class="bg-gray-100 p-2 rounded shadow">NDA Copy</span>
+                <span class="bg-gray-100 p-2 rounded shadow">Tax Receipts</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Booking Information</h3>
+              <p class="text-sm text-gray-700">
+                Thursday, 12 November, 10:00 AM - 11:30 AM
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-4">Consultation Type</h3>
+              <p class="text-sm text-blue-600 font-semibold">
+                Virtual Meeting (Zoom)
+              </p>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold mb-4 sticky">
+              Follow-up Schedule
+            </h3>
+            <div class="space-y-4 overflow-x-auto">
+              <div
+                class="flex flex-col space-x-4 bg-gray-50 p-2 rounded-tl-2xl shadow"
+              >
+                <div class="flex justify-between mx-3">
+                  <div class="w-3 h-3 bg-green-500 rounded-full mt-5"></div>
+                  <div class="mr-5">
+                    <h4 class="text-sm font-semibold text-blue-600">
+                      Review Draft Agreement
+                    </h4>
+                    <p class="text-sm text-gray-700">22 Oct 2023, 11:00 AM</p>
+                    <p class="text-sm text-gray-500">
+                      Assigned to: Lilac Speechless | Court Case Division
+                    </p>
+                  </div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col space-x-4 bg-gray-50 p-2 rounded-tl-2xl shadow"
+              >
+                <div class="flex justify-between mx-3">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full mt-5"></div>
+                  <div class="mr-5">
+                    <h4 class="text-sm font-semibold text-blue-600">
+                      Review Draft Agreement
+                    </h4>
+                    <p class="text-sm text-gray-700">22 Oct 2023, 11:00 AM</p>
+                    <p class="text-sm text-gray-500">
+                      Assigned to: Lilac Speechless | Court Case Division
+                    </p>
+                  </div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col space-x-4 bg-gray-50 p-2 rounded-tl-2xl shadow"
+              >
+                <div class="flex justify-between mx-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full mt-5"></div>
+                  <div class="mr-5">
+                    <h4 class="text-sm font-semibold text-blue-600">
+                      Case Hearing Preparation
+                    </h4>
+                    <p class="text-sm text-gray-700">22 Oct 2023, 11:00 AM</p>
+                    <p class="text-sm text-gray-500">
+                      Assigned to: Lilac Speechless | Court Case Division
+                    </p>
+                  </div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col space-x-4 bg-gray-50 p-2 rounded-tl-2xl shadow"
+              >
+                <div class="flex justify-between mx-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full mt-5"></div>
+                  <div class="mr-5">
+                    <h4 class="text-sm font-semibold text-blue-600">
+                      Case Hearing Preparation
+                    </h4>
+                    <p class="text-sm text-gray-700">22 Oct 2023, 11:00 AM</p>
+                    <p class="text-sm text-gray-500">
+                      Assigned to: Lilac Speechless | Court Case Division
+                    </p>
+                  </div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col space-x-4 bg-gray-50 p-2 rounded-tl-2xl shadow"
+              >
+                <div class="flex justify-between mx-3">
+                  <div class="w-3 h-3 bg-red-500 rounded-full mt-5"></div>
+                  <div class="mr-5">
+                    <h4 class="text-sm font-semibold text-blue-600">
+                      Case Hearing Preparation
+                    </h4>
+                    <p class="text-sm text-gray-700">22 Oct 2023, 11:00 AM</p>
+                    <p class="text-sm text-gray-500">
+                      Assigned to: Lilac Speechless | Court Case Division
+                    </p>
+                  </div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- total price -->
+              <div class="flex flex-col space-x-4 shadow">
+                <div class="flex justify-between mx-3">
+                  <div class="mr-5"></div>
+
+                  <div class="mt-2 text-right">
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Total Payment:</span> $300.00
+                    </p>
+                    <p class="text-sm text-gray-700">
+                      <span class="font-semibold">Hourly Rate:</span> $150/hour
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end space-x-4">any review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

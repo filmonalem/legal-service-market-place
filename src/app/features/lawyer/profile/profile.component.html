@@ -1,0 +1,331 @@
+<div class="responsive-container animate-fadeIn space-y-6">
+  <!-- Header -->
+  <app-page-header
+    [title]="formSteps[currentStep].title | translate"
+    [subtitle]="formSteps[currentStep].subtitle | translate"
+    [isTransparent]="true">
+  </app-page-header>
+
+  <!-- Progress Steps -->
+  <div class="bg-card text-card-foreground rounded-xl p-6 shadow-lg">
+    <div class="flex items-center justify-between">
+      <div *ngFor="let step of formSteps; let i = index" class="flex items-center">
+        <div [class]="'flex items-center justify-center w-10 h-10 rounded-full text-xl font-bold ' + 
+          (i < currentStep ? 'bg-primary text-primary-foreground' :
+           i === currentStep ? 'bg-primary/20 text-primary border-2 border-primary' :
+           'bg-accent text-accent-foreground')">
+          {{ i + 1 }} 
+        </div>
+        <div *ngIf="i < formSteps.length - 1" class="w-full h-1 mx-2 rounded bg-gray-300" 
+             [class]="i < currentStep ? 'bg-primary' : 'bg-accent'"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Content -->
+  <div class="bg-card text-card-foreground rounded-xl shadow-lg">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      
+      <!-- Step 1: Personal Information -->
+      <div *ngIf="currentStep === 0" class="p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- First Name -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.FIRST_NAME' | translate }}
+            </label>
+            <input type="text"
+                   formControlName="firstName"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+            <div *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" 
+                 class="text-sm text-destructive mt-1">
+              {{ 'LAWYER_PROFILE.VALIDATION.FIRST_NAME_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <!-- Last Name -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.LAST_NAME' | translate }}
+            </label>
+            <input type="text"
+                   formControlName="lastName"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+            <div *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" 
+                 class="text-sm text-destructive mt-1">
+              {{ 'LAWYER_PROFILE.VALIDATION.LAST_NAME_REQUIRED' | translate }}
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-foreground mb-2">
+              {{ 'SIGNUP.GENDER' | translate }} 
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <input type="radio" id="genderMale" value="male" formControlName="gender" class="mr-2" />
+                <label for="genderMale" class="text-sm text-foreground cursor-pointer">
+                  {{ 'SIGNUP.GENDER_MALE' | translate }}
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input type="radio" id="genderFemale" value="female" formControlName="gender" class="mr-2" />
+                <label for="genderFemale" class="text-sm text-foreground cursor-pointer">
+                  {{ 'SIGNUP.GENDER_FEMALE' | translate }}
+                </label>
+              </div>
+            </div>
+            <div *ngIf="profileForm.get('gender')?.touched && profileForm.get('gender')?.invalid" 
+                 class="text-destructive text-sm mt-1">
+              {{ 'SIGNUP.GENDER_REQUIRED' | translate }} 
+            </div>
+          </div>
+          <!-- Birth Date -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.BIRTH_DATE' | translate }}
+            </label>
+            <input type="date"
+                   formControlName="birthDate"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.PHONE_NUMBER' | translate }}
+            </label>
+            <input type="tel"
+                   formControlName="phoneNumber"
+                   placeholder="09 or 07XXXXXXXX"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+            <div *ngIf="profileForm.get('phoneNumber')?.touched && profileForm.get('phoneNumber')?.invalid" 
+                 class="text-sm text-destructive mt-1">
+              {{ 'LAWYER_PROFILE.VALIDATION.PHONE_NUMBER_INVALID' | translate }}
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.LOCATION' | translate }}
+            </label>
+            <input type="text"
+                   formControlName="location"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+            <div *ngIf="profileForm.get('location')?.touched && profileForm.get('location')?.invalid" 
+                 class="text-sm text-destructive mt-1">
+              {{ 'LAWYER_PROFILE.VALIDATION.LOCATION_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <!-- Profile Picture Upload -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.PROFILE_PICTURE' | translate }}
+            </label>
+            <input type="file"
+                   (change)="onFileChange($event, 'profilePicture')"
+                   accept=".jpg,.jpeg,.png"
+                   class="hidden"
+                   #profilePictureInput>
+            <button type="button"
+                    (click)="profilePictureInput.click()"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              {{ 'LAWYER_PROFILE.BUTTONS.CHOOSE_FILE' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Professional Information -->
+      <div *ngIf="currentStep === 1" class="p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Specialization -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.SPECIALIZATION' | translate }}
+            </label>
+            <select formControlName="specialization"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              <option value="">{{ 'LAWYER_PROFILE.SELECT_SPECIALIZATION' | translate }}</option>
+              <option value="criminal">{{ 'LAWYER_PROFILE.SPECIALIZATIONS.CRIMINAL' | translate }}</option>
+              <option value="civil">{{ 'LAWYER_PROFILE.SPECIALIZATIONS.CIVIL' | translate }}</option>
+              <option value="corporate">{{ 'LAWYER_PROFILE.SPECIALIZATIONS.CORPORATE' | translate }}</option>
+              <option value="family">{{ 'LAWYER_PROFILE.SPECIALIZATIONS.FAMILY' | translate }}</option>
+            </select>
+          </div>
+
+          <!-- License Number -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.LICENSE_NUMBER' | translate }}
+            </label>
+            <input type="text"
+                   formControlName="licenseNumber"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- License Expiry Date -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.LICENSE_EXPIRY_DATE' | translate }}
+            </label>
+            <input type="date"
+                   formControlName="licenseExpiryDate"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Bar Number -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.BAR_NUMBER' | translate }}
+            </label>
+            <input type="text"
+                   formControlName="barNumber"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Experience -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.EXPERIENCE' | translate }}
+            </label>
+            <input type="number"
+                   formControlName="experience"
+                   min="0"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.LANGUAGES_TITLE' | translate }}
+            </label>
+            <select formControlName="languages"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              <option value="" disabled selected>{{ 'LAWYER_PROFILE.SELECT_LANGUAGES' | translate }}</option>
+              <option value="amharic">{{ 'LAWYER_PROFILE.LANGUAGES.AMHARIC' | translate }}</option>
+              <option value="english">{{ 'LAWYER_PROFILE.LANGUAGES.ENGLISH' | translate }}</option>
+              <option value="oromiffa">{{ 'LAWYER_PROFILE.LANGUAGES.OROMIFFA' | translate }}</option>
+              <option value="tigrinya">{{ 'LAWYER_PROFILE.LANGUAGES.TIGRIGNA' | translate }}</option>
+            </select>
+          </div>
+
+          <!-- Hourly Rate -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.HOURLY_RATE' | translate }}
+            </label>
+            <input type="number"
+                   formControlName="hourlyRate"
+                   min="0"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Bio -->
+          <div class="col-span-full">
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.BIO' | translate }}
+            </label>
+            <textarea formControlName="bio"
+                      rows="4"
+                      class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"></textarea>
+            <div *ngIf="profileForm.get('bio')?.touched && profileForm.get('bio')?.invalid" 
+                 class="text-sm text-destructive mt-1">
+              {{ 'LAWYER_PROFILE.VALIDATION.BIO_MIN_LENGTH' | translate }}
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Step 3: Documents -->
+      <div *ngIf="currentStep === 2" class="p-6 space-y-6" formGroupName="documents">
+        <div class="grid grid-cols-1 gap-6">
+
+          <!-- Approval Data -->
+          <div class="col-span-full">
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.APPROVAL_DATA' | translate }}
+            </label>
+            <textarea formControlName="approvalData"
+                      rows="4"
+                      class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"></textarea>
+          </div>
+
+          <!-- Degree Upload -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.DOCUMENTS.DEGREE' | translate }}
+            </label>
+            <input type="file"
+                   (change)="onFileChange($event, 'degree')"
+                   accept=".pdf,.jpg,.jpeg,.png"
+                   class="hidden"
+                   #degreeInput>
+            <button type="button"
+                    (click)="degreeInput.click()"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              {{ 'LAWYER_PROFILE.BUTTONS.CHOOSE_FILE' | translate }}
+            </button>
+          </div>
+
+          <!-- License Upload -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.DOCUMENTS.LICENSE' | translate }}
+            </label>
+            <input type="file"
+                   (change)="onFileChange($event, 'license')"
+                   accept=".pdf,.jpg,.jpeg,.png"
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+          <!-- Certificates Upload -->
+          <div>
+            <label class="block text-base font-semibold text-foreground mb-2">
+              {{ 'LAWYER_PROFILE.DOCUMENTS.CERTIFICATES' | translate }}
+            </label>
+            <input type="file"
+                   (change)="onFileChange($event, 'certificates')"
+                   accept=".pdf,.jpg,.jpeg,.png"
+                   multiple
+                   class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="p-6 border-t border-border">
+        <div class="flex justify-between">
+          <button type="button"
+                  *ngIf="currentStep > 0"
+                  (click)="previousStep()"
+                  class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+            {{ 'LAWYER_PROFILE.BUTTONS.PREVIOUS_STEP' | translate }}
+          </button>
+          
+          <div class="flex space-x-3">
+            <button type="button"
+                    *ngIf="currentStep < formSteps.length - 1"
+                    [disabled]="!canProceed()"
+                    (click)="nextStep()"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              {{ 'LAWYER_PROFILE.BUTTONS.NEXT_STEP' | translate }}
+            </button>
+            
+            <button type="submit"
+                    *ngIf="currentStep === formSteps.length - 1"
+                    [disabled]="!isFormValid() || isLoading"
+                    class="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50">
+              {{ isLoading ? 'COMMON.SUBMITTING' : 'LAWYER_PROFILE.BUTTONS.SUBMIT_PROFILE' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

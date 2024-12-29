@@ -1,0 +1,50 @@
+<div [class]="isTransparent ? 'px-1' : 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-sm'">
+    <div class="flex flex-col md:flex-row md:items-center justify-between space-y-3 md:space-y-0">
+      <!-- Title Section -->
+      <div>
+        <h1 class="text-lg md:text-xl font-semibold text-foreground">
+          {{ title | translate }}
+        </h1>
+        <p *ngIf="subtitle" class="mt-1 text-sm text-muted-foreground">
+          {{ subtitle | translate }}
+        </p>
+      </div>
+  
+      <!-- Actions Section -->
+      <div class="flex items-center space-x-3">
+        <!-- Action Buttons -->
+        <ng-container *ngFor="let action of actions">
+          <!-- Route Button -->
+          <a *ngIf="action.route"
+             [routerLink]="action.route"
+             class="inline-flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium
+                    transition-all duration-200 rounded-full shadow-sm
+                    focus:outline-none focus:ring-2 focus:ring-offset-2
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                    {{ getVariantClasses(action.variant) }}">
+            <ng-icon *ngIf="action.icon"
+                    [name]="action.icon"
+                    class="w-4 h-4">
+            </ng-icon>
+            <span>{{ action.label | translate }}</span>
+          </a>
+  
+          <!-- Click Button -->
+          <button *ngIf="action.click"
+                  (click)="action.click()"
+                  class="inline-flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium
+                         transition-all duration-200 rounded-full shadow-sm
+                         focus:outline-none focus:ring-2 focus:ring-offset-2
+                         disabled:opacity-50 disabled:cursor-not-allowed
+                         {{ getVariantClasses(action.variant) }}">
+            <ng-icon *ngIf="action.icon"
+                    [name]="action.icon"
+                    class="w-4 h-4">
+            </ng-icon>
+            <span>{{ action.label | translate }}</span>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  

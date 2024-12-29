@@ -1,0 +1,79 @@
+<div class="min-h-screen bg-secondary/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center mb-20">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-foreground relative inline-block">
+        {{ 'SERVICES.TITLE' | translate }}
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto mt-6">
+        {{ 'SERVICES.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+      <div *ngFor="let service of services" 
+           class="bg-card text-card-foreground rounded-2xl border border-border overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="relative overflow-hidden">
+          <div class="aspect-video bg-primary/10 flex items-center justify-center">
+            <svg class="w-16 h-16 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="service.icon"/>
+            </svg>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-3 text-foreground">{{ service.title | translate }}</h3>
+          <p class="text-muted-foreground mb-4">{{ service.description | translate }}</p>
+          <ul class="space-y-2 mb-6 text-muted-foreground">
+            <li *ngFor="let feature of service.features" class="flex items-center">
+              <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {{ feature | translate }}
+            </li>
+          </ul>
+          <a href="#" class="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+            {{ 'SERVICES.LEARN_MORE' | translate }}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-20">
+      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
+        {{ 'SERVICES.ADDITIONAL_SERVICES' | translate }}
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div *ngFor="let service of additionalServices" 
+             class="bg-card text-card-foreground p-6 rounded-xl border border-border hover:shadow-lg transition-all duration-300">
+          <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-foreground">{{ service.title | translate }}</h3>
+          <p class="text-muted-foreground text-sm">{{ service.description | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative rounded-3xl overflow-hidden backdrop-blur-sm">
+      <div class="relative px-6 py-16 sm:px-12 sm:py-20 text-center">
+        <h2 class="text-3xl font-bold mb-6 text-foreground">{{ 'SERVICES.CTA.TITLE' | translate }}</h2>
+        <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          {{ 'SERVICES.CTA.DESCRIPTION' | translate }}
+        </p>
+        <a 
+          routerLink="/login" 
+          class="inline-flex items-center px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-xl"
+        >
+          {{ 'SERVICES.CTA.BUTTON' | translate }}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

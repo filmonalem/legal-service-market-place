@@ -1,0 +1,832 @@
+{
+  "COMMON": {
+    "WELCOME": "እንኳን ደህና መጡ",
+    "HOME": "ቤት",
+    "ABOUT": "ስለ እኛ",
+    "CONTACT": "አግኙን",
+    "SERVICES": "አገልግሎቶች",
+    "RESOURCES": "ሀብቶች",
+    "LOGIN": "ግባ",
+    "HELP": "እርዳታ",
+    "LANGUAGE": "ቋንቋ",
+    "EDIT": "አስተካክል",
+    "SAVE": "ለውጦችን አስቀምጥ",
+    "CANCEL": "ሰርዝ",
+    "SUBMITTING": "በማስገባት ላይ...",
+    "VIEW_ALL": "ሁሉንም ይመልከቱ",
+    "LOADING": "በመጫን ላይ...",
+    "ERROR": "ስህተት ተከስቷል",
+    "NEXT": "ቀጣይ",
+    "PREVIOUS": "ተመለስ",
+    "SUBMIT": "አስገባ",
+    "SAVE_DRAFT": "እንደ ረቂቅ አስቀምጥ",
+    "UPLOAD": "ጫን",
+    "CHOOSE_FILE": "ፋይል ይምረጡ"
+  },
+  "NAV": {
+    "SERVICE1": "አገልግሎት 1",
+    "SERVICE2": "አገልግሎት 2",
+    "SERVICE3": "አገልግሎት 3",
+    "GUIDES": "መመሪያዎች",
+    "DOCUMENTS": "ሰነዶች",
+    "FAQ": "የተደጋገሙ ጥያቄዎች",
+    "DASHBOARD": "ዳሽቦርድ",
+    "LAWYERS": "ጠበቆችን ያግኙ",
+    "CASES": "የእኔ ጉዳዮች",
+    "APPOINTMENTS": "ቀጠሮዎች",
+    "MESSAGES": "መልእክቶች",
+    "RESOURCES": "ሀብቶች",
+    "FEEDBACK": "አስተያየት እና ግምገማዎች",
+    "PROFILE": "መገለጫ"
+  },
+  "LOGIN": {
+    "WELCOME_BACK": "እንኳን ደህና መጡ!",
+    "DESCRIPTION": "የህግ አገልግሎት መለያዎን ይግቡ",
+    "EMAIL": "ኢሜይል",
+    "EMAIL_PLACEHOLDER": "ኢሜይልዎን ያስገቡ",
+    "EMAIL_REQUIRED": "ኢሜይል ያስፈልጋል",
+    "PASSWORD": "የይለፍ ቃል",
+    "PASSWORD_PLACEHOLDER": "የይለፍ ቃልዎን ያስገቡ",
+    "PASSWORD_REQUIRED": "የይለፍ ቃል ያስፈልጋል",
+    "FORGOT_PASSWORD": "የይለፍ ቃል ረሱ?",
+    "NO_ACCOUNT": "መለያ የለዎትም?",
+    "SIGN_UP": "ይመዝገቡ"
+  },
+  "SIGNUP": {
+    "WELCOME": "ወደ የህግ ማህበረሰባችን ይቀላቀሉ",
+    "DESCRIPTION": "የህግ አገልግሎታችንን ለማግኘት መለያ ይፍጠሩ",
+    "CREATE_ACCOUNT": "መለያ ፍጠር",
+    "CREATING_ACCOUNT": "መለያ በመፍጠር ላይ...",
+    "FIRST_NAME": "ስም",
+    "FIRST_NAME_PLACEHOLDER": "ስምዎን ያስገቡ",
+    "FIRST_NAME_REQUIRED": "ስም ያስፈልጋል",
+    "LAST_NAME": "የአባት ስም",
+    "LAST_NAME_PLACEHOLDER": "የአባት ስምዎን ያስገቡ",
+    "LAST_NAME_REQUIRED": "የአባት ስም ያስፈልጋል",
+    "PHONE_NUMBER": "ስልክ ቁጥር",
+    "PHONE_PLACEHOLDER": "ስልክ ቁጥርዎን ያስገቡ",
+    "PHONE_REQUIRED": "ስልክ ቁጥር ያስፈልጋል",
+    
+"PHONE_INVALID": "የስልክ ቁጥር ትክክለኛ አይደለም",
+    "EMAIL": "ኢሜይል",
+    "EMAIL_PLACEHOLDER": "ኢሜይልዎን ያስገቡ",
+    "EMAIL_REQUIRED": "ኢሜይል ያስፈልጋል",
+    "GENDER": "ፆታ",
+   "GENDER_MALE": "ወንድ",
+   "GENDER_FEMALE": "ሴት",
+  "GENDER_REQUIRED": "ፆታ ያስፈልጋል",
+    "PASSWORD": "የይለፍ ቃል",
+    "PASSWORD_PLACEHOLDER": "የይለፍ ቃልዎን ያስገቡ",
+    "PASSWORD_REQUIRED": "የይለፍ ቃል ያስፈልጋል",
+    "CONFIRM_PASSWORD": "የይለፍ ቃል ያረጋግጡ",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "የይለፍ ቃልዎን ያደገና ያስገቡ",
+    "PASSWORD_MISMATCH": "የይለ ቹ አይመሳሰሉም",
+    "ACCEPT_TERMS": "እቀበላለሁ",
+    "TERMS_CONDITIONS": "መተዳደሪያ ደንቦችን",
+    "ALREADY_HAVE_ACCOUNT": "መለያ አለዎት?",
+    "LOGIN": "ግባ",
+    "SELECT_ROLE": "ሚናዎን ይምረጡ",
+    "ROLE_REQUIRED": "እባክዎ ሚና ይምረጡ",
+    "ROLES": {
+      "CLIENT": {
+        "NAME": "ደንበኛ",
+        "DESCRIPTION": "የህግ አገልግሎትና ምክር የሚፈልጉ"
+      },
+      "LAWYER": {
+        "NAME": "ጠበቃ",
+        "DESCRIPTION": "የህግ አገልግሎትና ምክር የሚሰጡ"
+      },
+      "ADMIN": {
+        "NAME": "አስተዳዳሪ",
+        "DESCRIPTION": "መድረኩን እና ተጠቃሚዎችን ያስተዳድሩ"
+      }
+    },
+    "USERNAME": "የተጠቃሚ ስም",
+    "USERNAME_PLACEHOLDER": "የተጠቃሚ ስምዎን ያስገቡ",
+    "USERNAME_REQUIRED": "የተጠቃሚ ስም ያስፈልጋል"
+  },
+  "BANNER": {
+    "TITLE": "የታመኑ ጠበቆች የተረጋገጡ ውጤቶች",
+    "DESCRIPTION": "በፍትህ ጉዞዎ ላይ የእርስዎ አጋር፣ በእያንዳንዱ እርምጃ እንመራዎታለን። ለግላዊ የህግ አገልግሎቶ ዛሬውኑ ያግኙን።",
+    "LEARN_MORE": "ተ���ማሪ ይወቁ",
+    "GET_STARTED": "ይጀምሩ"
+  },
+  "HELP": {
+    "TITLE": "የእርዳታ ማዕከል",
+    "DESCRIPTION": "ለተደጋጋሚ ጥያቄዎች መልስ ያግኙ እና አገልግሎታችንን እንዴት እንደሚጠቀሙ ይወቁ",
+    "START_TOUR": "መመሪያውን ይጀምሩ",
+    "NEXT": "ቀጣይ",
+    "PREVIOUS": "ቀዳሚ",
+    "FINISH": "ጨርስ",
+    "SECTIONS": {
+      "GETTING_STARTED": {
+        "TITLE": "መጀመሪያ",
+        "DESCRIPTION": "የህግ አገልግሎት መድረካችንን መሰረታዊ አጠቃቀም ይማሩ"
+      },
+      "LEGAL_SERVICES": {
+        "TITLE": "የህግ አገልግሎቶች",
+        "DESCRIPTION": "የተለያዩ የህግ አገልግሎቶቻችንን እና እንዴት እንደሚያገኟቸው ይረዱ"
+      },
+      "ACCOUNT": {
+        "TITLE": "የመለያ አስተዳደር",
+        "DESCRIPTION": "የመለያዎን ቅንብሮች እና ምርጫዎች ያስተዳድሩ"
+      }
+    },
+    "TOUR": {
+      "STEP1": {
+        "TITLE": "መለያ ይፍጠሩ",
+        "CONTENT": "ሁሉንም አገልግሎቶቻችንን ለማግኘት መለያ በመፍር ይጀምሩ"
+      },
+      "STEP2": {
+        "TITLE": "መገለጫዎን ያጠናቅቁ",
+        "CONTENT": "የግል የህግ እርዳታ ለማግኘት የመገለጫ መረጃዎን ይሙሉ"
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "ስለ LegalMarket",
+    "DESCRIPTION": "የእርስዎ ዋነኛ የህግ አገልግሎቶች መዳረሻ። ደንበኞችን ከባለሙያ የህግ ባለሙያዎች ጋር እናገናኛለን፣ ጥራት ያለው የህግ እርዳታ ለሁሉም ሰው ተደራሽ እናደርጋለን።",
+    "STATS": {
+      "EXPERIENCE": "ዓመታት ልምድ",
+      "CASES": "የተሸነፉ ጉዳዮች",
+      "LAWYERS": "ባለሙያ ጠበቆች",
+      "SUCCESS_RATE": "የስኬት መጠን"
+    },
+    "MISSION": {
+      "TITLE": "ተልእኮአችን",
+      "DESCRIPTION": "ደንበኞችን ከትክክለኛ የህግ ባለሙያዎች ጋር የሚያገናኝ ቀልጣፋ የገበያ ቦታ በመፍጠር የህግ አገልግሎቶችን ለማሻሻል። ጥራት ያለው የህ እርዳታ ለሁሉም ሰው ተደራሽ፣ ግልጽ እና ቀልጣፋ እንዲሆን እንሰራለን።"
+    },
+    "VISION": {
+      "TITLE": "ራዕያችን",
+      "DESCRIPTION": "የህግ ባለሙያዎችን ግኘት ማገናኘት እንደ አንድ ጠቅታ ቀላል የሆነበት፣ በዓለም ደረጃ መሪ የህግ ገበያ ለመሆን። ጥራት �����ለ��������� የህግ አገልግሎት ለሁሉም ሰው ተደራሽ የሆነበትን ወደፊት እንመኛለን።"
+    },
+    "TEAM": {
+  "TITLE": "የእኛ የመሪነት ቡድን",
+  "MEMBER1": {
+    "NAME": "ፍል���ን አለም",
+    "ROLE": "አ.አ & ኮ-መነሻ ተመራቂ",
+    "DESCRIPTION": "በሕግ ቴክኖሎጂ ኢኖቬሽን ላይ ከ1 በላይ ዓመታ ተሞክሮ ያለው የቀድሞ የስምሪት ፍርድ ቤት ስራ አስኪያጅ።"
+  }
+},
+
+    "CTA": {
+      "TITLE": "ለመጀመር ዝግጁ ነዎት?",
+      "DESCRIPTION": "ዛሬውኑ LegalMarket ን ይቀላቀሉ እና የወደፊቱን የህግ አገልግሎቶች ይሞክሩ።",
+      "BUTTON": "አግኙን"
+    }
+  },
+  "SERVICES": {
+    "TITLE": "የህግ አገልግሎቶቻችን",
+    "SUBTITLE": "ለፍላጎትዎ የተዘጋጁ አጠላይ ህግ መፍትሄዎች። ልምድ ያለው ቡድናችን በተለያዩ የተግባር መስኮች ባለሙያ መመሪያ ይ��ጣል።",
+    "LEARN_MORE": "ተጨማሪ ይወቁ",
+    "CORPORATE": {
+      "TITLE": "የኩባንያ ህግ",
+      "DESCRIPTION": "በንግድ ማቋቋም፣ ውሎች፣ ውህደትና ግዢዎች እና የኩባንያ አስተዳደር ባለያ መመሪያ።",
+      "FEATURES": {
+        "BUSINESS": "የንግድ ማቋቋም",
+        "CONTRACT": "ውል ግምገማ",
+        "MERGER": "ውህደትና ግዢዎች"
+      }
+    },
+    "IP": {
+      "TITLE": "የአእምሯዊ ንብረት",
+      "DESCRIPTION": "ፈጠራዎችዎን እና የፈጠራ ስራዎችዎን በሙ የIP አገልግሎቶች ይጠብቁ።",
+      "FEATURES": {
+        "PATENT": "የፓተንት ማመልከቻዎች",
+        "TRADEMARK": "የንግድ ምልክት ምዝገባ",
+        "COPYRIGHT": "የቅጂ መብት ጥበቃ"
+      }
+    },
+    "LITIGATION": {
+      "TITLE": "ክርክር",
+      "DESCRIPTION": "በፍርድ ቤት ሂደቶች እና በግጭት አፈታት ጠንካራ ጠበቃ እና ውክልና።",
+      "FEATURES": {
+        "CIVIL": "የፍትሐብሔር ክርክር",
+        "DISPUTE": "አማራጭ የግጭት አፈታት",
+        "APPEALS": "ይግባኝ"
+      }
+    },
+    "ADDITIONAL_SERVICES": "ተጨማሪ የህግ አገልግሎቶች",
+    "FAMILY": {
+      "TITLE": "የቤተሰብ ህግ",
+      "DESCRIPTION": "የፍቺ፣ የአሳዳጊነት እና የቤተሰብ ግጭት አፈታት አገልግሎቶች።"
+    },
+    "REAL_ESTATE": {
+      "TITLE": "ንብረት",
+      "DESCRIPTION": "የንብረት ግብይቶች እና የንብረት ክርክሮች።"
+    },
+    "EMPLOYMENT": {
+      "TITLE": "የሥራ ህግ",
+      "DESCRIPTION": "የሥራ ቦታ ግጭቶች እና የሥራ ውሎች።"
+    },
+    "TAX": {
+      "TITLE": "የግብር ህግ",
+      "DESCRIPTION": "የግብር ዕቅድ እና የግጭት አፈታት አገልግሎቶች።"
+    },
+    "CTA": {
+      "TITLE": "የህግ እርዳታ ያስፈልግዎታል?",
+      "DESCRIPTION": "ለምክክር ዛሬ ያግኙን። ልምድ ያለው ቡድናችን የህግ ፈተናዎችዎን እንዲያልፉ ለመርዳት ዝግጁ ነው።",
+      "BUTTON": "ቀጠሮ ይያዙ"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "አግኙን",
+    "SUBTITLE": "ከህግ ባለሙያዎቻችን ጋር ይገናኙ። ለህግ ፍላጎትዎ እርዳታ ለመስጠት እዚህ አለን።",
+  "OFFICE": {
+    "TITLE": "የእኛ ቢሮ",
+    "ADDRESS": " አራዳ ጎደና, አዲስ አበባ, AR_04_0643 ጎደና"
+    },
+
+
+    "EMAIL": {
+      "TITLE": "ኢሜይል ያድርጉልን",
+      "ADDRESSES": "info@legal.com\nsupport@legal.com"
+    },
+    "PHONE": {
+      "TITLE": "ይውሉልን",
+      "NUMBERS": "(251) 925439811\n(251) 987978711"
+    },
+    "HOURS": {
+      "TITLE": "የስራ ሰዓታት",
+      "SCHEDULE": "ሰኞ - አርብ፡ 9:00 ጥዋት - 6:00 ማታ\nቅዳሜ፡ 10:00 ጥዋት - 2:00 ከሰዓት"
+    },
+    "FORM": {
+      "TITLE": "መልዕክት ይላኩልን",
+      "FIRST_NAME": "ስም",
+      "FIRST_NAME_PLACEHOLDER": "ስምዎን ያስገቡ",
+      "LAST_NAME": "የአባት ስም",
+      "LAST_NAME_PLACEHOLDER": "የአባት ስምዎን ያስገቡ",
+      "USERNAME": "የተጠቃሚ ስም",
+      "USERNAME_PLACEHOLDER": "የተጠቃሚ ስምዎን ያስገቡ",
+      "USERNAME_REQUIRED": "የተጠቃሚ ስም አስፈላጊ ነው",
+      "EMAIL": "ኢሜል",
+      "EMAIL_PLACEHOLDER": "example@example.com",
+      "EMAIL_REQUIRED": "ኢሜል አስፈላጊ ነው",     
+      "PHONE": "ስልክ",
+      "PHONE_PLACEHOLDER": "ስልክ ቁጥርዎን ያስገቡ",
+      "SERVICE_TYPE": "የአገልግሎት ዓይነት",
+      "SELECT_SERVICE": "አገልግሎት ይምረጡ",
+      "MESSAGE": "መልዕክ��",
+      "MESSAGE_PLACEHOLDER": "እንዴት ልንረዳዎት እንችላለን?",
+      "SUBMIT": "መልዕክት ላክ",
+      "SERVICES": {
+        "CORPORATE": "የኩባንያ ህግ",
+        "IP": "የአእምሯዊ ንብረት",
+        "LITIGATION": "ክርክር",
+        "FAMILY": "የቤተሰብ ህግ",
+        "REAL_ESTATE": "ንብረት"
+      }
+    }
+  },
+  "FOOTER": {
+  "ABOUT_US": "ስለ እኛ",
+  "ABOUT_DESCRIPTION": "የተአማነት ሕግ ባለሙያዎች በተንከባካቢ የሕግ አገልግሎት እያቀረብን እንቀመጣለን።",
+  "QUICK_LINKS": "ፈጣ ስመሮች",
+  "CONTACT_INFO": "የእኛ መገኛ መረጃ",
+  "EMAIL": "ኢሜል፡ info@legal.com",
+  "PHONE": "ስልክ (251) 925439811",
+  "ADDRESS": "አድራሻ፡ 123 አራዳ ጎደና, አዲስ አበባ, AR_04_0643 ጎደና",
+  "FOLLOW_US": "እኛን ይከተሉ",
+  "COPYRIGHT": "© 2024 የሕግ አገልግሎቶች። መብቱ የተጠበቀ ነው።"
+},
+
+  "RESOURCES": {
+    "TITLE": "የኢትዮጵያ ሕጋዊ ምንጮች",
+    "TOC": "ማውጫ",
+    "SECTIONS": {
+      "CONSTITUTION": {
+        "TITLE": "ሕገ-መንግስት",
+        "CONTENT": "የኢትዮጵያ ፌደራላዊ ዲሞክራሲያዊ ሪፐብሊክ ሕገ-መንግስት የአገሪቱ የበላይ ሕግ ነው።",
+        "SUBSECTIONS": {
+          "FUNDAMENTAL_RIGHTS": "መሰረታዊ መብቶች",
+          "FEDERAL_STRUCTURE": "የፌደራል መዋቅር"
+        },
+        "ITEMS": {
+          "RIGHT_TO_LIFE": "የሕይወት መብት",
+          "RIGHT_TO_LIBERTY": "የነጻነት መብት",
+          "RIGHT_TO_EQUALITY": "የእኩልነት መብት",
+          "FEDERAL_STRUCTURE": "የፌደራል መዋቅር",
+          "STATE_POWERS": "የክልል ስልጣናት",
+          "LOCAL_GOVERNMENT": "የአካባቢ መንግስት"
+        }
+      },
+      "CIVIL_CODE": {
+        "TITLE": "ሲቪል ሕግ",
+        "CONTENT": "የኢትዮጵያ ሲቪል ሕግ የግል ግንኙነቶችንና የንብረት መብቶችን የሚያስተዳድር ነው።",
+        "SUBSECTIONS": {
+          "CONTRACTS": "ውሎች",
+          "PROPERTY": "ንብረት"
+        },
+        "ITEMS": {
+          "CONTRACT_FORMATION": "የውል አመሰራረት",
+          "CONTRACT_PERFORMANCE": "የውል አፈጻጸም",
+          "CONTRACT_BREACH": "የውል ጥሰት",
+          "OWNERSHIP": "ባለቤትነት",
+          "POSSESSION": "ይዞታ",
+          "SERVITUDES": "አገልግሎቶች"
+        }
+      }
+    },
+    "DOWNLOAD": {
+      "TITLE": "ምንጮችን አውርድ",
+      "DESCRIPTION": "ሁሉንም የሕግ ምንጮችና ሰነዶች ያለ ኢንተርኔት ለመጠቀም ያውርዱ።",
+      "BUTTON": "ምንጮችን አውርድ"
+    }
+  },
+  "DASHBOARD": {
+    "WELCOME": {
+      "TITLE": "ወደ የሽቦርድዎ እንኳን ደህና መጡ",
+      "SUBTITLE": "ጉዳዮችዎን ይከታተሉ እና የህ��� እንቅስቃሴዎችን ያስተዳድሩ"
+    },
+    "NEW_CASE": "አዲስ ጉዳይ",
+    "STATS": {
+      "ACTIVE_CASES": "ነቃ ጉዳዮች",
+      "PENDING_TASKS": "በመጠባበቅ ላይ ያሉ ተግባራት",
+      "UPCOMING_APPOINTMENTS": "ቀጣይ ቀጠሮዎች",
+      "UNREAD_MESSAGES": "ያልተነበቡ መልእክቶች"
+    },
+    "RECENT_CASES": {
+      "TITLE": "የቅርብ ጊዜ ጉዳዮች",
+      "NO_CASES": "የቅርብ ጊዜ ጉዳዮች የሉም"
+    },
+    "UPCOMING_APPOINTMENTS": {
+      "TITLE": "ቀጣይ ቀጠሮዎች",
+      "NO_APPOINTMENTS": "ምንም ቀጣይ ቀጠሮዎች የሉም"
+    },
+    "CASE_STATUS": {
+      "PENDING": "በመጠባበቅ ��ይ",
+      "IN_PROGRESS": "በሂደት ላይ",
+      "COMPLETED": "ተጠናቋል"
+    },
+    "NO_RECENT_CASES": "ምንም የቅርብ ጊዜ ጉዳዮች የሉዎትም",
+    "NO_UPCOMING_APPOINTMENTS": "ምንም ቀጣይ ቀጠሮዎች የሉዎትም"
+  },
+  "PROFILE": {
+    "TITLE": "የመገለጫ ቅንብሮች",
+    "SUBTITLE": "የመለያዎን መረጃ እና ምርጫዎችን ያስተዳድሩ",
+    "PERSONAL_INFO": "የግል መረጃ",
+    "EMAIL": "የኢሜይል አድራሻ",
+    "PHONE_NUMBER": "ስልክ ቁጥር",
+    "CHANGE_PASSWORD": "የይለፍ ቃል ይቀይሩ",
+    "CURRENT_PASSWORD": "የአሁኑ የይለፍ ቃል",
+    "NEW_PASSWORD": "አዲስ የይለፍ ቃል",
+    "CONFIRM_PASSWORD": "አዲስ የይለፍ ቃል ያረጋግጡ",
+    "UPDATE_PASSWORD": "የይለፍ ቃል ያዘምኑ",
+    "UPLOAD_PHOTO": "ፎቶ ይጫኑ",
+    "REMOVE_PHOTO": "ፎቶ ያስወግዱ",
+    "VIEW": "መገለጫ ይመልከቱ",
+    "SETTINGS": "ቅንብሮች",
+    "BILLING": "ክፍያዎች",
+    "LOGOUT": "ውጣ",
+    "SAVE_CHANGES": "ለውጦችን አስቀምጥ",
+    "CANCEL_CHANGES": "ሰርዝ",
+    "SUCCESS": {
+      "PROFILE_UPDATED": "መገለጫው በተሳካ ሁኔታ ተዘምኗል",
+      "PASSWORD_CHANGED": "የይለፍ ቃል በተሳካ ሁኔታ ተቀይሯል"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "መገለጫን ማዘመን አልተሳካም",
+      "PASSWORD_CHANGE_FAILED": "የይለፍ ቃል መቀየር አልተሳካም",
+      "INVALID_CURRENT_PASSWORD": "የአሁኑ የይለፍ ቃል ትክክል አይደለም"
+    }
+  },
+  "LAWYERS": {
+    "TITLE": "ጠበቃ ያልግ",
+    "SUBTITLE": "በልምድ የበለጸጉ ጠበቆችን ያግኙ",
+    "VIEW_PROFILE": "ፕሮፋይል ይመልከቱ",
+    "BOOK_NOW": "ቀጠሮ ያስይዙ",
+    "BOOK_CONSULTATION": "ምክክር ያስይዙ",
+    "EXPERIENCE": "የስራ ልምድ",
+    "YEARS": "ዓመታት",
+    "CASES_WON": "የተሸነፉ ጉዳዮች",
+    "QUICK_INFO": "አጭር መረጃ",
+    "LANGUAGES": "ቋንቋዎች",
+    "EDUCATION": "ትምህርት",
+    "HOURLY_RATE": "የሰዓት ክፍያ",
+    "ABOUT": "ስለ እኛ",
+    "AVAILABILITY": {
+      "AVAILABLE": "ይገኛል",
+      "UNAVAILABLE": "አይገኝም"
+    }
+  },
+ "BOOKING": {
+    "TITLE": "ቀጠሮ ይያዙ",
+    "SUBTITLE": "ከህግ አማካሪዎ ጋር ስብሰባ ይያዙ",
+    "CONSULTATION_TYPE": "የምክክር አይነት ይምረጡ",
+    "TYPES": {
+      "INITIAL": "የመጀመሪያ ምክክር",
+      "FOLLOWUP": "የክትትል ስብሰባ",
+      "DOCUMENT_REVIEW": "የሰነድ ግምገማ",
+      "COURT_PREP": "ለፍርድ ቤት ዝግጅት"
+    },
+    "SELECT_DATE": "ቀን ይምረጡ",
+    "SELECT_TIME": "ሰዓት ይምረጡ",
+    "DESCRIPTION": "የምክክር ዝርዝሮች",
+    "DESCRIPTION_PLACEHOLDER": "እባክዎ የህግ ፍላጎትዎን እና ለመወያየት የሚፈልጓቸውን ማናቸውንም ልዩ ጥያቄዎች ይግለጹ...",
+    "ATTACHMENTS": "ሰነዶችን ያያይዙ",
+    "DRAG_DROP": "ፋይሎችን እዚህ ይጎትቱ እና ይጣሉ፣ ���ይም ለማሰስ ይጫኑ",
+    "BROWSE_FILES": "ፋይሎችን ያስሱ",
+    "ADD_MORE_FILES": "ተጨማሪ ፋይሎችን ያክሉ",
+    "CONFIRM": "ቀጠሮ ያረጋግጡ",
+    "SUCCESS": "ቀጠሮ በተሳካ ሁኔታ ተይዟል",
+    "ERROR": "ቀጠሮ መያዝ አልተሳካም"
+  },
+  "FEEDBACK": {
+    "TITLE": "ልምድዎን ያካፍሉ",
+    "SUBTITLE": "የእርስዎን ጠቃሚ አስተያየት በመስጠት አገልግሎታችንን እንድናሻሽል ይርዱን",
+    "OVERALL_RATING": "አጠቃላይ ደረጃ",
+    "DETAILED_RATINGS": "የተለያዩ ገጽታዎችን ይደርጁ",
+    "CRITERIA": {
+      "EXPERTISE": "የህግ ባለሙያነት",
+      "COMMUNICATION": "ግንኙነት",
+      "RESPONSIVENESS": "ምላሽ መስጠት",
+      "VALUE": "የገንዘብ ዋጋ",
+      "PROFESSIONALISM": "ሙያዊነት"
+    },
+    "REVIEW": "አስተያየትዎን ይጻፉ",
+    "REVIEW_PLACEHOLDER": "ከዚህ ጠበቃ ጋር ያለዎትን ልምድ ያካፍሉ...",
+    "WOULD_RECOMMEND": "ይህን ጠበቃ ለሌሎች ያስተዋውቃሉ?",
+    "YES": "አዎ",
+    "NO": "አይ",
+    "IMPROVEMENTS": "የማሻሻያ ሀሳቦች",
+    "IMPROVEMENTS_PLACEHOLDER": "ምን ማሻሻል እንችላለን?",
+    "SUBMIT_ANONYMOUSLY": "ይህን አስተያየት ስም ሳይገለጽ ያስገቡ",
+    "SUBMIT": "አስተያየት ያስገቡ",
+    "SUCCESS": "ለአስተያየትዎ እናመሰግናለን!",
+    "ERROR": "አስተያየት ማስገባት አልተሳካም"
+  },
+  "LAWYER_PROFILE": {
+    "TITLE": "የጠበቃ መገለጫ",
+    "SUBTITLE": "የሙያዊ መረጃዎን እና ማረጋገጫዎችን ያስተዳድሩ",
+    "FIRST_NAME": "ስም",
+    "LAST_NAME": "የአባት ስም",
+    "SPECIALIZATION": "የሙያ መስክ",
+    "SELECT_SPECIALIZATION": "የሙያ መስክዎን ይምረጡ",
+    "BAR_NUMBER": "የባር ማህበር ቁጥር",
+    "LANGUAGES": "የሚናገሩት ቋንቋዎች",
+    "BIO": "ሙያዊ ግለ ታሪክ",
+    "BIO_PLACEHOLDER": "የሙያዊ ልምድዎን እና ብቃትዎን አጭር መግለጫ ይጻፉ...",
+    "PHONE_NUMBER": "ስልክ ቁጥር",
+    "LOCATION": "የቢሮ አድራሻ",
+    "HOURLY_RATE": "የሰዓት ክፍያ",
+    "AVAILABLE_FOR_HIRE": "ለአዲስ ደንበኞች ክፍት",
+    "DOCUMENTS": {
+      "TITLE": "የትምህርት እና የሙያ ማረጋገጫ ሰነዶች",
+      "UPLOAD": "ሰነድ ይጫኑ",
+      "UPLOAD_HINT": "PDF፣ DOC እስከ 5MB",
+      "VERIFICATION_NOTE": "እባክዎ የሰነዶችዎን ግልባጭ በግልጽ ይጫኑ። የአስተዳደር ቡድናችን ማረጋገጫዎችዎን በ24-48 ሰዓታት ውስጥ ያረጋግጣል።"
+    },
+    "DOCUMENT_TYPES": {
+      "DEGREE": "የህግ ዲግሪ",
+      "CERTIFICATE": "የሙያ ሰርተፊኬቶች",
+      "LICENSE": "የባር ፈቃድ"
+    },
+    "VERIFICATION_STATUS": "የማረጋገጥ ሁኔታ",
+    "STATUS": {
+      "PENDING": "በመጠባበቅ ላይ",
+      "VERIFIED": "ተረጋግጧል",
+      "REJECTED": "ተቀባይነት አላገኘም"
+    },
+    "SUCCESS": {
+      "PROFILE_UPDATED": "መገለጫው በተሳካ ሁኔታ ተዘምኗል",
+      "DOCUMENT_UPLOADED": "ሰነዱ በተሳካ ሁኔታ ተጭኗል"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "መገለጫን ማዘመን አልተሳካም",
+      "UPLOAD_FAILED": "ሰነድ መጫን አልተሳካም",
+      "INVALID_FILE_TYPE": "ልክ ያልሆነ የፋይል ይነት። እባክዎ PDF ወይም DOC ፋይሎችን ይጫኑ",
+      "FILE_TOO_LARGE": "ፋይሉ በጣም ትልቅ ነው። ከፍተኛው መጠን 5MB ነው"
+    },
+    "BUTTONS": {
+      "NEXT_STEP": "ወደ ቀጣይ",
+      "PREVIOUS_STEP": "ወደ ኋላ",
+      "SUBMIT_PROFILE": "መገለጫ አስገባ",
+      "SAVE_DRAFT": "እንደ ረቂቅ አስቀምጥ",
+      "UPLOAD_FILE": "ፋይል ጫን",
+      "CHOOSE_FILE": "ፋይል ምረጥ",
+      "REMOVE_FILE": "ፋይል አስወግድ",
+      "BACK": "ተመለስ"
+    }
+  },
+  "LAWYER_DASHBOARD": {
+    "WELCOME": "እንኳን ደህና መጡ",
+    "WELCOME_SUBTITLE": "የህግ ሙያዎን እና የደንበኞች ግንኙነትዎን ያስተዳድሩ",
+    "PROFILE_COMPLETION": "የመገለጫ ሁኔታ",
+    "STEPS_COMPLETED": "ደረጃዎች ተጠናቅቀዋል",
+    "QUICK_ACTIONS": {
+      "COMPLETE_PROFILE": "መገለጫ ያጠናቅቁ",
+      "COMPLETE_PROFILE_DESC": "የሙያ መረጃዎን እና ማረጋገጫዎችን ያክሉ",
+      "UPLOAD_DOCUMENTS": "ሰነዶችን ያስገቡ",
+      "UPLOAD_DOCUMENTS_DESC": "የህግ ሰርተፊኬቶችዎን ያስገቡ",
+      "SET_AVAILABILITY": "ተገኝነትዎን ያዘጋጁ",
+      "SET_AVAILABILITY_DESC": "የምክክር ሰዓታትዎን ያዘምኑ"
+    },
+    "SETUP": {
+      "TITLE": "የመለያ ማዘጋጃ",
+      "SUBTITLE": "ደንበኞችን መቀበል ለመጀመር እነዚህን ደረጃዎች ያጠናቅቁ",
+      "PROFILE": {
+        "TITLE": "መሰረታዊ መረጃ",
+        "DESCRIPTION": "የሙያ መገለጫዎን ያጠናቅቁ"
+      },
+      "DOCUMENTS": {
+        "TITLE": "የህግ ሰነዶች",
+        "DESCRIPTION": "ሰርተፊኬቶችዎን እና ፈቃዶችዎን ያስገቡ"
+      },
+      "VERIFICATION": {
+        "TITLE": "የመለያ ማረጋገጫ",
+        "DESCRIPTION": "ለመስራት ማረጋገጫ ያግኙ"
+      }
+    },
+    "STATS": {
+      "ACTIVE_CLIENTS": "ነቃ ደንበኞች",
+      "PENDING_APPOINTMENTS": "በመጠባበቅ ላይ ያሉ ቀጠሮዎች",
+      "ACTIVE_CASES": "ነቃ ጉዳዮች",
+      "MONTHLY_EARNINGS": "የወር ገቢ"
+    },
+    "UPCOMING_APPOINTMENTS": "ቀጣይ ቀጠሮዎች",
+    "RECENT_CASES": "የቅርብ ጊዜ ጉዳዮች",
+    "VERIFICATION_PENDING": "መለያዎ በግምገማ ላይ ነው። ማረጋገጫው ሲጠናቀቅ እናሳውቅዎታለን።",
+    "VERIFICATION_REJECTED": {
+      "TITLE": "ማረጋገጫ አልተሳካም",
+      "MESSAGE": "እባክዎ ግብረመልሱን ይገምግሙ እና አስፈላጊውን ማስተካከያ በማድረግ ሰነዶችዎን እንደገና ያስገቡ።"
+    }
+  },
+  "APPOINTMENTS": {
+    "TITLE": "የእኔ ቀጠሮዎች",
+    "SUBTITLE": "ቀጠሮዎችዎን እና ምክክሮችዎን ያስተዳድሩ",
+    "TABLE": {
+      "LAWYER": "ጠበቃ",
+      "DATE": "ቀን",
+      "TIME": "ሰዓት",
+      "TYPE": "ዓይነት",
+      "STATUS": "ሁኔታ",
+      "ACTIONS": "ድርጊቶች"
+    },
+    "STATUS": {
+      "PENDING": "���መጠባበቅ ላይ",
+      "CONFIRMED": "ተረጋግጧል",
+      "CANCELLED": "ተሰርዟል",
+      "COMPLETED": "ተጠናቅቋል"
+    },
+    "ACTIONS": {
+      "VIEW_DETAILS": "ዝርዝር ይመልከቱ",
+      "RESCHEDULE": "እንደገና ያስያዙ",
+      "CANCEL": "ይሰርዙ",
+      "SEND_REMINDER": "ማስታወሻ ይላኩ"
+    },
+    "NO_APPOINTMENTS": "ምንም ቀጠሮዎች አልተገኙም",
+    "NO_APPOINTMENTS_DESC": "እስካሁን ምንም የተያዘ ቀጠሮ የለዎትም።",
+    "BOOK_NOW": "ቀጠሮ ይያዙ",
+    "TYPES": {
+      "INITIAL": "የመጀመሪያ ምክክር",
+      "FOLLOWUP": "የክትትል ስብሰባ",
+      "DOCUMENT_REVIEW": "የሰነድ ግምገማ",
+      "COURT_PREP": "ለፍርድ ቤት ዝግጅት"
+    }
+  },
+  "MESSAGE": {
+    "COMPOSE": "መልእክት ጻፍ",
+    "PLACEHOLDER": "መልእክትዎን መጻፍ ይጀምሩ...",
+    "SUCCESS": {
+      "SAVED": "መልእክቱ በተሳካ ሁኔታ ተቀምጧል"
+    },
+    "ERROR": {
+      "SAVE_FAILED": "መልእክቱን ማስቀመጥ አልተሳካም"
+    }
+  },
+  "CASE": {
+    "TITLE": "የእኔ ጉዳዮች",
+    "DESCRIPTION": "የህግ ጉዳዮችዎን ያስተዳድሩ እና ይከታተሉ",
+    "NEW_CASE": "አዲስ ጉዳይ",
+    "FILTER": {
+      "ALL": "ሁሉም ጉዳዮች",
+      "OPEN": "ነቃ ጉዳዮች",
+      "CLOSED": "የተዘጉ ጉዳዮች"
+    },
+    "TABLE": {
+      "CASE_NUMBER": "የጉዳይ ቁጥር",
+      "TITLE": "ርዕስ",
+      "TYPE": "ዓይነት",
+      "STATUS": "ሁኔታ",
+      "PRIORITY": "ቅድሚያ",
+      "LAWYER": "የተመደበ ጠበቃ",
+      "NEXT_HEARING": "ቀጣይ ችሎት"
+    },
+    "STATUS": {
+      "OPEN": "ክፍት",
+      "CLOSED": "የተዘጋ",
+      "PENDING": "በመጠባበቅ ላይ",
+      "IN_PROGRESS": "በሂደት ላይ"
+    },
+    "PRIORITY": {
+      "HIGH": "ከፍተኛ ቅድሚያ",
+      "MEDIUM": "መካከለኛ ቅድሚያ",
+      "LOW": "ዝቅተኛ ቅድሚያ"
+    },
+    "NO_CASES": "ምንም ጉዳዮች አልተገኙም",
+    "NO_CASES_DESC": "እስካሁን ምንም ጉዳይ አልፈጠሩም።",
+    "CREATE_FIRST_CASE": "የመጀመሪያ ጉዳይዎን ይፍጠሩ",
+    "NO_HEARING_SCHEDULED": "ምንም ችሎት አልተያዘም",
+    "ERROR": {
+      "LOAD_FAILED": "ጉዳዮችን መጫን አልተሳካም",
+      "CREATE_FAILED": "ጉዳይ መፍጠር አልተሳካም",
+      "UPDATE_FAILED": "ጉዳይን ማዘመን አልተሳካም",
+      "DELETE_FAILED": "ጉዳይን መሰረዝ አልተሳካም"
+    },
+    "SUCCESS": {
+      "CREATED": "ጉዳይ በተሳካ ሁኔታ ተፈጥሯል",
+      "UPDATED": "ጉዳይ በተሳካ ሁኔታ ተዘምኗል",
+      "DELETED": "ጉዳይ በተሳካ ሁኔታ ተሰርዟል"
+    },
+    "TYPES": {
+      "CIVIL": "የፍትሐብሔር ጉዳይ",
+      "CRIMINAL": "የወንጀል ጉዳይ",
+      "FAMILY": "የቤተሰብ ሕግ",
+      "CORPORATE": "የኩባንያ ሕግ",
+      "PROPERTY": "የንብረት ሕግ",
+      "LABOR": "የሰራተኛ ሕግ",
+      "OTHER": "ሌላ"
+    }
+  },
+  "SETTINGS": {
+    "TITLE": "ቅንብሮች",
+    "SUBTITLE": "የመተግበሪያ ምርጫዎችን ያስተዳድሩ",
+    "APPEARANCE": "መልክ",
+    "THEME": "ገጽታ",
+    "THEME_DESC": "የሚፈልጉትን የገጽታ ዘዴ ይምረጡ",
+    "THEME_LIGHT": "ብርሃን",
+    "THEME_DARK": "ጨለማ",
+    "THEME_SYSTEM": "የስርዓት",
+    "LANGUAGE_REGION": "ቋንቋ እና አካባቢ",
+    "LANGUAGE": "ቋንቋ",
+    "LANGUAGE_DESC": "የሚፈልጉትን ቋንቋ ይምረጡ",
+    "NOTIFICATIONS": "ማሳወቂያዎች",
+    "EMAIL_NOTIFICATIONS": "የኢሜይል ማሳወቂያዎች",
+    "EMAIL_NOTIFICATIONS_DESC": "ስለ ቀጠሮዎችዎ እና የጉዳይ ዝማኔዎች በኢሜይል ያግኙ",
+    "SMS_NOTIFICATIONS": "የኤስኤምኤስ ማሳወቂያዎች",
+    "SMS_NOTIFICATIONS_DESC": "ለአስፈላጊ ዝማኔዎች እና ማስታወሻዎች የኤስኤምኤስ ማሳወቂያዎችን ይቀበሉ",
+    "THEME_UPDATED": "ገጽታ በተሳካ ሁኔታ ተዘምኗል",
+    "LANGUAGE_UPDATED": "ቋንቋ በተሳካ ሁኔታ ተዘምኗል",
+    "PREFERENCES": {
+      "TITLE": "ምርጫዎች",
+      "TIME_ZONE": "የሰዓት ክልል",
+      "DATE_FORMAT": "የቀን ቅርጸት",
+      "TIME_FORMAT": "የሰዓት ቅርጸት"
+    },
+    "PRIVACY": {
+      "TITLE": "ግላዊነት",
+      "VISIBILITY": "የመገለጫ ታይነት",
+      "ACTIVITY_STATUS": "የእንቅስቃሴ ሁኔታ",
+      "LAST_SEEN": "መጨረሻ የታየበት ሁኔታ"
+    },
+    "NOTIFICATIONS_SETTINGS": {
+      "TITLE": "የማሳወቂያ ቅንብሮች",
+      "APPOINTMENTS": "የቀጠሮ ማስታወሻዎች",
+      "MESSAGES": "አዲስ መልዕክቶች",
+      "CASE_UPDATES": "የጉዳይ ዝማኔዎች",
+      "DOCUMENT_SHARING": "ሰነድ ማጋራት",
+      "MARKETING": "የማርኬቲንግ ዝማኔዎች"
+    },
+    "SUCCESS": {
+      "SETTINGS_UPDATED": "ቅንብሮች በተሳካ ሁኔታ ተዘምነዋል",
+      "PREFERENCES_SAVED": "ምርጫዎች በተሳካ ሁኔታ ተቀምጠዋል"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "ቅንብሮችን ማዘመን አልተሳካም",
+      "SAVE_FAILED": "ምርጫዎችን ማስቀመጥ አልተሳካም"
+    }
+  },
+  "POSTS": {
+  "WELCOME": {
+    "TITLE": "ወደ የፖስት ገጽ እንኳን ደህና መጡ",
+    "SUBTITLE": "እዚህ ፖስቶችዎን እና እንቅስቃሴዎን ያዳብሩ።"
+  },
+  "STATS": {
+    "ACTIVE_CASES": "ከስርዓት ውስጥ ያሉ ጉዳዮች",
+    "PENDING_TASKS": "የቀረቡ ተግባራት",
+    "UPCOMING_APPOINTMENTS": "ይኖሩ የሚመጡ ቀጣዮች",
+    "UNREAD_MESSAGES": "ያልተነበሩ መልእክቶች"
+  },
+  "TABLE": {
+    "TITLE": "የፖስት እይታ",
+    "SUBTITLE": "ይህ ፖስቶችዎን ለማየት እና ለመምረጥ ነው።",
+    "VIEW": "እይታ",
+    "FORM": "አዲስ ፖስት"
+  },
+  "NEW_POST": {
+    "TITLE": "አዲስ ፖስት ይፍጠሩ",
+    "DESCRIPTION": "መግለጫ",
+    "SAVE_DRAFT": "ድርጅት ይዘው ይቀይሩ",
+    "PUBLISH": "ይታይ"
+  },
+  "DRAFT_MODE": "አሁን በድርጅት ሞዴ ነው።",
+  "SEARCH_PLACEHOLDER": "ፖስቶችን ይፈልጉ..."
+},
+  "USERS": {
+    "TITLE": "ተጠቃሚዎች",
+    "SUBTITLE": "እባክን ተጠቃሚዎችን ይቕሬታ እና ኣካል ይዝርዝሩ።",
+    "SEARCH_PLACEHOLDER":"ተጠቃሚዎችን ይፈልጉ...",
+    "STATS": {
+      "ACTIVE": "ኣብ ጉዳይ ድሕሪ ይኖሩ ጉዳይታት",
+      "INACTIVE": "ዝንቱ ጉዳይታት"
+    },
+    "TABLE": {
+      "TITLE": "የተጠቃሚ ዝርዝር",
+      "SUBTITLE": "ይህ ተጠቃሚዎችን ይውልዱ እና ይምረጡ።",
+      "FULLNAME": "ሙሉ ስም",
+      "INFO": "ኣይነት መረጃ",
+      "ROLE": "ሚና",
+      "ISACTIVE": "እንቁላል",
+      "ISADMIN": "ኣስተዳዳሪ",
+      "DATE": "ቀን",
+      "ACTIONS": "እንቅስቃሴዎች",
+      "SEARCH_PLACEHOLDER": "ተጠቃሚዎችን ይፈልጉ..."
+    },
+    "FILTERS": {
+      "CONFIRM": "ይኸው ይቅርታ ይግባእ",
+      "PENDING": "ይከተል"
+    },
+    "ACTIONS": {
+      "CANCEL": "ይቅርታ",
+      "TRANSFER": "ይቀይሩ"
+    }
+  },
+  "CLIENTS": {
+  "TITLE": "ደንበኞች",
+  "SUBTITLE": "እባክዎን ደንበኞችን እና ድርጅቶችን እዚህ ያስተዳድሩ።",
+  "STATS": {
+    "ACTIVE": "እንቅስቃሴ ተጠቃሚ",
+    "INACTIVE": "ያልንቁ ተጠቃሚ"
+  },
+  "TABLE": {
+    "TITLE": "የደንበኞች ዝርዝር",
+    "SUBTITLE": "እዚ ደንበኞችን ይመልከቱ እና ይተዳድሩ።",
+    "FULLNAME": "ሙሉ ስም",
+    "INFO": "መረጃ",
+    "ROLE": "ድርጅት",
+    "ISACTIVE": "እንቅስቃሴ እይታ",
+    "ISADMIN": "አስተዳደር እይታ",
+    "DATE": "ቀን",
+    "ACTIONS": "እንቅስቃሴ"
+  },
+  "SEARCH_PLACEHOLDER": "ደንበኞችን ይፈልጉ...",
+  "FILTERS": {
+    "CONFIRM": "ይከታተሉ",
+    "PENDING": "ወርዳ"
+  },
+  "ACTIONS": {
+    "CANCEL": "ይቅርብ"
+  }
+},
+  "CONTRACTS": {
+    "AGREEMENT":"ኮንትራክት",
+    "WELCOME": {
+      "TITLE": "እንኳን ወደ እንቅስቃሴ በገባዎት",
+      "SUBTITLE": "እባክዎን የኮንትራክት መረጃ ይመልከቱ።"
+    },
+    "STATS": {
+      "ACTIVE_CASES": "እንቅስቃሴ ጉዳዮች",
+      "PENDING_TASKS": "ወርዳ ተግባራት",
+      "UPCOMING_APPOINTMENTS": "ወይን ዝርዝር ዕቅፍ",
+      "UNREAD_MESSAGES": "ያልተነባበሩ መልዕክታት"
+    },
+    "TABLE": {
+      "TITLE": "የኮንትራክት ዝርዝር",
+      "SUBTITLE": "እዚ ይመልከቱ እና ይተዳድሩ።",
+      "NO": "ቁጥር",
+      "FULLNAME": "ሙሉ ስም",
+      "INFO": "መረጃ",
+      "DATE": "ቀን",
+      "STATUS": "ሁኔታ",
+      "ACTIONS": "እንቅስቃሴ"
+    },
+    "SEARCH_PLACEHOLDER": "የኮንትራክት መረጃ ይፈልጉ..."
+  },
+    "CONTRACT": {
+      "TITLE": "ውሎች",
+      "SUBTITLE": "ውሎችዎን አስተዳድር"
+    },
+    "CONTRACTS_LAWYER": {
+      "PURPOSE": "አይነት",
+      "EFFECTIVE_DATE": "የተፈጸመ ቀን",
+      "COMPENSATION_RATE": "ክፍያ ደረጃ",
+      "PAYMENT_TERMS": "የክፍያ ቃል ኪዳን",
+      "TERM": "ወቅት",
+      "CONFIDENTIALITY": "ግለሰቦች መረጃ",
+      "AGREEMENT": "አስተያየት",
+      "ACTIONS": "እርምጃዎች",
+      "CONFIRM": "እንደገና ያረጋግጡ",
+      "REJECT": "ይቅርታ",
+      "LOADING": "ውሎችን እንደሚሞሉ...",
+      "SELECTED_CONTRACT_DETAILS": "የተመረጡ ውሎች ዝርዝር",
+      "CONTRACT_ID": "የውል መለያ",
+      "TERM_START": "ወቅት መጀመሪያ",
+      "TERM_END": "ወቅት መጨረሻ",
+      "CONFIDENTIALITY_CLAUSE": "የግለሰቦች መረጃ ክፍል",
+      "AGREEMENT_CLAUSE": "የአስተያየት ክፍል",
+      "ADDITIONAL_NOTES": "ተጨማሪ ግምገማዎች"
+    }
+  
+
+
+} 

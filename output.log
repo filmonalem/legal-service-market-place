@@ -1,0 +1,30 @@
+nohup: ignoring input
+[90m[main 2024-12-05T14:52:06.503Z][0m update#setState disabled
+[90m[main 2024-12-05T14:52:06.823Z][0m update#ctor - updates are disabled as there is no update URL
+[246281:1205/175212.977343:ERROR:mime_util_xdg.cc(136)] Invalid mime.cache file does not contain null prior to ALIAS_LIST_OFFSET=44
+[246324:1205/175213.467110:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 1 times!
+[246281:1205/175216.221473:ERROR:nss_util.cc(357)] After loading Root Certs, loaded==false: NSS error code: -8018
+[91m[main 2024-12-05T14:52:16.481Z][0m Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.
+[91m[main 2024-12-05T14:52:16.482Z][0m ptyHost was unable to resolve shell environment Error: Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.
+    at Timeout.<anonymous> (/tmp/.mount_cursorgxqkpB/resources/app/out/vs/code/electron-main/main.js:76:4780)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[91m[main 2024-12-05T14:52:16.509Z][0m ptyHost was unable to resolve shell environment Error: Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.
+    at Timeout.<anonymous> (/tmp/.mount_cursorgxqkpB/resources/app/out/vs/code/electron-main/main.js:76:4780)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[91m[main 2024-12-05T14:52:17.235Z][0m ptyHost was unable to resolve shell environment Error: Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.
+    at Timeout.<anonymous> (/tmp/.mount_cursorgxqkpB/resources/app/out/vs/code/electron-main/main.js:76:4780)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[91m[main 2024-12-05T14:52:19.245Z][0m ptyHost was unable to resolve shell environment Error: Unable to resolve your shell environment in a reasonable time. Please review your shell configuration and restart.
+    at Timeout.<anonymous> (/tmp/.mount_cursorgxqkpB/resources/app/out/vs/code/electron-main/main.js:76:4780)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[246324:1205/175221.077164:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 2 times!
+[246324:1205/175234.866024:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 3 times!
+[91m[main 2024-12-05T14:52:37.578Z][0m [uncaught exception in main]: Error: net::ERR_NETWORK_CHANGED
+[91m[main 2024-12-05T14:52:37.581Z][0m Error: net::ERR_NETWORK_CHANGED
+    at SimpleURLLoaderWrapper.<anonymous> (node:electron/js2c/browser_init:2:114482)
+    at SimpleURLLoaderWrapper.emit (node:events:519:28)
+[90m[main 2024-12-05T15:02:20.894Z][0m Extension host with pid 246756 exited with code: 0, signal: unknown.

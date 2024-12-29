@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2">
+  <rect width="3" height="2" fill="#DA121A"/> <!-- Red background -->
+  <polygon points="0,0 1.5,1 0,2" fill="#FCDD09"/> <!-- Yellow triangle -->
+  <circle cx="1.5" cy="1" r="0.3" fill="#FCDD09"/> <!-- Yellow circle/star center -->
+</svg>

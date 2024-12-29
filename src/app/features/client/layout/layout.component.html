@@ -1,0 +1,128 @@
+<div class="flex flex-col h-screen" [ngClass]="{'dark': isDark}">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-white dark:bg-gray-800 shadow-md">
+    <div class="flex justify-between items-center px-4 h-16">
+      <!-- Left side -->
+      <div class="flex items-center space-x-4">
+        <button id="mobileMenu"
+                (click)="toggleMobileMenu($event)" 
+                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground">
+          <ng-icon name="heroBars3" class="w-6 h-6"></ng-icon>
+        </button>
+        <a routerLink="/client" class="flex items-center">
+          <img src="/images/logo.jpg" alt="Legal Marketplace" class="h-10">
+        </a>
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center text-foreground dark:text-foreground space-x-4">
+        <button class="relative p-2 text-foreground dark:text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+          <ng-icon name="heroBell" class="w-6 h-6"></ng-icon>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+        </button>
+
+        <app-language-selector></app-language-selector>
+        <app-theme-switcher></app-theme-switcher>
+        <a 
+        routerLink="/client/help" 
+        class="w-full inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-border hover:text-primary text-foreground font-medium transition-all duration-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+        </svg>
+        {{ 'COMMON.HELP' | translate }}
+      </a>
+        <!-- Profile Menu -->
+        <div class="relative">
+          <button id="profileButton"
+                  (click)="toggleUserMenu($event)" 
+                  class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+            <div class="relative w-8 h-8">
+              <div class="w-full h-full rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                <span class="text-blue-600 dark:text-blue-400 text-sm font-medium">
+                  {{ userInitials }}
+                </span>
+              </div>
+            </div>
+            <div class="hidden md:block text-left">
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-200">
+                {{ user?.email }}
+              </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                {{ user?.role | titlecase }}
+              </p>
+            </div>
+          </button>
+          
+          <!-- Profile Dropdown -->
+          <div *ngIf="isUserMenuOpen" 
+               id="profileDropdown"
+               class="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 border border-gray-200 dark:border-gray-700">
+            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+              <p class="text-sm font-medium text-gray-900 dark:text-white">
+                {{ user?.email }}
+              </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                {{ user?.role | titlecase }}
+              </p>
+            </div>
+            
+            <!-- Menu Items -->
+            <div class="py-1">
+              <a routerLink="/client/profile" 
+                 class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <ng-icon name="heroUser" class="w-5 h-5 mr-3"></ng-icon>
+                <span>{{ 'PROFILE.VIEW' | translate }}</span>
+              </a>
+              <a routerLink="/client/settings" 
+                 class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <ng-icon name="heroCog8Tooth" class="w-5 h-5 mr-3"></ng-icon>
+                <span>{{ 'PROFILE.SETTINGS' | translate }}</span>
+              </a>
+              <a routerLink="/client/billing" 
+                 class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <ng-icon name="heroCreditCard" class="w-5 h-5 mr-3"></ng-icon>
+                <span>{{ 'PROFILE.BILLING' | translate }}</span>
+              </a>
+            </div>
+            
+            <!-- Separator -->
+            <div class="border-t border-gray-200 dark:border-gray-700"></div>
+            
+            <!-- Logout Button -->
+            <button (click)="logout()" 
+                    class="w-full flex items-center px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <ng-icon name="heroArrowRightOnRectangle" class="w-5 h-5 mr-3"></ng-icon>
+              <span>{{ 'PROFILE.LOGOUT' | translate }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 pt-16">
+    <!-- Sidebar -->
+    <aside [ngClass]="{'translate-x-0': isMobileMenuOpen, '-translate-x-full': !isMobileMenuOpen}"
+           class="fixed md:fixed md:translate-x-0 z-40 w-64 h-[calc(100vh-4rem)] transition-transform duration-300 
+                  bg-white dark:bg-background border-r dark:border-gray-700">
+      <nav class="h-full py-4">
+        <div class="space-y-1 px-3">
+          <a *ngFor="let item of navigationItems"
+             [routerLink]="item.route"
+             routerLinkActive="bg-gray-100 dark:bg-gray-700"
+             class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+            <ng-icon [name]="item.icon" class="w-5 h-5 mr-3"></ng-icon>
+            <span>{{ item.label | translate }}</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 bg-slate-50 dark:bg-background min-h-[calc(100vh-4rem)] md:ml-64">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+

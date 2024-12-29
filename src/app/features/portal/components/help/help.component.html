@@ -1,0 +1,134 @@
+<div class="min-h-screen bg-background p-4 sm:p-6 lg:p-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+        {{ 'HELP.TITLE' | translate }}
+      </h1>
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        {{ 'HELP.DESCRIPTION' | translate }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let section of helpSections" 
+           class="bg-card rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+        <div class="flex items-start justify-between mb-4">
+          <div class="flex-1">
+            <svg class="w-8 h-8 text-primary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="section.icon"/>
+            </svg>
+            <h2 class="text-xl font-semibold text-foreground">
+              {{ section.title | translate }}
+            </h2>
+          </div>
+          <button 
+            (click)="toggleSection(section.id)"
+            class="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <svg 
+              class="w-6 h-6 transform transition-transform duration-200"
+              [class.rotate-180]="activeSection === section.id"
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="text-muted-foreground mb-4">
+          {{ section.description | translate }}
+        </p>
+
+        <div *ngIf="section.steps?.length" class="mt-4">
+          <button
+            (click)="startTour(section)"
+            class="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+            </svg>
+            {{ 'HELP.START_TOUR' | translate }}
+          </button>
+        </div>
+
+        <div *ngIf="activeSection === section.id"
+             class="mt-4 space-y-4 animate-fadeIn">
+          <div class="rounded-md bg-muted p-4">
+            <ng-container *ngIf="section.steps">
+              <div *ngFor="let step of section.steps; let i = index" 
+                   class="mb-4 last:mb-0">
+                <h3 class="font-medium text-foreground">
+                  {{ step.title | translate }}
+                </h3>
+                <p class="text-sm text-muted-foreground">
+                  {{ step.content | translate }}
+                </p>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isTourActive" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center">
+      <div class="bg-card/95 backdrop-blur rounded-lg shadow-xl p-8 max-w-md w-full mx-4 border border-border/50">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-semibold text-foreground">
+            {{ helpSections[0].steps![currentTourStep].title | translate }}
+          </h3>
+          <button 
+            (click)="endTour()" 
+            class="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        
+        <p class="text-muted-foreground mb-8 text-base leading-relaxed">
+          {{ helpSections[0].steps![currentTourStep].content | translate }}
+        </p>
+
+        <div class="flex justify-between items-center">
+          <button 
+            *ngIf="currentTourStep > 0"
+            (click)="previousStep(helpSections[0])"
+            class="px-6 py-2.5 rounded-full bg-muted hover:bg-muted/80 transition-colors flex items-center"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            {{ 'HELP.PREVIOUS' | translate }}
+          </button>
+          <button 
+            (click)="nextStep(helpSections[0])"
+            class="px-6 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center ml-auto"
+          >
+            {{ currentTourStep < helpSections[0].steps!.length - 1 ? ('HELP.NEXT' | translate) : ('HELP.FINISH' | translate) }}
+            <svg 
+              *ngIf="currentTourStep < helpSections[0].steps!.length - 1"
+              class="w-5 h-5 ml-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+            <svg 
+              *ngIf="currentTourStep >= helpSections[0].steps!.length - 1"
+              class="w-5 h-5 ml-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

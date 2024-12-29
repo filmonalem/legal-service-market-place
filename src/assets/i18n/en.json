@@ -1,0 +1,1136 @@
+{
+  "COMMON": {
+    "WELCOME": "Welcome",
+    "HOME": "Home",
+    "ABOUT": "About",
+    "POSTS":"Posts",
+    "CONTACT": "Contact",
+    "SERVICES": "Services",
+    "RESOURCES": "Resources",
+    "LOGIN": "Login",
+    "HELP": "Help",
+    "LANGUAGE": "Language",
+    "LEGAL": "LEGAL",
+    "EDIT": "Edit",
+    "SAVE": "Save Changes",
+    "VIEW_ALL": "View All",
+    "LOADING": "Loading...",
+    "ERROR": "An error occurred",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SUBMITTING":"Submitting...",
+    "SUBMIT": "Submit",
+    "SAVE_DRAFT": "Save Draft",
+    "CANCEL": "Cancel",
+    "UPLOAD": "Upload",
+    "CHOOSE_FILE": "Choose File"
+  },
+  "NAV": {
+    "SERVICE1": "Service 1",
+    "SERVICE2": "Service 2",
+    "SERVICE3": "Service 3",
+    "GUIDES": "Guides",
+    "DOCUMENTS": "Documents",
+    "FAQ": "FAQ",
+    "DASHBOARD": "Dashboard",
+    "LAWYERS": "Find Lawyers",
+    "USERS":"Users",
+    "CASES": "My Cases",
+    "CONTRACT": "Contract",
+    "POST": "Post",
+    "ACCESS": "Access",
+    "CLIENTS": "Clients",
+    "APPOINTMENTS": "Appointments",
+    "MESSAGES": "Messages",
+    "RESOURCES": "Resources",
+    "FEEDBACK": "Feedback & Reviews",
+    "PROFILE": "Profile",
+    "TASKS":"Tasks"
+  },
+  "ACCESS": {
+    "TITLE": "Access Control",
+    "DESCRIPTION": "Manage user access and permissions",
+    "ROLES": "Roles",
+    "STATS":{
+      "ACTIVE": "Active Users",
+      "INACTIVE": "Inactive Users"
+    }},
+  "LOGIN": {
+    "WELCOME_BACK": "Welcome Back!",
+    "DESCRIPTION": "Access your legal services account",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGN_UP": "Sign up"
+  },
+  "SIGNUP": {
+    "WELCOME": "Join Our Legal Community",
+    "DESCRIPTION": "Create an account to access our legal services",
+    "CREATE_ACCOUNT": "Create Account",
+    "CREATING_ACCOUNT": "Creating Account...",
+    "FIRST_NAME": "First Name",
+    "FIRST_NAME_PLACEHOLDER": "Enter your first name",
+    "FIRST_NAME_REQUIRED": "First name is required",
+    "LAST_NAME": "Last Name",
+    "LAST_NAME_PLACEHOLDER": "Enter your last name",
+    "LAST_NAME_REQUIRED": "Last name is required",
+    "PHONE_NUMBER": "Phone Number",
+    "PHONE_PLACEHOLDER": "Enter your phone number",
+    "PHONE_REQUIRED": "Phone number is required",
+    "PHONE_INVALID": "Invalid phone number",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD": "Password",
+    "GENDER": "Gender",
+    "GENDER_MALE": "Male",
+    "GENDER_FEMALE": "Female",
+    "GENDER_REQUIRED": "Gender is required",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm your password",
+    "PASSWORD_MISMATCH": "Passwords do not match",
+    "ACCEPT_TERMS": "I accept the",
+    "TERMS_CONDITIONS": "Terms and Conditions",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN": "Login",
+    "SELECT_ROLE": "Select Role",
+    "ROLE_REQUIRED": "Please select a role",
+    "ROLES": {
+      "CLIENT": {
+        "NAME": "Client",
+        "DESCRIPTION": "I need legal services"
+      },
+      "LAWYER": {
+        "NAME": "Lawyer",
+        "DESCRIPTION": "I provide legal services"
+      },
+      "ADMIN": {
+        "NAME": "Admin",
+        "DESCRIPTION": "System administrator"
+      }
+    },
+    "USERNAME": "User Name",
+    "USERNAME_PLACEHOLDER": "Enter your username",
+    "USERNAME_REQUIRED": "Username is required"
+  },
+  "FOOTER": {
+    "ABOUT_US": "About Us",
+    "ABOUT_DESCRIPTION": "Your trusted legal partner providing comprehensive legal services.",
+    "QUICK_LINKS": "Quick Links",
+    "CONTACT_INFO": "Contact Info",
+    "EMAIL": "Email: info@legal.com",
+    "PHONE": "Phone: (251) 925439811",
+    "ADDRESS": "Address:  Arada Street  ,Addis Ababa, AR_04_0643 Street",
+    "FOLLOW_US": "Follow Us",
+    "COPYRIGHT": "© 2024 Legal Services. All rights reserved."
+  },
+  "BANNER": {
+    "TITLE": "Trusted Advocates, Proven Results",
+    "DESCRIPTION": "Your Partner in Justice, Guiding You Every Step of the Way. Contact us today for personalized legal solutions.",
+    "LEARN_MORE": "Learn More",
+    "GET_STARTED": "Get Started"
+  },
+  "HELP": {
+    "TITLE": "Help Center",
+    "DESCRIPTION": "Find answers to common questions and learn how to use our services",
+    "START_TOUR": "Start Interactive Tour",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "FINISH": "Finish",
+    "SECTIONS": {
+      "GETTING_STARTED": {
+        "TITLE": "Getting Started",
+        "DESCRIPTION": "Learn the basics of using our legal services platform"
+      },
+      "LEGAL_SERVICES": {
+        "TITLE": "Legal Services",
+        "DESCRIPTION": "Learn about our legal services and how to access them",
+        "FINDING_LAWYER": {
+          "TITLE": "Finding the Right Lawyer",
+          "CONTENT": "Browse through our network of verified lawyers, filter by specialization, language, and location. Read reviews and compare rates to find the perfect match for your legal needs."
+        },
+        "BOOKING": {
+          "TITLE": "Booking Consultations",
+          "CONTENT": "Schedule consultations easily through our platform. Choose your preferred time slot, specify your legal matter, and attach relevant documents for a productive first meeting."
+        },
+        "CONSULTATION": {
+          "TITLE": "Virtual Consultations",
+          "CONTENT": "Connect with lawyers through secure video calls or messaging. Get legal advice from the comfort of your home or office."
+        },
+        "PAYMENT": {
+          "TITLE": "Payment and Billing",
+          "CONTENT": "Understand our transparent pricing structure, payment methods, and billing process. Track your expenses and access payment history anytime."
+        }
+      },
+      "ACCOUNT": {
+        "TITLE": "Account Management",
+        "DESCRIPTION": "Manage your account settings and preferences",
+        "PROFILE": {
+          "TITLE": "Profile Settings",
+          "CONTENT": "Update your personal information, professional details, and contact preferences. Keep your profile current to ensure smooth communication."
+        },
+        "SECURITY": {
+          "TITLE": "Account Security",
+          "CONTENT": "Protect your account with strong passwords, two-factor authentication, and regular security checks. Monitor login activity and manage device access."
+        },
+        "NOTIFICATIONS": {
+          "TITLE": "Notification Preferences",
+          "CONTENT": "Customize your notification settings for appointments, messages, case updates, and important alerts. Choose how and when you want to be notified."
+        },
+        "BILLING": {
+          "TITLE": "Billing and Payments",
+          "CONTENT": "View and manage your payment methods, access billing history, and download invoices. Set up automatic payments for recurring services."
+        }
+      }
+    },
+    "TOUR": {
+      "STEP1": {
+        "TITLE": "Create an Account",
+        "CONTENT": "Start by creating your account to access all our services"
+      },
+      "STEP2": {
+        "TITLE": "Complete Your Profile",
+        "CONTENT": "Fill in your profile information to get personalized legal assistance"
+      }
+    }
+  },
+  "ABOUT": {
+    "TITLE": "About LegalMarket",
+    "DESCRIPTION": "Your premier destination for comprehensive legal services. We connect clients with expert legal professionals, making quality legal assistance accessible to everyone.",
+    "STATS": {
+      "EXPERIENCE": "Years Experience",
+      "CASES": "Cases Won",
+      "LAWYERS": "Expert Lawyers",
+      "SUCCESS_RATE": "Success Rate"
+    },
+    "MISSION": {
+      "TITLE": "Our Mission",
+      "DESCRIPTION": "To revolutionize legal services by creating a seamless marketplace that connects clients with the right legal professionals. We strive to make quality legal assistance accessible, transparent, and efficient for everyone."
+    },
+    "VISION": {
+      "TITLE": "Our Vision",
+      "DESCRIPTION": "To be the world's leading legal marketplace, where finding and connecting with legal professionals is as simple as a click. We envision a future where quality legal services are accessible to all."
+    },
+    "TEAM": {
+      "TITLE": "Our Leadership Team",
+      "MEMBER1": {
+        "NAME": "Filmon Alem",
+        "ROLE": "CEO & Co-founder",
+        "DESCRIPTION": "Former Supreme Court clerk with 1+ years of experience in legal tech innovation."
+      }
+    },
+    "CTA": {
+      "TITLE": "Ready to Get Started?",
+      "DESCRIPTION": "Join LegalMarket today and experience the future of legal services.",
+      "BUTTON": "Contact Us"
+    }
+  },
+  "SERVICES": {
+    "TITLE": "Our Legal Services",
+    "SUBTITLE": "Comprehensive legal solutions tailored to your needs. Our experienced team provides expert guidance across various practice areas.",
+    "LEARN_MORE": "Learn More",
+    "CORPORATE": {
+      "TITLE": "Corporate Law",
+      "DESCRIPTION": "Expert guidance in business formation, contracts, mergers & acquisitions, and corporate governance.",
+      "FEATURES": {
+        "BUSINESS": "Business Formation",
+        "CONTRACT": "Contract Review",
+        "MERGER": "Mergers & Acquisitions"
+      }
+    },
+    "IP": {
+      "TITLE": "Intellectual Property",
+      "DESCRIPTION": "Protect your innovations and creative works with comprehensive IP services.",
+      "FEATURES": {
+        "PATENT": "Patent Applications",
+        "TRADEMARK": "Trademark Registration",
+        "COPYRIGHT": "Copyright Protection"
+      }
+    },
+    "LITIGATION": {
+      "TITLE": "Litigation",
+      "DESCRIPTION": "Strong advocacy and representation in court proceedings and dispute resolution.",
+      "FEATURES": {
+        "CIVIL": "Civil Litigation",
+        "DISPUTE": "Alternative Dispute Resolution",
+        "APPEALS": "Appeals"
+      }
+    },
+    "ADDITIONAL_SERVICES": "Additional Legal Services",
+    "FAMILY": {
+      "TITLE": "Family Law",
+      "DESCRIPTION": "Divorce, custody, and family dispute resolution services."
+    },
+    "REAL_ESTATE": {
+      "TITLE": "Real Estate",
+      "DESCRIPTION": "Property transactions and real estate litigation."
+    },
+    "EMPLOYMENT": {
+      "TITLE": "Employment Law",
+      "DESCRIPTION": "Workplace disputes and employment contracts."
+    },
+    "TAX": {
+      "TITLE": "Tax Law",
+      "DESCRIPTION": "Tax planning and dispute resolution services."
+    },
+    "CTA": {
+      "TITLE": "Need Legal Assistance?",
+      "DESCRIPTION": "Contact us today for a consultation. Our experienced team is ready to help you navigate your legal challenges.",
+      "BUTTON": "Schedule Consultation"
+    }
+  },
+  "CONTACT": {
+    "TITLE": "Contact Us",
+    "SUBTITLE": "Get in touch with our legal experts. We're here to help you with your legal needs.",
+    "OFFICE": {
+      "TITLE": "Our Office",
+      "ADDRESS": " Arada Street  , Addis Ababa, AR_04_0643 Street"
+    },  
+    "EMAIL": {
+      "TITLE": "Email Us",
+      "ADDRESSES": "info@legal.com\nsupport@legal.com"
+    },
+    "PHONE": {
+      "TITLE": "Call Us",
+      "NUMBERS": "(251) 925439811\n(251) 987978711"
+    },
+    "HOURS": {
+      "TITLE": "Business Hours",
+      "SCHEDULE": "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM"
+    },
+    "FORM": {
+      "TITLE": "Send us a Message",
+      "FIRST_NAME": "First Name",
+      "FIRST_NAME_PLACEHOLDER": "abebe",
+      "LAST_NAME": "Last Name",
+      "LAST_NAME_PLACEHOLDER": "kibebew",
+      "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "example@example.com",
+      "PHONE": "Phone",
+      "PHONE_PLACEHOLDER": "(251) 925439811",
+      "SERVICE_TYPE": "Service Type",
+      "SELECT_SERVICE": "Select a service",
+      "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "How can we help you?",
+      "SUBMIT": "Send Message",
+      "SERVICES": {
+        "CORPORATE": "Corporate Law",
+        "IP": "Intellectual Property",
+        "LITIGATION": "Litigation",
+        "FAMILY": "Family Law",
+        "REAL_ESTATE": "Real Estate"
+      }
+    }
+  },
+  "RESOURCES": {
+    "TITLE": "Ethiopian Legal Resources",
+    "TOC": "Table of Contents",
+    "SECTIONS": {
+      "CONSTITUTION": {
+        "TITLE": "Constitution",
+        "CONTENT": "The Constitution of the Federal Democratic Republic of Ethiopia is the supreme law of the land.",
+        "SUBSECTIONS": {
+          "FUNDAMENTAL_RIGHTS": "Fundamental Rights",
+          "FEDERAL_STRUCTURE": "Federal Structure"
+        },
+        "ITEMS": {
+          "RIGHT_TO_LIFE": "Right to Life",
+          "RIGHT_TO_LIBERTY": "Right to Liberty",
+          "RIGHT_TO_EQUALITY": "Right to Equality",
+          "FEDERAL_STRUCTURE": "Federal Structure",
+          "STATE_POWERS": "State Powers",
+          "LOCAL_GOVERNMENT": "Local Government"
+        }
+      },
+      "CIVIL_CODE": {
+        "TITLE": "Civil Code",
+        "CONTENT": "The Ethiopian Civil Code governs private relationships and property rights.",
+        "SUBSECTIONS": {
+          "CONTRACTS": "Contracts",
+          "PROPERTY": "Property"
+        },
+        "ITEMS": {
+          "CONTRACT_FORMATION": "Contract Formation",
+          "CONTRACT_PERFORMANCE": "Contract Performance",
+          "CONTRACT_BREACH": "Contract Breach",
+          "OWNERSHIP": "Ownership",
+          "POSSESSION": "Possession",
+          "SERVITUDES": "Servitudes"
+        }
+      }
+    },
+    "DOWNLOAD": {
+      "TITLE": "Download Resources",
+      "DESCRIPTION": "Download comprehensive legal resources and documents for offline access.",
+      "BUTTON": "Download Resources"
+    }
+  },
+  "DASHBOARD": {
+    "WELCOME": {
+      "TITLE": "Welcome to Your Dashboard",
+      "SUBTITLE": "Track your cases and manage legal activities"
+    },
+    "STATS": {
+      "ACTIVE_CASES": "Active Cases",
+      "PENDING_TASKS": "Pending Tasks",
+      "UPCOMING_APPOINTMENTS": "Upcoming Appointments",
+      "UNREAD_MESSAGES": "Unread Messages"
+    },
+    "RECENT_CASES": {
+      "TITLE": "Recent Cases",
+      "NO_CASES": "No recent cases"
+    },
+    "UPCOMING_APPOINTMENTS": {
+      "TITLE": "Upcoming Appointments",
+      "NO_APPOINTMENTS": "No upcoming appointments"
+    },
+    "CASE_STATUS": {
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In Progress",
+      "COMPLETED": "Completed"
+    },
+    "NO_RECENT_CASES": "You have no recent cases",
+    "NO_UPCOMING_APPOINTMENTS": "You have no upcoming appointments"
+  },
+  "PROFILE": {
+    "TITLE": "Profile Settings",
+    "SUBTITLE": "Manage your account information and preferences",
+    "PERSONAL_INFO": "Personal Information",
+    "EMAIL": "Email Address",
+    "PHONE_NUMBER": "Phone Number",
+    "CHANGE_PASSWORD": "Change Password",
+    "CURRENT_PASSWORD": "Current Password",
+    "NEW_PASSWORD": "New Password",
+    "CONFIRM_PASSWORD": "Confirm New Password",
+    "UPDATE_PASSWORD": "Update Password",
+    "UPLOAD_PHOTO": "Upload Photo",
+    "REMOVE_PHOTO": "Remove Photo",
+    "VIEW": "View Profile",
+    "SETTINGS": "Settings",
+    "BILLING": "Billing & Payments",
+    "LOGOUT": "Sign Out",
+    "SAVE_CHANGES": "Save Changes",
+    "CANCEL_CHANGES": "Cancel",
+    "SUCCESS": {
+      "PROFILE_UPDATED": "Profile updated successfully",
+      "PASSWORD_CHANGED": "Password changed successfully"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "Failed to update profile",
+      "PASSWORD_CHANGE_FAILED": "Failed to change password",
+      "INVALID_CURRENT_PASSWORD": "Current password is incorrect"
+    }
+  },
+  "LAWYERS": {
+    "TITLE": "Find a Lawyer",
+    "LIST": "Lawyers List",
+    "SUBTITLE": "Browse through our network of experienced lawyers",
+    "VIEW_PROFILE": "View ",
+    "BOOK_NOW": "Book ",
+    "BOOK_CONSULTATION": "Book Consultation",
+    "EXPERIENCE": "Experience",
+    "YEARS": "years",
+    "CASES_WON": "cases won",
+    "QUICK_INFO": "Quick Info",
+    "LANGUAGES": "Languages",
+    "EDUCATION": "Education",
+    "HOURLY_RATE": "Hourly Rate",
+    "ABOUT": "About",
+    "AVAILABILITY": {
+      "AVAILABLE": "Available",
+      "UNAVAILABLE": "Unavailable"
+    },
+    "TABLE":{
+      "TITLE":"Account Management",
+      "SUBTITLE":"Manage your application preferences",
+      "FULLNAME":"Full Name",
+      "INFO":"Info",
+      "DATE":"Date",
+      "STATUS":"Status",
+      "ACTIONS":"Actions"
+    },
+    "STATS":{
+      "ACTIVE":"Active Users",
+      "INACTIVE":"Inactive Users"
+    },
+    "SEARCH_PLACEHOLDER":"Search placeholder"
+  },
+  "BOOKING": {
+    "TITLE": "Book a Consultation",
+    "SUBTITLE": "Schedule a meeting with your legal advisor",
+    "CONSULTATION_TYPE": "Select Consultation Type",
+    "TYPES": {
+      "INITIAL": "Initial Consultation",
+      "FOLLOWUP": "Follow-up Meeting",
+      "DOCUMENT_REVIEW": "Document Review",
+      "COURT_PREP": "Court Preparation"
+    },
+    "SELECT_DATE": "Select Date",
+    "SELECT_TIME": "Select Time Slot",
+    "DESCRIPTION": "Consultation Details",
+    "DESCRIPTION_PLACEHOLDER": "Please describe your legal needs and any specific questions you'd like to discuss...",
+    "ATTACHMENTS": "Attach Documents",
+    "DRAG_DROP": "Drag and drop files here, or click to browse",
+    "BROWSE_FILES": "Browse Files",
+    "ADD_MORE_FILES": "Add More Files",
+    "CONFIRM": "Confirm Booking",
+    "SUCCESS": "Consultation booked successfully",
+    "ERROR": "Failed to book consultation"
+  },
+  "FEEDBACK": {
+    "TITLE": "Share Your Experience",
+    "SUBTITLE": "Help us improve our services by providing your valuable feedback",
+    "OVERALL_RATING": "Overall Rating",
+    "DETAILED_RATINGS": "Rate Specific Aspects",
+    "CRITERIA": {
+      "EXPERTISE": "Legal Expertise",
+      "COMMUNICATION": "Communication",
+      "RESPONSIVENESS": "Responsiveness",
+      "VALUE": "Value for Money",
+      "PROFESSIONALISM": "Professionalism"
+    },
+    "REVIEW": "Write Your Review",
+    "REVIEW_PLACEHOLDER": "Share your experience working with this lawyer...",
+    "WOULD_RECOMMEND": "Would you recommend this lawyer?",
+    "YES": "Yes",
+    "NO": "No",
+    "IMPROVEMENTS": "Suggestions for Improvement",
+    "IMPROVEMENTS_PLACEHOLDER": "What could we do better?",
+    "SUBMIT_ANONYMOUSLY": "Submit this review anonymously",
+    "SUBMIT": "Submit Feedback",
+    "SUBMITTING": "Submitting...",
+    "SUCCESS": "Thank you for your feedback!",
+    "ERROR": "Failed to submit feedback",
+    "FORM_INVALID": "Please fill in all required fields"
+  },
+  "LAWYER_PROFILE": {
+    "STEPS": {
+      "PERSONAL": {
+        "TITLE": "Personal Information",
+        "SUBTITLE": "Enter your basic contact information"
+      },
+      "PROFESSIONAL": {
+        "TITLE": "Professional Details",
+        "SUBTITLE": "Tell us about your legal expertise"
+      },
+      "DOCUMENTS": {
+        "TITLE": "Legal Documents",
+        "SUBTITLE": "Upload your credentials and certifications"
+      }
+    },
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "APPROVAL_DATA":"Approval Data",
+    "PROFILE_PICTURE":"profile picture",
+    "BIRTH_DATE":"Birth Day",
+    "LICENSE_NUMBER":"License Number",
+    "LICENSE_EXPIRY_DATE":"License Expiry-Date",
+    "PHONE_NUMBER": "Phone Number",
+    "LANGUAGES_TITLE":"Languages",
+    "SELECT_LANGUAGES":"Select Language",
+    "LOCATION": "Office Location",
+    "SPECIALIZATION": "Area of Practice",
+    "SELECT_SPECIALIZATION": "Select your specialization",
+    "BAR_NUMBER": "Bar Association Number",
+    "EXPERIENCE": "Years of Experience",
+    "LANGUAGES": {
+      "TITLE": "Languages Spoken",
+      "AMHARIC": "Amharic",
+      "ENGLISH": "English",
+      "OROMIFFA": "Oromiffa",
+      "TIGRIGNA": "Tigrigna"
+    },
+    "BIO": "Professional Bio",
+    "HOURLY_RATE": "Hourly Rate (ETB)",
+    "SPECIALIZATIONS": {
+      "CRIMINAL": "Criminal Law",
+      "CIVIL": "Civil Law",
+      "CORPORATE": "Corporate Law",
+      "FAMILY": "Family Law",
+      "LABOR": "Labor Law",
+      "PROPERTY": "Property Law",
+      "TAX": "Tax Law",
+      "INTELLECTUAL_PROPERTY": "Intellectual Property"
+    },
+    "DOCUMENTS": {
+      "DEGREE": "Law Degree",
+      "DEGREE_HINT": "Upload your law degree certificate",
+      "LICENSE": "Bar License",
+      "LICENSE_HINT": "Upload your current bar association license",
+      "CERTIFICATES": "Additional Certificates",
+      "CERTIFICATES_HINT": "Upload any additional certifications (optional)"
+    },
+    "VALIDATION": {
+      "FIRST_NAME_REQUIRED": "First name is required",
+      "LAST_NAME_REQUIRED": "Last name is required",
+      "PHONE_NUMBER_INVALID": "Please enter a valid phone number (e.g., 0914750000)",
+      "LOCATION_REQUIRED": "Office location is required",
+      "SPECIALIZATION_REQUIRED": "Please select your area of practice",
+      "BAR_NUMBER_REQUIRED": "Bar association number is required",
+      "EXPERIENCE_REQUIRED": "Years of experience is required",
+      "LANGUAGES_REQUIRED": "Please select at least one language",
+      "BIO_MIN_LENGTH": "Bio must be at least 100 characters long",
+      "HOURLY_RATE_REQUIRED": "Hourly rate is required",
+      "HOURLY_RATE_MIN": "Hourly rate must be greater than 0"
+    },
+    "ERROR": {
+      "LOAD_FAILED": "Failed to load profile",
+      "UPDATE_FAILED": "Failed to update profile",
+      "REQUIRED_FIELDS": "Please fill in all required fields",
+      "FORM_INVALID": "Please check the form for errors",
+      "FILE_TOO_LARGE": "File size exceeds maximum limit",
+      "INVALID_FILE_TYPE": "Invalid file type"
+    },
+    "SUCCESS": {
+      "UPDATE": "Profile updated successfully",
+      "DOCUMENT_UPLOADED": "Document uploaded successfully"
+    },
+    "FORM": {
+      "PERSONAL_SECTION": {
+        "TITLE": "Personal Details",
+        "FIRST_NAME_PLACEHOLDER": "Enter your first name",
+        "LAST_NAME_PLACEHOLDER": "Enter your last name",
+        "PHONE_PLACEHOLDER": "Enter your phone number (e.g., 0914750000)",
+        "LOCATION_PLACEHOLDER": "Enter your office location"
+      },
+      "PROFESSIONAL_SECTION": {
+        "TITLE": "Professional Details",
+        "BAR_NUMBER_PLACEHOLDER": "Enter your bar association number",
+        "EXPERIENCE_PLACEHOLDER": "Years of legal practice",
+        "BIO_PLACEHOLDER": "Write a brief description of your professional experience and expertise...",
+        "HOURLY_RATE_PLACEHOLDER": "Enter your hourly rate in ETB"
+      },
+      "DOCUMENT_SECTION": {
+        "TITLE": "Required Documents",
+        "UPLOAD_INSTRUCTIONS": "Please upload clear copies of your documents",
+        "SUPPORTED_FORMATS": "Supported formats: PDF, JPG, PNG",
+        "MAX_SIZE": "Maximum file size: 5MB",
+        "VERIFICATION_NOTE": "Documents will be verified within 24-48 hours"
+      }
+    },
+    "SPECIALIZATIONS_DETAIL": {
+      "CRIMINAL": {
+        "TITLE": "Criminal Law",
+        "DESCRIPTION": "Criminal defense and prosecution cases"
+      },
+      "CIVIL": {
+        "TITLE": "Civil Law",
+        "DESCRIPTION": "Civil litigation and dispute resolution"
+      },
+      "CORPORATE": {
+        "TITLE": "Corporate Law",
+        "DESCRIPTION": "Business and corporate legal matters"
+      },
+      "FAMILY": {
+        "TITLE": "Family Law",
+        "DESCRIPTION": "Divorce, custody, and family matters"
+      },
+      "LABOR": {
+        "TITLE": "Labor Law",
+        "DESCRIPTION": "Employment and workplace issues"
+      },
+      "PROPERTY": {
+        "TITLE": "Property Law",
+        "DESCRIPTION": "Real estate and property disputes"
+      },
+      "TAX": {
+        "TITLE": "Tax Law",
+        "DESCRIPTION": "Tax litigation and compliance"
+      },
+      "INTELLECTUAL_PROPERTY": {
+        "TITLE": "Intellectual Property",
+        "DESCRIPTION": "Patents, trademarks, and copyrights"
+      }
+    },
+    "VALIDATION_MESSAGES": {
+      "REQUIRED": "This field is required",
+      "MIN_LENGTH": "Minimum {{min}} characters required",
+      "MAX_LENGTH": "Maximum {{max}} characters allowed",
+      "PATTERN": "Invalid format",
+      "MIN_VALUE": "Value must be greater than {{min}}",
+      "MAX_VALUE": "Value must be less than {{max}}",
+      "FILE_SIZE": "File size must be less than {{size}}MB",
+      "FILE_TYPE": "Invalid file type. Allowed types: {{types}}"
+    },
+    "BUTTONS": {
+      "PREVIEW": "Preview Profile",
+      "BACK_TO_DASHBOARD": "Back to Dashboard",
+      "NEXT_STEP": "Next Step",
+      "PREVIOUS_STEP": "Previous Step",
+      "SUBMIT_PROFILE": "Submit Profile",
+      "SAVE_DRAFT": "Save as Draft",
+      "UPLOAD_FILE": "Upload File",
+      "CHOOSE_FILE": "Choose File",
+      "REMOVE_FILE": "Remove File",
+      "BACK": "Go Back"
+    },
+    "STATUS_MESSAGES": {
+      "SAVING": "Saving changes...",
+      "SAVED": "Changes saved successfully",
+      "UPLOADING": "Uploading document...",
+      "UPLOAD_SUCCESS": "Document uploaded successfully",
+      "UPLOAD_ERROR": "Failed to upload document",
+      "VALIDATION_ERROR": "Please fix the errors before proceeding",
+      "NETWORK_ERROR": "Network error. Please try again"
+    }
+  },
+  "LAWYER_DASHBOARD": {
+    "WELCOME": "Welcome Back",
+    "WELCOME_SUBTITLE": "Manage your legal practice and client interactions",
+    "PROFILE_COMPLETION": "Profile Completion",
+    "STEPS_COMPLETED": "steps completed",
+    "QUICK_ACTIONS": {
+      "COMPLETE_PROFILE": "Complete Profile",
+      "COMPLETE_PROFILE_DESC": "Add your professional details and credentials",
+      "UPLOAD_DOCUMENTS": "Upload Documents",
+      "UPLOAD_DOCUMENTS_DESC": "Submit your legal certifications",
+      "SET_AVAILABILITY": "Set Availability",
+      "SET_AVAILABILITY_DESC": "Update your consultation hours"
+    },
+    "SETUP": {
+      "TITLE": "Account Setup",
+      "SUBTITLE": "Complete these steps to start accepting clients",
+      "PROFILE": {
+        "TITLE": "Basic Information",
+        "DESCRIPTION": "Complete your professional profile"
+      },
+      "DOCUMENTS": {
+        "TITLE": "Legal Documents",
+        "DESCRIPTION": "Upload your certifications and licenses"
+      },
+      "VERIFICATION": {
+        "TITLE": "Account Verification",
+        "DESCRIPTION": "Get verified to start practicing"
+      },
+      "STATUS": {
+        "PENDING": "Pending",
+        "COMPLETED": "Completed",
+        "VERIFIED": "Verified",
+        "REJECTED": "Rejected"
+      }
+    },
+    "STATS": {
+      "ACTIVE_CLIENTS": "Active Clients",
+      "PENDING_APPOINTMENTS": "Pending Appointments",
+      "ACTIVE_CASES": "Active Cases",
+      "MONTHLY_EARNINGS": "Monthly Earnings"
+    },
+    "UPCOMING_APPOINTMENTS": "Upcoming Appointments",
+    "RECENT_CASES": "Recent Cases",
+    "CASE_STATUS": {
+      "ACTIVE": "Active",
+      "PENDING": "Pending",
+      "COMPLETED": "Completed"
+    },
+    "VERIFICATION_PENDING": "Your account is under review. We'll notify you once verification is complete.",
+    "VERIFICATION_REJECTED": {
+      "TITLE": "Verification Failed",
+      "MESSAGE": "Please review the feedback and resubmit your documents with the necessary corrections."
+    }
+  },
+  "APPOINTMENTS": {
+    "TITLE": "Appointments",
+    "SUBTITLE": "Manage your appointments with lawyers",
+    "BOOK_NOW": "Book Now",
+    "TABLE": {
+      "TITLE": "Your Appointments",
+      "SUBTITLE": "View and manage all your scheduled appointments",
+      "LAWYER": "Lawyer",
+      "CLIENT": "Client",
+      "DATE": "Date",
+      "TIME": "Time",
+      "TYPE": "Type",
+      "STATUS": "Status",
+      "ACTIONS": "Actions",
+      "NEXT": "Next",
+      "PREVIOUS": "Previous",
+      "PAGINATION": "Page"
+    },
+    "STATUS": {
+      "PENDING": "Pending",
+      "CONFIRMED": "Confirmed",
+      "CANCELLED": "Cancelled",
+      "COMPLETED": "Completed",
+      "RESCHEDULED": "Rescheduled"
+    },
+    "ACTIONS": {
+      "VIEW_DETAILS": "View Details",
+      "RESCHEDULE": "Reschedule",
+      "CANCEL": "Cancel",
+      "CONFIRM": "Confirm"
+    },
+    "FILTERS": {
+      "UPCOMING": "Upcoming",
+      "PAST": "Past",
+      "ALL": "All",
+      "CANCELLED":"Cancelled"
+    },
+    "SEARCH_PLACEHOLDER": "Search appointments...",
+    "NO_APPOINTMENTS": "No appointments found",
+    "NO_APPOINTMENTS_DESC": "You don't have any appointments scheduled. Click 'Book Now' to schedule one."
+  },
+  "MESSAGE": {
+    "COMPOSE": "Compose Message",
+    "PLACEHOLDER": "Start typing your message...",
+    "SUCCESS": {
+      "SAVED": "Message saved successfully"
+    },
+    "ERROR": {
+      "SAVE_FAILED": "Failed to save message"
+    }
+  },
+  "PASSWORD": {
+    "FORGOT_TITLE": "Forgot Password",
+    "FORGOT_DESCRIPTION": "Enter your email address and we'll send you a link to reset your password",
+    "RESET_TITLE": "Reset Password",
+    "RESET_DESCRIPTION": "Please enter your new password",
+    "NEW_PASSWORD": "New Password",
+    "NEW_PASSWORD_PLACEHOLDER": "Enter your new password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm your new password",
+    "SEND_RESET_LINK": "Send Reset Link",
+    "SENDING": "Sending...",
+    "CHECK_EMAIL": "Check Your Email",
+    "EMAIL_INSTRUCTIONS": "We've sent password reset instructions to your email",
+    "BACK_TO_LOGIN": "Back to Login",
+    "RESET_PASSWORD": "Reset Password",
+    "RESETTING": "Resetting...",
+    "PASSWORD_REQUIREMENTS": "Password must be at least 8 characters long",
+    "PASSWORDS_DONT_MATCH": "Passwords don't match",
+    "RESET_SUCCESS": "Password reset successfully",
+    "RESET_ERROR": "Failed to reset password",
+    "RESET_EMAIL_SENT": "Password reset email sent",
+    "RESET_EMAIL_ERROR": "Failed to send reset email",
+    "INVALID_RESET_LINK": "Invalid or expired reset link"
+  },
+  "CASE": {
+    "TITLE": "My Cases",
+    "DESCRIPTION": "Manage and track your legal cases",
+    "NEW_CASE": "New Case",
+    "FILTER": {
+      "ALL": "All Cases",
+      "OPEN": "Active Cases",
+      "CLOSED": "Closed Cases"
+    },
+    "TABLE": {
+      "CASE_NUMBER": "Case Number",
+      "TITLE": "Title",
+      "TYPE": "Type",
+      "STATUS": "Status",
+      "PRIORITY": "Priority",
+      "LAWYER": "Assigned Lawyer",
+      "NEXT": "Next",
+      "PREVIOUS": "Previous",
+      "NEXT_HEARING": "Next Hearing"
+    },
+    "STATUS": {
+      "OPEN": "Open",
+      "CLOSED": "Closed",
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In Progress"
+    },
+    "PRIORITY": {
+      "HIGH": "High Priority",
+      "MEDIUM": "Medium Priority",
+      "LOW": "Low Priority"
+    },
+    "NO_CASES": "No Cases Found",
+    "NO_CASES_DESC": "You haven't created any cases yet.",
+    "CREATE_FIRST_CASE": "Create Your First Case",
+    "NO_HEARING_SCHEDULED": "No hearing scheduled",
+    "ERROR": {
+      "LOAD_FAILED": "Failed to load cases",
+      "CREATE_FAILED": "Failed to create case",
+      "UPDATE_FAILED": "Failed to update case",
+      "DELETE_FAILED": "Failed to delete case"
+    },
+    "SUCCESS": {
+      "CREATED": "Case created successfully",
+      "UPDATED": "Case updated successfully",
+      "DELETED": "Case deleted successfully"
+    },
+    "TYPES": {
+      "CIVIL": "Civil Case",
+      "CRIMINAL": "Criminal Case",
+      "FAMILY": "Family Law",
+      "CORPORATE": "Corporate Law",
+      "PROPERTY": "Property Law",
+      "LABOR": "Labor Law",
+      "OTHER": "Other"
+    }
+  },
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "SUBTITLE": "Manage your application preferences",
+    "APPEARANCE": "Appearance",
+    "THEME": "Theme",
+    "THEME_DESC": "Choose your preferred appearance mode",
+    "THEME_LIGHT": "Light",
+    "THEME_DARK": "Dark",
+    "THEME_SYSTEM": "System",
+    "LANGUAGE_REGION": "Language & Region",
+    "LANGUAGE": "Language",
+    "LANGUAGE_DESC": "Select your preferred language",
+    "NOTIFICATIONS": "Notifications",
+    "EMAIL_NOTIFICATIONS": "Email Notifications",
+    "EMAIL_NOTIFICATIONS_DESC": "Receive email updates about your appointments and case updates",
+    "SMS_NOTIFICATIONS": "SMS Notifications",
+    "SMS_NOTIFICATIONS_DESC": "Receive SMS alerts for important updates and reminders",
+    "THEME_UPDATED": "Theme updated successfully",
+    "LANGUAGE_UPDATED": "Language updated successfully",
+    "PREFERENCES": {
+      "TITLE": "Preferences",
+      "TIME_ZONE": "Time Zone",
+      "DATE_FORMAT": "Date Format",
+      "TIME_FORMAT": "Time Format"
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy",
+      "VISIBILITY": "Profile Visibility",
+      "ACTIVITY_STATUS": "Activity Status",
+      "LAST_SEEN": "Last Seen Status"
+    },
+    "NOTIFICATIONS_SETTINGS": {
+      "TITLE": "Notification Settings",
+      "APPOINTMENTS": "Appointment Reminders",
+      "MESSAGES": "New Messages",
+      "CASE_UPDATES": "Case Updates",
+      "DOCUMENT_SHARING": "Document Sharing",
+      "MARKETING": "Marketing Updates"
+    },
+    "SUCCESS": {
+      "SETTINGS_UPDATED": "Settings updated successfully",
+      "PREFERENCES_SAVED": "Preferences saved successfully"
+    },
+    "ERROR": {
+      "UPDATE_FAILED": "Failed to update settings",
+      "SAVE_FAILED": "Failed to save preferences"
+    }
+  },
+  "ADMIN":{
+    "ADMIN_VIEW":"Admin-view",
+    "LAWYER_VIEW":"Lawyer-view",
+    "CLIENT_VIEW":"Client-view"
+  },
+  
+  
+    "POSTS": {
+      "WELCOME": {
+        "TITLE": "Welcome to the Posts Page",
+        "SUBTITLE": "Manage your posts and activities here.",
+        "CLIENT":{
+           "TITLE": "Welcome to the Posts Page",
+        "SUBTITLE": "Here you can view Posts."
+        }
+      },
+      
+      "STATS": {
+        "ACTIVE_CASES": "Active Cases",
+        "PENDING_TASKS": "Pending Tasks",
+        "UPCOMING_APPOINTMENTS": "Upcoming Appointments",
+        "UNREAD_MESSAGES": "Unread Messages"
+      },
+      "TABLE": {
+        "TITLE": "Posts Overview",
+        "SUBTITLE": "Here you can view and manage your posts.",
+        "VIEW": "View",
+        "FORM": "New Post"
+      },
+      "NEW_POST": {
+        "TITLE": "Create New Post",
+        "DESCRIPTION":"Description",
+        "SAVE_DRAFT": "Save Draft",
+        "PUBLISH": "Publish"
+      },
+      "DRAFT_MODE": "You are currently in draft mode.",
+      "SEARCH_PLACEHOLDER": "Search for posts..."
+    },
+    
+      "USERS": {
+        "TITLE": "Users",
+        "SUBTITLE": "Please manage users and activities here.",
+        "SEARCH_PLACEHOLDER": "Search for users...",
+        "STATS": {
+          "ACTIVE": "Active Users",
+          "INACTIVE": "Inactive Users"
+        },
+        "TABLE": {
+          "TITLE": "User List",
+          "SUBTITLE": "Here you can view and manage users.",
+          "FULLNAME": "Full Name",
+          "INFO": "Info",
+          "ROLE": "Role",
+          "ISACTIVE": "Is Active",
+          "ISADMIN": "Is Admin",
+          "DATE": "Date",
+          "ACTIONS": "Actions",
+          "SEARCH_PLACEHOLDER": "Search for users..."
+        },
+        "FILTERS": {
+          "CONFIRM": "Confirm",
+          "PENDING": "Pending"
+        },
+        "ACTIONS": {
+          "CANCEL": "Cancel",
+          "TRANSFER": "Transfer"
+        }
+      },
+        "CLIENTS": {
+          "TITLE": "Clients",
+          "SUBTITLE": "Please manage clients and activities here.",
+          "STATS": {
+            "ACTIVE": "Active Users",
+            "INACTIVE": "Inactive Users"
+          },
+          "TABLE": {
+            "TITLE": "clients List",
+            "SUBTITLE": "Here you can view and manage clients.",
+            "FULLNAME": "Full Name",
+            "INFO": "Info",
+            "ROLE": "Role",
+            "ISACTIVE": "Is Active",
+            "ISADMIN": "Is Admin",
+            "DATE": "Date",
+            "ACTIONS": "Actions"
+          },
+          "SEARCH_PLACEHOLDER": "Search for clients...",
+          "FILTERS": {
+            "CONFIRM": "Confirm",
+            "PENDING": "Pending"
+          },
+          "ACTIONS": {
+            "CANCEL": "Cancel"
+          }},
+          
+            "CONTRACTS": {
+              "AGREEMENT": "Contract Agreement",
+              "WELCOME": {
+                "TITLE": "Welcome to the Activity",
+                "SUBTITLE": "Please review the contract information."
+              },
+              "STATS": {
+                "ACTIVE_CASES": "Active Cases",
+                "PENDING_TASKS": "Pending Tasks",
+                "UPCOMING_APPOINTMENTS": "Upcoming Appointments",
+                "UNREAD_MESSAGES": "Unread Messages"
+              },
+              "TABLE": {
+                "TITLE": "Contract List",
+                "SUBTITLE": "Review and manage here.",
+                "NO": "No",
+                "FULLNAME": "Full Name",
+                "INFO": "Information",
+                "DATE": "Date",
+                "STATUS": "Status",
+                "ACTIONS": "Actions",
+                "VIEW":"View",
+                "ADD":"Add",
+                "PRINT":"Print"
+              },
+              "FORM": {
+                "TITLE": "Agreement Contract",
+                "SUBTITLE": "Create the contract terms with this guided process",
+                "INFO": "General Information",
+                "FULLNAME": "Full Name",
+                "EMAIL": "Email",
+                "PHONE": "Phone",
+                "ADDRESS": "Address",
+                "CITY": "City",
+                "COUNTRY": "Country",
+                "PAYMENT": "Payment Details",
+                "REVIEW":"Review",
+                "STEP_1":"Step 1: General Information",
+                "WORK_TYPE":"Worker Type",
+                "FIXED_RATE":"Fixed Rate",
+                "PAY_AS_YOU_GO":"Pay As You Go",
+                "MILESTONE":"Milestones",
+                "PERSONAL_INFO":"Personal Information",
+                "LAWYER_INFO":"Lawyer Information / Full Name - Phone Number",
+                "TERM_START":"Term Start",
+                "TERM_END":"Term End",
+                "STEP_2":"Step 2: Payment And Benefit Information",
+                "CONTRACTS_DETAILS":"Contract Details",
+                "PAYMENT_TERMS":"Payment Terms",
+                "SELECT_PAYMENT_TERMS":"Select Payment Terms",
+                "AGREEMENT_CONFORMATION":"Agreement Confirmation",
+                "YES":"Yes I Agree",
+                "NO":"No I Do Not Agree",
+                "NEXT":"Next",
+                "BACK":"Back",
+                "STEP_3":"Step 3: Review And Confirmation",
+                "CONTRACT_DETAILS":"Contract Details",
+                "REVIEW_OVERVIEW":"Review Overview"
+
+                },
+              "SEARCH_PLACEHOLDER": "Search contract information..."
+            } ,
+              "CONTRACT": {
+                "TITLE": "Contracts",
+                "SUBTITLE": "Manage your contracts"
+              },
+              "CONTRACTS_LAWYER": {
+                "PURPOSE": "Purpose",
+                "EFFECTIVE_DATE": "Effective Date",
+                "COMPENSATION_RATE": "Compensation Rate",
+                "PAYMENT_TERMS": "Payment Terms",
+                "TERM": "Term",
+                "CONFIDENTIALITY": "Confidentiality",
+                "AGREEMENT": "Agreement",
+                "ACTIONS": "Actions",
+                "NO_CONTRACTS_FOUND": "No contracts found.",
+                "CONFIRM": "Confirm",
+                "REJECT": "Reject",
+                "LOADING": "Loading contracts...",
+                "SELECTED_CONTRACT_DETAILS": "Selected Contract Details",
+                "CONTRACT_ID": "Contract ID",
+                "TERM_START": "Term Start",
+                "TERM_END": "Term End",
+                "CONFIDENTIALITY_CLAUSE": "Confidentiality Clause",
+                "AGREEMENT_CLAUSE": "Agreement Clause",
+                "ADDITIONAL_NOTES": "Additional Notes"
+              },
+  "HELP_LAWYER": {
+    "SECTIONS": {
+      "PROFILE_CREATION": {
+        "TITLE": "Profile Creation",
+        "DESCRIPTION": "Steps to create your profile."
+      },
+      "CONTRACT_AGREEMENT": {
+        "TITLE": "Contract Agreement",
+        "DESCRIPTION": "Steps to review and sign your contract."
+      },
+      "ACCESS_APPOINTMENTS": {
+        "TITLE": "Access Appointments",
+        "DESCRIPTION": "How to access and manage your appointments."
+      }
+    },
+    "TOUR": {
+      "STEP1": {
+        "TITLE": "Step 1",
+        "CONTENT": "Description of step 1."
+      },
+      "STEP2": {
+        "TITLE": "Step 2",
+        "CONTENT": "Description of step 2."
+      },
+      "STEP3": {
+        "TITLE": "Step 3",
+        "CONTENT": "Description of step 3."
+      },
+      "STEP4": {
+        "TITLE": "Step 4",
+        "CONTENT": "Description of step 4."
+      }
+    }
+  
+}
+            }
+    
+ 

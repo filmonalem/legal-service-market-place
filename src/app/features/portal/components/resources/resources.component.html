@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-background p-4 md:p-6">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Page Title -->
+    <h1 class="text-2xl md:text-3xl font-bold text-foreground">
+      {{ 'RESOURCES.TITLE' | translate }}
+    </h1>
+  
+    <!-- Table of Contents -->
+    <div class="bg-card rounded-lg p-4 md:p-6 shadow-md border border-border/50">
+      <h2 class="text-lg md:text-xl font-semibold mb-4 text-foreground">
+        {{ 'RESOURCES.TOC' | translate }}
+      </h2>
+      <nav class="space-y-3">
+        <a *ngFor="let section of sections" 
+           class="block text-primary hover:text-primary/80 transition-colors duration-200 cursor-pointer"
+           [href]="'#' + generateId(section.title | translate)">
+          {{ section.title | translate }}
+        </a>
+      </nav>
+    </div>
+  
+    <!-- Content Sections -->
+    <div class="space-y-6">
+      <section *ngFor="let section of sections" 
+               [id]="generateId(section.title | translate)" 
+               class="bg-card rounded-lg p-4 md:p-6 shadow-md border border-border/50">
+        <h2 class="text-xl md:text-2xl font-bold text-foreground mb-4">
+          {{ section.title | translate }}
+        </h2>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+          {{ section.content | translate }}
+        </p>
+  
+        <div *ngFor="let subsection of section.subsections" 
+             class="mt-6 space-y-3">
+          <h3 class="text-lg md:text-xl font-semibold text-foreground">
+            {{ subsection.title | translate }}
+          </h3>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li *ngFor="let item of subsection.items" 
+                class="text-muted-foreground">
+              {{ item | translate }}
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  
+    <!-- Download Section -->
+    <div class="bg-primary/5 rounded-lg p-4 md:p-6 border border-primary/10">
+      <h2 class="text-lg md:text-xl font-semibold mb-4 text-foreground">
+        {{ 'RESOURCES.DOWNLOAD.TITLE' | translate }}
+      </h2>
+      <p class="text-muted-foreground mb-6 leading-relaxed">
+        {{ 'RESOURCES.DOWNLOAD.DESCRIPTION' | translate }}
+      </p>
+      <button class="bg-primary text-primary-foreground px-6 py-2.5 rounded-lg 
+                     hover:bg-primary/90 transition-colors duration-200 
+                     focus:outline-none focus:ring-2 focus:ring-primary/50" 
+              (click)="downloadResources()">
+        {{ 'RESOURCES.DOWNLOAD.BUTTON' | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,148 @@
+<app-page-header
+    [title]="'LAWYERS.TITLE'"
+    [subtitle]="'LAWYERS.SUBTITLE'"
+    [isTransparent]="true"
+    [actions]="[
+    {
+      label: ' List',
+      icon: 'heroCalendar',
+      variant: 'secondary',
+      route: ['/client/lawyers']
+    }
+  ]">
+
+></app-page-header>
+
+<div *ngIf="isLoading" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm flex justify-center items-center z-50">
+  <div class="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-t-4 border-blue-500 border-opacity-75"></div>
+</div>
+
+<!-- Lawyer Details Card -->
+<div *ngIf="selectedLawyer" class="p-4 sm:p-8 w-full max-w-3xl mx-auto my-4 sm:my-8">
+  <div class="card overflow-hidden transform transition-all">
+    <!-- Header Section -->
+    <div class="bg-gradient-to-r from-blue-300 to-slate-200 p-4 sm:p-6">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center text-white">Lawyer Profile</h2>
+    </div>
+
+    <!-- Content Section -->
+    <div class="p-4 sm:p-8 space-y-4 sm:space-y-6">
+      <div class="card p-4 sm:p-6 space-y-4">
+        <h3 class="text-lg sm:text-xl text-foreground dark:text-foreground font-semibold mb-4 border-b pb-2">Personal Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div class="flex items-center space-x-4 p-3 bg-background dark:bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="user" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Full Name</div>
+              <div class="font-medium text-foreground dark:text-foreground truncate">{{ selectedLawyer.fullName }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background dark:bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="envelope" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Email</div>
+              <div class="font-medium text-foreground dark:text-foreground break-all">{{ selectedLawyer.email }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background dark:bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="phone" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Phone Number</div>
+              <div class="font-medium text-foreground dark:text-foreground">{{ selectedLawyer.phoneNumber }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background dark:bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="map-marker" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Location</div>
+              <div class="font-medium text-foreground dark:text-foreground truncate">{{ selectedLawyer.location }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Information Section -->
+      <div class="card p-4 sm:p-6 space-y-4">
+        <h3 class="text-lg sm:text-xl font-semibold text-foreground dark:text-foreground mb-4 border-b pb-2">Professional Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div class="flex items-center space-x-4 p-3 bg-background dark:text-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="gavel" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500 dark:text-muted-foreground">Specialization</div>
+              <div class="font-medium dark:text-foreground truncate">{{ selectedLawyer.specialization }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background text-foreground dark:text-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="briefcase" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Experience</div>
+              <div class="font-medium">{{ selectedLawyer.experience }} years</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background text-foreground dark:text-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="language" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Languages</div>
+              <div class="font-medium truncate">{{ selectedLawyer.languages }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background text-foreground dark:text-foreground rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="dollar-sign" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Hourly Rate</div>
+              <div class="font-medium">{{ selectedLawyer.hourlyRate | currency }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="bg-background p-3 mt-4">
+          <div class="flex items-start space-x-4">
+            <ng-icon name="info-circle" class="text-blue-500 text-lg sm:text-xl flex-shrink-0 mt-1"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">Bio</div>
+              <div class="font-medium text-foreground dark:text-foreground">{{ selectedLawyer.bio }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- License Information Section -->
+      <div class="card rounded-xl p-4 sm:p-6 space-y-4">
+        <h3 class="text-lg sm:text-xl font-semibold text-foreground dark:text-foreground mb-4 border-b pb-2">License Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div class="flex items-center space-x-4 p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="file-alt" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">License Number</div>
+              <div class="font-medium text-foreground dark:text-foreground truncate">{{ selectedLawyer.licenseNumber }}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 p-3 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <ng-icon name="calendar-alt" class="text-blue-500 text-lg sm:text-xl flex-shrink-0"></ng-icon>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm text-gray-500">License Expiry Date</div>
+              <div class="font-medium text-foreground dark:text-foreground">{{ selectedLawyer.licenseExpiryDate | date }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No Data Message -->
+<div *ngIf="!selectedLawyer && !isLoading" class="flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px] p-4 sm:p-6">
+  <div class="bg-background rounded-full p-4 sm:p-6 mb-4">
+    <ng-icon name="search" class="text-3xl sm:text-4xl text-gray-400"></ng-icon>
+  </div>
+  <p class="text-lg sm:text-xl bg-background text-background dark:text-foreground font-medium text-center">No lawyer details found</p>
+  <p class="text-gray-500 mt-2 text-center">Please select a lawyer to view their details</p>
+</div>

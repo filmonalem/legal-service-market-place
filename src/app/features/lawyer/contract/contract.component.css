@@ -1,0 +1,6 @@
+/* Add this CSS to your styles */
+.table-cell-wrap {
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    word-wrap: break-word; /* For older browsers */
+  }

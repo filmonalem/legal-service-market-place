@@ -1,0 +1,260 @@
+<div class="responsive-container animate-fadeIn space-y-6">
+  <!-- Header with Profile Completion -->
+  <div class="bg-card text-card-foreground rounded-xl p-6 shadow-sm">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <app-page-header
+        title="LAWYER_DASHBOARD.WELCOME"
+        subtitle="LAWYER_DASHBOARD.WELCOME_SUBTITLE"
+        [isTransparent]="true">
+      </app-page-header>
+      
+      <!-- Profile Completion Progress -->
+      <div class="bg-accent/5 p-4 rounded-lg min-w-[200px]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-medium text-foreground">
+            {{ 'LAWYER_DASHBOARD.PROFILE_COMPLETION' | translate }}
+          </span>
+          <span class="text-sm font-medium text-primary">
+            {{ profileCompletion.percentage }}%
+          </span>
+        </div>
+        <div class="h-2 bg-accent rounded-full overflow-hidden">
+          <div class="h-full bg-primary transition-all duration-500"
+               [style.width]="profileCompletion.percentage + '%'">
+          </div>
+        </div>
+        <p class="mt-2 text-xs text-muted-foreground">
+          {{ profileCompletion.completedSteps }}/{{ profileCompletion.totalSteps }} 
+          {{ 'LAWYER_DASHBOARD.STEPS_COMPLETED' | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div *ngFor="let action of quickActions"
+         class="bg-card text-card-foreground rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+         [routerLink]="action.route">
+      <div class="flex items-start space-x-4">
+        <div [ngClass]="{
+          'p-3 rounded-lg': true,
+          'bg-primary/10 text-primary': action.variant === 'primary',
+          'bg-amber-100 text-amber-600': action.variant === 'warning',
+          'bg-green-100 text-green-600': action.variant === 'success'
+        }">
+          <ng-icon [name]="action.icon" class="w-6 h-6"></ng-icon>
+        </div>
+        <div>
+          <h3 class="text-base font-medium text-foreground">
+            {{ action.title | translate }}
+          </h3>
+          <p class="mt-1 text-sm text-muted-foreground">
+            {{ action.description | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup Progress -->
+  <div class="bg-card text-card-foreground rounded-xl shadow-sm">
+    <div class="p-6 border-b border-border">
+      <h2 class="text-lg font-semibold text-foreground">
+        {{ 'LAWYER_DASHBOARD.SETUP.TITLE' | translate }}
+      </h2>
+      <p class="mt-1 text-sm text-muted-foreground">
+        {{ 'LAWYER_DASHBOARD.SETUP.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <div class="p-6">
+      <div class="space-y-4">
+        <div *ngFor="let step of setupSteps"
+             (click)="navigateToStep(step.route)"
+             class="p-4 bg-accent/5 rounded-lg cursor-pointer hover:bg-accent/10 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex items-start space-x-4">
+              <div class="p-2 bg-white dark:bg-gray-800 rounded-lg">
+                <ng-icon [name]="step.icon" class="w-6 h-6 text-primary"></ng-icon>
+              </div>
+              <div>
+                <h3 class="text-base font-medium text-foreground">
+                  {{ step.title | translate }}
+                </h3>
+                <p class="mt-1 text-sm text-muted-foreground">
+                  {{ step.description | translate }}
+                </p>
+              </div>
+            </div>
+            <span [ngClass]="{
+              'px-2 py-1 text-xs font-medium rounded-full': true,
+              'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400': step.status === 'completed',
+              'bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400': step.status === 'pending',
+              'bg-gray-100 text-gray-700 dark:bg-gray-900/20 dark:text-gray-400': step.status === 'rejected'
+            }">
+              {{ 'LAWYER_DASHBOARD.SETUP.STATUS.' + step.status.toUpperCase() | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Grid -->
+  <div *ngIf="(stats$ | async) as stats" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-card text-card-foreground rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">
+            {{ 'LAWYER_DASHBOARD.STATS.ACTIVE_CLIENTS' | translate }}
+          </p>
+          <p class="mt-2 text-2xl font-semibold text-foreground">
+            {{ stats.activeClients }}
+          </p>
+        </div>
+        <div class="p-3 bg-primary/10 rounded-lg">
+          <ng-icon name="heroUsers" class="w-6 h-6 text-primary"></ng-icon>
+        </div>
+      </div>
+    </div>
+    <div class="bg-card text-card-foreground rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">
+            {{ 'LAWYER_DASHBOARD.STATS.PENDING_APPOINTMENTS' | translate }}
+          </p>
+          <p class="mt-2 text-2xl font-semibold text-foreground">
+            {{ stats.pendingAppointments }}
+          </p>
+        </div>
+        <div class="p-3 bg-amber-100 dark:bg-amber-900/20 rounded-lg">
+          <ng-icon name="heroCalendar" class="w-6 h-6 text-amber-600 dark:text-amber-400"></ng-icon>
+        </div>
+      </div>
+    </div>
+    <div class="bg-card text-card-foreground rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">
+            {{ 'LAWYER_DASHBOARD.STATS.ACTIVE_CASES' | translate }}
+          </p>
+          <p class="mt-2 text-2xl font-semibold text-foreground">
+            {{ stats.activeCases }}
+          </p>
+        </div>
+        <div class="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+          <ng-icon name="heroScale" class="w-6 h-6 text-green-600 dark:text-green-400"></ng-icon>
+        </div>
+      </div>
+    </div>
+    <div class="bg-card text-card-foreground rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-medium text-muted-foreground">
+            {{ 'LAWYER_DASHBOARD.STATS.MONTHLY_EARNINGS' | translate }}
+          </p>
+          <p class="mt-2 text-2xl font-semibold text-foreground">
+            ETB {{ stats.monthlyEarnings }}
+          </p>
+        </div>
+        <div class="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+          <ng-icon name="heroCurrencyDollar" class="w-6 h-6 text-blue-600 dark:text-blue-400"></ng-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div *ngIf="(upcomingAppointments$ | async) as upcomingAppointments" 
+       class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Upcoming Appointments -->
+    <div class="bg-card text-card-foreground rounded-xl shadow-sm">
+      <div class="p-6 border-b border-border flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-foreground">
+          {{ 'LAWYER_DASHBOARD.UPCOMING_APPOINTMENTS' | translate }}
+        </h2>
+        <a routerLink="/lawyer/appointments" 
+           class="text-sm text-primary hover:text-primary/80 transition-colors">
+          {{ 'COMMON.VIEW_ALL' | translate }}
+        </a>
+      </div>
+      <div class="p-6">
+        <div class="space-y-4">
+          <div *ngFor="let appointment of upcomingAppointments" 
+               class="flex items-center justify-between p-4 bg-accent/5 rounded-lg">
+            <div class="flex items-center space-x-4">
+              <ng-icon name="heroCalendar" class="w-5 h-5 text-primary"></ng-icon>
+              <div>
+                <p class="text-sm font-medium text-foreground">{{ appointment.clientName }}</p>
+                <p class="text-xs text-muted-foreground">{{ appointment.type }}</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium text-foreground">{{ appointment.date | date }}</p>
+              <p class="text-xs text-muted-foreground">{{ appointment.time }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Cases -->
+    <div *ngIf="(recentCases$ | async) as recentCases" 
+         class="bg-card text-card-foreground rounded-xl shadow-sm">
+      <div class="p-6 border-b border-border flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-foreground">
+          {{ 'LAWYER_DASHBOARD.RECENT_CASES' | translate }}
+        </h2>
+        <a routerLink="/lawyer/cases" 
+           class="text-sm text-primary hover:text-primary/80 transition-colors">
+          {{ 'COMMON.VIEW_ALL' | translate }}
+        </a>
+      </div>
+      <div class="p-6">
+        <div class="space-y-4">
+          <div *ngFor="let case of recentCases" 
+               class="flex items-center justify-between p-4 bg-accent/5 rounded-lg">
+            <div class="flex items-center space-x-4">
+              <ng-icon name="heroScale" class="w-5 h-5 text-primary"></ng-icon>
+              <div>
+                <p class="text-sm font-medium text-foreground">{{ case.title }}</p>
+                <p class="text-xs text-muted-foreground">{{ case.client }}</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="px-2 py-1 text-xs font-medium rounded-full"
+                    [ngClass]="{
+                      'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400': case.status === 'active',
+                      'bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400': case.status === 'pending'
+                    }">
+                {{ 'LAWYER_DASHBOARD.CASE_STATUS.' + case.status.toUpperCase() | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verification Pending Message -->
+  <div *ngIf="setupSteps[2].status === 'pending' && setupSteps[1].status === 'completed'"
+       class="bg-blue-50 dark:bg-blue-900/10 text-blue-700 dark:text-blue-400 p-4 rounded-lg">
+    <div class="flex items-center space-x-3">
+      <ng-icon name="heroInformationCircle" class="w-5 h-5"></ng-icon>
+      <p class="text-sm">{{ 'LAWYER_DASHBOARD.VERIFICATION_PENDING' | translate }}</p>
+    </div>
+  </div>
+
+  <!-- Verification Rejected Message -->
+  <div *ngIf="setupSteps[2].status === 'rejected'"
+       class="bg-red-50 dark:bg-red-900/10 text-red-700 dark:text-red-400 p-4 rounded-lg">
+    <div class="flex items-center space-x-3">
+      <ng-icon name="heroExclamationTriangle" class="w-5 h-5"></ng-icon>
+      <div>
+        <p class="text-sm font-medium">{{ 'LAWYER_DASHBOARD.VERIFICATION_REJECTED.TITLE' | translate }}</p>
+        <p class="mt-1 text-sm">{{ 'LAWYER_DASHBOARD.VERIFICATION_REJECTED.MESSAGE' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+<div class="max-w-4xl mx-auto space-y-6 p-4 md:p-6">
+  
+  <app-page-header
+    [title]="'BOOKING.TITLE'"
+    [subtitle]="'BOOKING.SUBTITLE'"
+    [isTransparent]="true">
+  </app-page-header>
+
+  <!-- Booking Form -->
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="space-y-6 p-6">
+      
+      
+      <div>
+        <label class="block text-sm font-medium text-foreground dark:text-foreground  mb-2">
+          {{ 'BOOKING.CONSULTATION_TYPE' | translate }}
+        </label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div *ngFor="let type of consultationTypes"
+               (click)="bookingForm.get('consultationType')?.setValue(type.id)"
+               [class.ring-2]="bookingForm.get('consultationType')?.value === type.id"
+               class="p-3 border rounded-lg cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+            <div class="flex flex-col items-center text-center text-foreground dark:text-foreground  space-y-1">
+              <span class="text-sm font-medium">{{ type.label | translate }}</span>
+              <span class="text-xs text-foreground dark:text-foreground ">{{ type.duration }}min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Date and Time Selection -->
+      <div class="grid grid-cols-1 text-foreground dark:text-foreground md:grid-cols-2 gap-6">
+        <!-- Date Picker -->
+        <div>
+          <label class="block text-sm font-medium text-foreground dark:text-foreground mb-2">
+            {{ 'BOOKING.SELECT_DATE' | translate }}
+          </label>
+          <input type="date" 
+                 formControlName="date"
+                 class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600">
+        </div>
+
+        <!-- Time Slots -->
+        <div>
+          <label class="block text-sm font-medium text-foreground dark:text-foreground mb-2">
+            {{ 'BOOKING.SELECT_TIME' | translate }} 
+          </label>
+          <div class="grid grid-cols-3 gap-2">
+            <button *ngFor="let slot of availableSlots"
+                    type="button"
+                    [disabled]="!slot.available"
+                    (click)="bookingForm.get('timeSlot')?.setValue(slot.ethiopianTime)"
+                    [class.bg-blue-50]="bookingForm.get('timeSlot')?.value === slot.id"
+                    class="px-3 py-2 text-sm border rounded-lg text-foreground dark:text-foreground  hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed">
+              {{ slot.time }} {{ slot.ethiopianTime }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          {{ 'BOOKING.DESCRIPTION' | translate }}
+        </label>
+        <textarea formControlName="description"
+                  rows="3"
+                  class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 resize-none"
+                  [placeholder]="'BOOKING.DESCRIPTION_PLACEHOLDER' | translate">
+        </textarea>
+      </div>
+
+      <!-- File Attachments -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          {{ 'BOOKING.ATTACHMENTS' | translate }}
+        </label>
+        
+        <!-- Hidden File Input -->
+        <input type="file" 
+               #fileInput
+               multiple 
+               class="hidden" 
+               (change)="onFileSelected($event)"
+               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+
+        <div class="border-2 border-dashed rounded-lg p-4"
+             [ngClass]="{'border-blue-500 bg-blue-50 dark:bg-blue-900/10': isDragging}"
+             (dragover)="onDragOver($event); isDragging = true"
+             (dragleave)="isDragging = false"
+             (drop)="onDrop($event); isDragging = false">
+          
+          <!-- Upload Area -->
+          <div *ngIf="selectedFiles.length === 0" class="text-center">
+            <ng-icon name="heroDocument" class="w-8 h-8 mx-auto text-gray-400"></ng-icon>
+            <p class="mt-2 text-sm text-gray-500">
+              {{ 'BOOKING.DRAG_DROP' | translate }}
+            </p>
+            <button type="button"
+                    (click)="triggerFileInput()"
+                    class="mt-2 px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              {{ 'BOOKING.BROWSE_FILES' | translate }}
+            </button>
+          </div>
+
+          <!-- File Preview List -->
+          <div *ngIf="selectedFiles.length > 0" class="space-y-3">
+            <div *ngFor="let file of selectedFiles; let i = index" 
+                 class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+              <div class="flex items-center space-x-3">
+                <!-- Preview for images -->
+                <div *ngIf="file.preview" class="w-10 h-10">
+                  <img [src]="file.preview" 
+                       [alt]="file.name"
+                       class="w-full h-full object-cover rounded-lg">
+                </div>
+                <!-- Icon for non-image files -->
+                <ng-icon *ngIf="!file.preview" 
+                        name="heroDocument" 
+                        class="w-6 h-6 text-gray-400">
+                </ng-icon>
+                
+                <!-- File Info -->
+                <div>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">
+                    {{ file.name }}
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    {{ file.size }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Remove Button -->
+              <button type="button"
+                      (click)="removeFile(i)"
+                      class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300">
+                <ng-icon name="heroXMark" class="w-5 h-5"></ng-icon>
+              </button>
+            </div>
+
+            <!-- Add More Files Button -->
+            <button type="button"
+                    (click)="triggerFileInput()"
+                    class="w-full mt-3 px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 border border-blue-600 dark:border-blue-400 rounded-lg">
+              {{ 'BOOKING.ADD_MORE_FILES' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-end">
+        <button type="submit"
+                [disabled]="!bookingForm.valid || isLoading"
+                class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors disabled:opacity-50">
+          {{ 'BOOKING.CONFIRM' | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<div class="min-h-screen bg-secondary/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-foreground relative inline-block">
+        {{ 'CONTACT.TITLE' | translate }}
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto mt-4">
+        {{ 'CONTACT.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12 mb-20">
+      <div class="lg:col-span-1 space-y-8">
+        <div class="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl mr-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-foreground">{{ 'CONTACT.OFFICE.TITLE' | translate }}</h3>
+              <p class="text-muted-foreground whitespace-pre-line">{{ 'CONTACT.OFFICE.ADDRESS' | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl mr-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-foreground">{{ 'CONTACT.EMAIL.TITLE' | translate }}</h3>
+              <p class="text-muted-foreground whitespace-pre-line">{{ 'CONTACT.EMAIL.ADDRESSES' | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl mr-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-foreground">{{ 'CONTACT.PHONE.TITLE' | translate }}</h3>
+              <p class="text-muted-foreground whitespace-pre-line">{{ 'CONTACT.PHONE.NUMBERS' | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl mr-4">
+              <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-foreground">{{ 'CONTACT.HOURS.TITLE' | translate }}</h3>
+              <p class="text-muted-foreground whitespace-pre-line">{{ 'CONTACT.HOURS.SCHEDULE' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="bg-card p-8 rounded-2xl border border-border">
+          <h2 class="text-2xl font-bold mb-6 text-foreground">{{ 'CONTACT.FORM.TITLE' | translate }}</h2>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  {{ 'CONTACT.FORM.FIRST_NAME' | translate }}
+                </label>
+                <input 
+                  type="text" 
+                  formControlName="firstName"
+                  class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  [placeholder]="'CONTACT.FORM.FIRST_NAME_PLACEHOLDER' | translate"
+                >
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  {{ 'CONTACT.FORM.LAST_NAME' | translate }}
+                </label>
+                <input 
+                  type="text" 
+                  formControlName="lastName"
+                  class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  [placeholder]="'CONTACT.FORM.LAST_NAME_PLACEHOLDER' | translate"
+                >
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  {{ 'CONTACT.FORM.EMAIL' | translate }}
+                </label>
+                <input 
+                  type="email" 
+                  formControlName="email"
+                  class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  [placeholder]="'CONTACT.FORM.EMAIL_PLACEHOLDER' | translate"
+                >
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  {{ 'CONTACT.FORM.PHONE' | translate }}
+                </label>
+                <input 
+                  type="tel" 
+                  formControlName="phone"
+                  class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  [placeholder]="'CONTACT.FORM.PHONE_PLACEHOLDER' | translate"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-2">
+                {{ 'CONTACT.FORM.SERVICE_TYPE' | translate }}
+              </label>
+              <select 
+                formControlName="serviceType"
+                class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              >
+                <option value="">{{ 'CONTACT.FORM.SELECT_SERVICE' | translate }}</option>
+                <option *ngFor="let type of serviceTypes" [value]="type.value">
+                  {{ type.label | translate }}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-foreground mb-2">
+                {{ 'CONTACT.FORM.MESSAGE' | translate }}
+              </label>
+              <textarea 
+                rows="4" 
+                formControlName="message"
+                class="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              {{ 'CONTACT.FORM.SUBMIT' | translate }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <app-map></app-map>
+    </div>
+  </div>
+</div>

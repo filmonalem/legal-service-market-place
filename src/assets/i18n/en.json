@@ -132,7 +132,9 @@
     "COPYRIGHT": "© 2024 Legal Services. All rights reserved."
   },
   "BANNER": {
+    "SEARCH": "Search",
     "TITLE": "Trusted Advocates, Proven Results",
+    "SEARCH_PLACEHOLDER":"Search ...",
     "DESCRIPTION": "Your Partner in Justice, Guiding You Every Step of the Way. Contact us today for personalized legal solutions.",
     "LEARN_MORE": "Learn More",
     "GET_STARTED": "Get Started"
